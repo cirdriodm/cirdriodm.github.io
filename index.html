@@ -1,2983 +1,896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>CIRDRIO — Future, Engineered.</title>
+<title>CIRDRIO | Build What's Next</title>
 
 <meta name="description"
-content="CIRDRIO is an emerging technology venture building intelligent products, digital systems and experiences for the next generation.">
-
-<meta name="theme-color" content="#05070d">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-rel="stylesheet">
-
+content="CIRDRIO — Building ideas, products and technology for the future.">
 
 <style>
-
-/* =================================================
-   CIRDRIO
-   PREMIUM FUTURE DESIGN SYSTEM
-================================================= */
-
-:root{
-
-  --black:#03050a;
-  --dark:#070a12;
-  --dark2:#0b0f1c;
-
-  --white:#ffffff;
-
-  --text:#e9ecf5;
-  --muted:#9299aa;
-  --muted2:#62697a;
-
-  --blue:#6075ff;
-  --blue2:#3949e8;
-
-  --cyan:#21c8ff;
-  --purple:#895cff;
-
-  --glass:rgba(255,255,255,.045);
-
-  --border:rgba(255,255,255,.10);
-
-  --radius:24px;
-
-}
-
-
-/* =================================================
-   RESET
-================================================= */
-
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-
-  min-height:100vh;
-
-  font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
-  color:var(--text);
-
-  background:
-    var(--black);
-
-  overflow-x:hidden;
-
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    background:#05050b;
+    color:#fff;
+    overflow-x:hidden;
 }
 
-a{
-  color:inherit;
-}
-
-
-/* =================================================
-   MAIN ATMOSPHERE
-================================================= */
+/* ---------- BACKGROUND ---------- */
 
 body::before{
-
-  content:"";
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:-20;
-
-  background:
-
-    radial-gradient(
-      circle at 12% 15%,
-      rgba(66,88,255,.25),
-      transparent 30%
-    ),
-
-    radial-gradient(
-      circle at 88% 20%,
-      rgba(0,190,255,.13),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 50% 90%,
-      rgba(126,58,255,.17),
-      transparent 34%
-    ),
-
-    linear-gradient(
-      135deg,
-      #020409 0%,
-      #070a13 50%,
-      #03050a 100%
-    );
-
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+        radial-gradient(circle at 15% 15%,rgba(75,65,255,.22),transparent 30%),
+        radial-gradient(circle at 85% 20%,rgba(0,190,255,.13),transparent 28%),
+        radial-gradient(circle at 50% 85%,rgba(120,40,255,.16),transparent 35%),
+        #05050b;
 }
-
-
-/* =================================================
-   FUTURISTIC GRID
-================================================= */
 
 body::after{
-
-  content:"";
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:-19;
-
-  pointer-events:none;
-
-  opacity:.11;
-
-  background-image:
-
-    linear-gradient(
-      rgba(255,255,255,.06) 1px,
-      transparent 1px
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.06) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    60px 60px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black 0%,
-      rgba(0,0,0,.6) 55%,
-      transparent 100%
-    );
-
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    opacity:.25;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:55px 55px;
 }
 
+/* ---------- NAVBAR ---------- */
 
-/* =================================================
-   AMBIENT LIGHTS
-================================================= */
+nav{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1100px,92%);
+    height:70px;
+    z-index:100;
 
-.ambient{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-  position:fixed;
+    padding:10px 18px;
 
-  width:360px;
-  height:360px;
+    background:rgba(12,12,24,.72);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:22px;
 
-  border-radius:50%;
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 
-  filter:blur(110px);
-
-  opacity:.18;
-
-  pointer-events:none;
-
-  z-index:-15;
-
-  animation:
-    ambientMove
-    12s
-    ease-in-out
-    infinite;
-
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.08);
 }
-
-.ambient-a{
-
-  left:-180px;
-  top:8%;
-
-  background:#435aff;
-
-}
-
-.ambient-b{
-
-  right:-200px;
-  top:38%;
-
-  background:#763dff;
-
-  animation-delay:-4s;
-
-}
-
-.ambient-c{
-
-  left:38%;
-  bottom:-250px;
-
-  background:#00aaff;
-
-  animation-delay:-8s;
-
-}
-
-
-@keyframes ambientMove{
-
-  0%,
-  100%{
-
-    transform:
-      translate3d(0,0,0)
-      scale(1);
-
-  }
-
-  50%{
-
-    transform:
-      translate3d(35px,-40px,0)
-      scale(1.08);
-
-  }
-
-}
-
-
-/* =================================================
-   NAVIGATION
-================================================= */
-
-.nav-wrapper{
-
-  position:fixed;
-
-  top:16px;
-
-  left:0;
-  right:0;
-
-  z-index:100;
-
-  padding:0 5%;
-
-}
-
-
-.nav{
-
-  max-width:1180px;
-
-  height:66px;
-
-  margin:auto;
-
-  padding:
-    7px 10px 7px 13px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius:19px;
-
-  background:
-    rgba(5,7,15,.74);
-
-  backdrop-filter:
-    blur(22px);
-
-  -webkit-backdrop-filter:
-    blur(22px);
-
-  box-shadow:
-    0 18px 60px
-    rgba(0,0,0,.35);
-
-}
-
-
-/* BRAND */
 
 .brand{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:11px;
-
-  text-decoration:none;
-
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-
-.logo{
-
-  width:45px;
-  height:45px;
-
-  object-fit:contain;
-
-  border-radius:12px;
-
-  filter:
-    drop-shadow(
-      0 0 15px
-      rgba(80,105,255,.40)
-    );
-
+.brand img{
+    width:46px;
+    height:46px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 12px rgba(80,80,255,.45));
 }
 
-
-.brand-name{
-
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:14px;
-
-  font-weight:700;
-
-  letter-spacing:3px;
-
+.brand span{
+    font-weight:800;
+    letter-spacing:2px;
+    font-size:17px;
 }
 
-
-/* LINKS */
-
-.nav-links{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:27px;
-
+nav a{
+    color:#bbb;
+    text-decoration:none;
+    margin-left:25px;
+    font-size:14px;
+    transition:.3s;
 }
 
-
-.nav-links a{
-
-  position:relative;
-
-  color:#8f96a8;
-
-  text-decoration:none;
-
-  font-size:12px;
-
-  font-weight:600;
-
-  transition:
-    color .3s ease;
-
+nav a:hover{
+    color:white;
 }
 
-
-.nav-links a:hover{
-
-  color:#ffffff;
-
-}
-
-
-.nav-links a::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  bottom:-7px;
-
-  width:0;
-
-  height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--blue),
-      var(--cyan)
-    );
-
-  transition:
-    width .3s ease;
-
-}
-
-
-.nav-links a:hover::after{
-
-  width:100%;
-
-}
-
-
-/* CTA */
-
-.nav-cta{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:
-    12px 18px;
-
-  border-radius:11px;
-
-  text-decoration:none;
-
-  font-size:11px;
-
-  font-weight:700;
-
-  color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #7182ff,
-      #3949e8
-    );
-
-  box-shadow:
-    0 10px 30px
-    rgba(55,75,235,.28);
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-
-}
-
-
-.nav-cta:hover{
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 16px 40px
-    rgba(55,75,235,.45);
-
-}
-
-
-/* =================================================
-   HERO
-================================================= */
+/* ---------- HERO ---------- */
 
 .hero{
-
-  position:relative;
-
-  min-height:100vh;
-
-  max-width:1250px;
-
-  margin:auto;
-
-  padding:
-    160px 6%
-    100px;
-
-  display:flex;
-
-  align-items:center;
-
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:140px 20px 80px;
+    position:relative;
+    perspective:1200px;
 }
-
 
 .hero-content{
-
-  position:relative;
-
-  z-index:5;
-
-  max-width:750px;
-
+    max-width:900px;
+    position:relative;
+    z-index:2;
 }
 
+.hero-logo{
+    width:150px;
+    height:150px;
+    object-fit:contain;
 
-/* STATUS */
+    margin-bottom:30px;
 
-.status{
+    filter:
+        drop-shadow(0 0 15px rgba(75,70,255,.6))
+        drop-shadow(0 25px 45px rgba(0,0,0,.65));
 
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:9px;
-
-  padding:
-    9px 15px;
-
-  border:
-    1px solid
-    rgba(105,125,255,.30);
-
-  border-radius:50px;
-
-  color:#b9c1ff;
-
-  background:
-    rgba(75,95,255,.07);
-
-  font-size:10px;
-
-  font-weight:700;
-
-  letter-spacing:1.6px;
-
-  text-transform:uppercase;
-
+    animation:logoFloat 5s ease-in-out infinite;
 }
 
+@keyframes logoFloat{
+    0%,100%{
+        transform:translateY(0) rotateX(0deg) rotateY(0deg);
+    }
 
-.status-dot{
-
-  width:7px;
-  height:7px;
-
-  border-radius:50%;
-
-  background:#4dffac;
-
-  box-shadow:
-    0 0 15px
-    #4dffac;
-
+    50%{
+        transform:translateY(-14px) rotateX(3deg) rotateY(-4deg);
+    }
 }
 
+.badge{
+    display:inline-block;
+    padding:9px 18px;
+    border-radius:999px;
 
-/* HERO TITLE */
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
 
-.hero-title{
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:1.5px;
 
-  margin-top:28px;
+    margin-bottom:24px;
 
-  font-family:
-    "Space Grotesk",
-    sans-serif;
-
-  font-size:
-    clamp(
-      58px,
-      9vw,
-      108px
-    );
-
-  line-height:.88;
-
-  letter-spacing:-6px;
-
-  font-weight:700;
-
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.08),
+        0 10px 30px rgba(0,0,0,.3);
 }
 
+.hero h1{
+    font-size:clamp(48px,8vw,94px);
+    line-height:.95;
+    letter-spacing:-4px;
+    font-weight:900;
 
-.hero-title span{
+    background:
+        linear-gradient(
+            110deg,
+            #ffffff 10%,
+            #b7b6ff 45%,
+            #6f6cff 70%,
+            #ffffff 95%
+        );
 
-  display:block;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 
+    text-shadow:0 15px 50px rgba(80,70,255,.18);
 }
 
-
-.hero-title .gradient{
-
-  background:
-    linear-gradient(
-      105deg,
-      #ffffff 5%,
-      #c4cbff 28%,
-      #6378ff 58%,
-      #ffffff 92%
-    );
-
-  background-size:
-    220% auto;
-
-  -webkit-background-clip:text;
-
-  background-clip:text;
-
-  color:transparent;
-
-  animation:
-    gradientShift
-    7s
-    linear
-    infinite;
-
+.hero p{
+    max-width:650px;
+    margin:30px auto;
+    color:#999;
+    font-size:18px;
+    line-height:1.7;
 }
 
+/* ---------- BUTTONS ---------- */
 
-@keyframes gradientShift{
-
-  to{
-
-    background-position:
-      220% center;
-
-  }
-
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:35px;
 }
-
-
-/* HERO DESCRIPTION */
-
-.hero-description{
-
-  max-width:640px;
-
-  margin-top:30px;
-
-  color:var(--muted);
-
-  font-size:15px;
-
-  line-height:1.9;
-
-}
-
-
-/* HERO ACTIONS */
-
-.hero-actions{
-
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:12px;
-
-  margin-top:34px;
-
-}
-
 
 .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-  min-height:50px;
+    padding:15px 25px;
+    border-radius:14px;
 
-  padding:
-    0 21px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
 
-  display:inline-flex;
+    transition:.3s;
 
-  align-items:center;
-
-  justify-content:center;
-
-  gap:9px;
-
-  border-radius:13px;
-
-  text-decoration:none;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    background .3s ease;
-
+    border:1px solid rgba(255,255,255,.12);
 }
-
 
 .btn-primary{
+    color:white;
 
-  color:#fff;
+    background:
+        linear-gradient(
+            135deg,
+            #6965ff,
+            #3d39c9
+        );
 
-  background:
-    linear-gradient(
-      135deg,
-      #7183ff,
-      #3949e8
-    );
-
-  box-shadow:
-    0 16px 42px
-    rgba(54,73,235,.30);
-
+    box-shadow:
+        0 15px 35px rgba(74,69,255,.28),
+        inset 0 1px rgba(255,255,255,.3);
 }
-
-
-.btn-primary:hover{
-
-  transform:
-    translateY(-4px);
-
-  box-shadow:
-    0 24px 55px
-    rgba(54,73,235,.46);
-
-}
-
 
 .btn-secondary{
-
-  color:#e8eaf0;
-
-  border:
-    1px solid
-    rgba(255,255,255,.11);
-
-  background:
-    rgba(255,255,255,.04);
-
+    color:#ddd;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(10px);
 }
 
-
-.btn-secondary:hover{
-
-  transform:
-    translateY(-4px);
-
-  background:
-    rgba(255,255,255,.08);
-
+.btn:hover{
+    transform:translateY(-4px);
 }
 
-
-/* =================================================
-   3D HERO CORE
-================================================= */
-
-.hero-visual{
-
-  position:absolute;
-
-  width:520px;
-  height:520px;
-
-  right:-35px;
-
-  top:50%;
-
-  transform:
-    translateY(-50%);
-
-  perspective:1000px;
-
-  pointer-events:none;
-
+.btn-primary:hover{
+    box-shadow:
+        0 20px 45px rgba(74,69,255,.42),
+        inset 0 1px rgba(255,255,255,.3);
 }
 
+/* ---------- 3D ORBS ---------- */
 
-/* CORE */
+.orb{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
 
-.core{
+    filter:blur(1px);
 
-  position:absolute;
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #ffffff,
+            #716cff 12%,
+            #322ec0 40%,
+            #11113b 72%,
+            transparent 73%
+        );
 
-  width:185px;
-  height:185px;
+    box-shadow:
+        inset -30px -30px 70px rgba(0,0,0,.65),
+        0 0 80px rgba(70,65,255,.25);
 
-  left:167px;
-  top:167px;
-
-  border-radius:50%;
-
-  background:
-
-    radial-gradient(
-      circle at 27% 19%,
-      #ffffff 0%,
-      #e1e6ff 7%,
-      #8998ff 18%,
-      #5369ff 32%,
-      #1a2aa7 52%,
-      #070a20 76%
-    );
-
-  box-shadow:
-
-    0 0 30px
-    rgba(95,115,255,.95),
-
-    0 0 85px
-    rgba(80,100,255,.55),
-
-    0 0 160px
-    rgba(55,75,255,.25),
-
-    inset
-    -32px -38px 52px
-    rgba(0,0,0,.70);
-
-  animation:
-    coreFloat
-    6s
-    ease-in-out
-    infinite;
-
+    animation:orbFloat 8s ease-in-out infinite;
 }
 
+.orb.one{
+    width:110px;
+    height:110px;
+    left:8%;
+    top:28%;
+}
 
-@keyframes coreFloat{
+.orb.two{
+    width:70px;
+    height:70px;
+    right:10%;
+    top:25%;
+    animation-delay:2s;
+}
 
-  0%,
-  100%{
+.orb.three{
+    width:150px;
+    height:150px;
+    right:5%;
+    bottom:12%;
+    animation-delay:4s;
+}
 
+@keyframes orbFloat{
+    0%,100%{
+        transform:translate3d(0,0,0);
+    }
+
+    50%{
+        transform:translate3d(0,-30px,30px);
+    }
+}
+
+/* ---------- SECTIONS ---------- */
+
+section{
+    width:min(1100px,92%);
+    margin:auto;
+    padding:110px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.section-title span{
+    color:#777;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    font-size:clamp(32px,5vw,55px);
+    margin-top:12px;
+    letter-spacing:-2px;
+}
+
+/* ---------- GLASS CARDS ---------- */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    position:relative;
+    padding:32px;
+    min-height:230px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:24px;
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+
+    background:rgba(83,77,255,.18);
+    filter:blur(45px);
+
+    right:-80px;
+    top:-80px;
+}
+
+.card:hover{
     transform:
-      translateY(0)
-      rotate(0deg);
+        translateY(-10px)
+        rotateX(2deg)
+        rotateY(-2deg);
 
-  }
+    border-color:rgba(120,115,255,.35);
 
-  50%{
-
-    transform:
-      translateY(-17px)
-      rotate(6deg);
-
-  }
-
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.5),
+        0 0 40px rgba(70,65,255,.08);
 }
 
-
-/* ORBITS */
-
-.orbit{
-
-  position:absolute;
-
-  border-radius:50%;
-
-  border:
-    1px solid
-    rgba(110,130,255,.42);
-
-  transform-style:preserve-3d;
-
+.icon{
+    font-size:35px;
+    margin-bottom:22px;
 }
 
-
-.orbit-one{
-
-  width:460px;
-  height:145px;
-
-  left:30px;
-  top:188px;
-
-  transform:
-    rotateX(68deg)
-    rotateZ(-22deg);
-
-  animation:
-    orbitA
-    14s
-    linear
-    infinite;
-
+.card h3{
+    font-size:20px;
+    margin-bottom:12px;
 }
 
-
-.orbit-two{
-
-  width:450px;
-  height:150px;
-
-  left:35px;
-  top:185px;
-
-  transform:
-    rotateX(68deg)
-    rotateZ(38deg);
-
-  border-color:
-    rgba(30,195,255,.28);
-
-  animation:
-    orbitB
-    18s
-    linear
-    infinite;
-
+.card p{
+    color:#8f8f99;
+    line-height:1.7;
+    font-size:14px;
 }
 
+/* ---------- VISION ---------- */
 
-.orbit-three{
-
-  width:310px;
-  height:310px;
-
-  left:105px;
-  top:105px;
-
-  border-color:
-    rgba(105,125,255,.24);
-
-  animation:
-    orbitC
-    20s
-    linear
-    infinite;
-
+.vision{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
+.vision-box{
+    padding:40px;
+    border-radius:28px;
 
-@keyframes orbitA{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(90,85,255,.15),
+            rgba(255,255,255,.035)
+        );
 
-  to{
+    border:1px solid rgba(255,255,255,.1);
 
-    transform:
-      rotateX(68deg)
-      rotateZ(338deg);
-
-  }
-
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.35),
+        inset 0 1px rgba(255,255,255,.08);
 }
 
-
-@keyframes orbitB{
-
-  to{
-
-    transform:
-      rotateX(68deg)
-      rotateZ(-322deg);
-
-  }
-
+.vision-box h3{
+    font-size:26px;
+    margin-bottom:15px;
 }
 
-
-@keyframes orbitC{
-
-  to{
-
-    transform:
-      rotateZ(360deg);
-
-  }
-
+.vision-box p{
+    color:#999;
+    line-height:1.8;
 }
 
+/* ---------- CTA ---------- */
 
-/* =================================================
-   MOBILE BASE
-================================================= */
+.cta{
+    text-align:center;
+    padding:80px 30px;
 
-@media(max-width:900px){
+    border-radius:35px;
 
-  .hero-visual{
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(78,73,255,.20),
+            transparent 55%
+        ),
+        rgba(255,255,255,.035);
 
-    right:-210px;
+    border:1px solid rgba(255,255,255,.1);
 
-    opacity:.22;
-
-  }
-
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.08);
 }
 
-
-@media(max-width:700px){
-
-  .nav-links,
-  .nav-cta{
-
-    display:none;
-
-  }
-
-  .hero{
-
-    padding:
-      140px 6%
-      85px;
-
-  }
-
-  .hero-title{
-
-    font-size:58px;
-
-    letter-spacing:-4px;
-
-  }
-
-  .hero-visual{
-
-    right:-285px;
-
-    opacity:.12;
-
-  }
-
+.cta img{
+    width:75px;
+    height:75px;
+    object-fit:contain;
+    margin-bottom:20px;
 }
 
+.cta h2{
+    font-size:clamp(32px,5vw,55px);
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#888;
+    max-width:600px;
+    margin:0 auto 30px;
+    line-height:1.7;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    width:min(1100px,92%);
+    margin:auto;
+
+    padding:35px 0 50px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    color:#666;
+    font-size:13px;
+}
+
+footer strong{
+    color:#aaa;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:800px){
+
+    nav{
+        height:62px;
+    }
+
+    nav .links{
+        display:none;
+    }
+
+    .brand img{
+        width:40px;
+        height:40px;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero-logo{
+        width:120px;
+        height:120px;
+    }
+
+    .hero h1{
+        letter-spacing:-2.5px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .vision{
+        grid-template-columns:1fr;
+    }
+
+    .orb.one{
+        width:60px;
+        height:60px;
+        left:-10px;
+    }
+
+    .orb.two{
+        width:45px;
+        height:45px;
+        right:0;
+    }
+
+    .orb.three{
+        width:80px;
+        height:80px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
-<div class="ambient ambient-a"></div>
-<div class="ambient ambient-b"></div>
-<div class="ambient ambient-c"></div>
+<!-- NAVIGATION -->
 
+<nav>
 
-<!-- NEXT PART STARTS BELOW --><!-- =========================================
-     CIRDRIO NAVIGATION
-========================================= -->
-
-<nav class="nav-wrapper">
-
-  <div class="nav">
-
-    <a href="#home" class="brand">
-
-      <img
-        src="cirdrio-logo-transparent.png"
-        alt="CIRDRIO"
-        class="logo"
-      >
-
-      <span class="brand-name">
-        CIRDRIO
-      </span>
-
-    </a>
-
-
-    <div class="nav-links">
-
-      <a href="#about">About</a>
-
-      <a href="#capabilities">Capabilities</a>
-
-      <a href="#approach">Approach</a>
-
-      <a href="#vision">Vision</a>
-
-      <a href="#contact">Contact</a>
-
+    <div class="brand">
+        <img src="logo.png" alt="CIRDRIO Logo">
+        <span>CIRDRIO</span>
     </div>
 
-
-    <a
-      href="mailto:cirdrio.dm@gmail.com"
-      class="nav-cta"
-    >
-      Let's Talk
-    </a>
-
-  </div>
+    <div class="links">
+        <a href="#about">About</a>
+        <a href="#vision">Vision</a>
+        <a href="#work">What We Do</a>
+        <a href="#contact">Contact</a>
+    </div>
 
 </nav>
 
 
+<!-- HERO -->
 
-<!-- =========================================
-     HERO
-========================================= -->
+<header class="hero">
 
-<main>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
 
-<section
-  class="hero"
-  id="home"
->
+    <div class="hero-content">
 
+        <img
+            src="logo.png"
+            class="hero-logo"
+            alt="CIRDRIO"
+        >
 
-  <div class="hero-content">
+        <div class="badge">
+            TECHNOLOGY • INNOVATION • FUTURE
+        </div>
 
+        <h1>
+            Build What's Next.
+        </h1>
 
-    <div class="status">
+        <p>
+            CIRDRIO is building ideas, products and technology
+            designed for the world of tomorrow.
+        </p>
 
-      <span class="status-dot"></span>
+        <div class="buttons">
 
-      Building the next generation
+            <a href="#work" class="btn btn-primary">
+                Explore CIRDRIO
+            </a>
 
-    </div>
+            <a href="#contact" class="btn btn-secondary">
+                Work With Us
+            </a>
 
-
-
-    <h1 class="hero-title">
-
-      <span>
-        Build
-      </span>
-
-      <span class="gradient">
-        What's Next.
-      </span>
-
-    </h1>
-
-
-
-    <p class="hero-description">
-
-      CIRDRIO is an emerging technology venture
-      building intelligent products, digital systems
-      and ambitious experiences for a rapidly changing
-      world.
-
-    </p>
-
-
-
-    <div class="hero-actions">
-
-
-      <a
-        href="#capabilities"
-        class="btn btn-primary"
-      >
-
-        Explore CIRDRIO
-
-        <span>→</span>
-
-      </a>
-
-
-
-      <a
-        href="mailto:cirdrio.dm@gmail.com"
-        class="btn btn-secondary"
-      >
-
-        Start a Conversation
-
-      </a>
-
+        </div>
 
     </div>
 
-
-  </div>
-
+</header>
 
 
-  <!-- =====================================
-       3D FUTURISTIC CORE
-  ====================================== -->
-
-  <div
-    class="hero-visual"
-    aria-hidden="true"
-  >
-
-
-    <div class="orbit orbit-one"></div>
-
-    <div class="orbit orbit-two"></div>
-
-    <div class="orbit orbit-three"></div>
-
-
-    <div class="core"></div>
-
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =========================================
-     HERO DIVIDER
-========================================= -->
-
-<div
-  style="
-    max-width:1180px;
-    margin:auto;
-    height:1px;
-    background:linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.12),
-      transparent
-    );
-  "
-></div>
-
-
-<!-- =========================================
-     QUICK STATS
-========================================= -->
-
-<section
-  style="
-    padding:65px 6% 95px;
-  "
->
-
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:
-        repeat(3,1fr);
-      gap:15px;
-    "
-  >
-
-
-    <div
-      style="
-        padding:25px;
-        border:1px solid rgba(255,255,255,.08);
-        border-radius:20px;
-        background:rgba(255,255,255,.025);
-      "
-    >
-
-      <div
-        style="
-          color:#687aff;
-          font-family:'Space Grotesk';
-          font-size:11px;
-          font-weight:700;
-          letter-spacing:2px;
-          text-transform:uppercase;
-        "
-      >
-        Focus
-      </div>
-
-
-      <div
-        style="
-          margin-top:10px;
-          font-family:'Space Grotesk';
-          font-size:24px;
-          font-weight:600;
-        "
-      >
-        Technology
-      </div>
-
-
-      <div
-        style="
-          margin-top:7px;
-          color:#777e90;
-          font-size:12px;
-        "
-      >
-        Built for what comes next.
-      </div>
-
-    </div>
-
-
-
-    <div
-      style="
-        padding:25px;
-        border:1px solid rgba(255,255,255,.08);
-        border-radius:20px;
-        background:rgba(255,255,255,.025);
-      "
-    >
-
-      <div
-        style="
-          color:#687aff;
-          font-family:'Space Grotesk';
-          font-size:11px;
-          font-weight:700;
-          letter-spacing:2px;
-          text-transform:uppercase;
-        "
-      >
-        Mindset
-      </div>
-
-
-      <div
-        style="
-          margin-top:10px;
-          font-family:'Space Grotesk';
-          font-size:24px;
-          font-weight:600;
-        "
-      >
-        Build. Learn. Evolve.
-      </div>
-
-
-      <div
-        style="
-          margin-top:7px;
-          color:#777e90;
-          font-size:12px;
-        "
-      >
-        Continuous improvement by design.
-      </div>
-
-    </div>
-
-
-
-    <div
-      style="
-        padding:25px;
-        border:1px solid rgba(255,255,255,.08);
-        border-radius:20px;
-        background:rgba(255,255,255,.025);
-      "
-    >
-
-      <div
-        style="
-          color:#687aff;
-          font-family:'Space Grotesk';
-          font-size:11px;
-          font-weight:700;
-          letter-spacing:2px;
-          text-transform:uppercase;
-        "
-      >
-        Direction
-      </div>
-
-
-      <div
-        style="
-          margin-top:10px;
-          font-family:'Space Grotesk';
-          font-size:24px;
-          font-weight:600;
-        "
-      >
-        Future Focused
-      </div>
-
-
-      <div
-        style="
-          margin-top:7px;
-          color:#777e90;
-          font-size:12px;
-        "
-      >
-        Exploring ideas beyond the obvious.
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     PART 3 STARTS BELOW
-========================================= --><!-- =========================================
-     ABOUT CIRDRIO
-========================================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:70px;
-      align-items:center;
-    "
-  >
-
-
-    <div>
-
-      <div class="section-label"
-        style="
-          color:#7181ff;
-          font-size:10px;
-          font-weight:800;
-          letter-spacing:3px;
-          text-transform:uppercase;
-        "
-      >
-        About CIRDRIO
-      </div>
-
-
-      <h2
-        style="
-          margin-top:14px;
-          font-family:'Space Grotesk';
-          font-size:clamp(38px,5vw,62px);
-          line-height:.98;
-          letter-spacing:-3px;
-        "
-      >
-
-        We don't just
-        imagine the future.
-        <span style="color:#687aff;">
-          We build toward it.
-        </span>
-
-      </h2>
-
-
-      <p
-        style="
-          margin-top:25px;
-          max-width:620px;
-          color:#9299aa;
-          font-size:14px;
-          line-height:1.95;
-        "
-      >
-
-        CIRDRIO is being built around a simple
-        belief: ambitious ideas become meaningful
-        when they are transformed into products,
-        systems and experiences that solve real
-        problems.
-
-      </p>
-
-
-      <p
-        style="
-          margin-top:17px;
-          max-width:620px;
-          color:#9299aa;
-          font-size:14px;
-          line-height:1.95;
-        "
-      >
-
-        We combine technology, product thinking
-        and design to explore new possibilities
-        across the digital world.
-
-      </p>
-
-
-      <p
-        style="
-          margin-top:17px;
-          max-width:620px;
-          color:#9299aa;
-          font-size:14px;
-          line-height:1.95;
-        "
-      >
-
-        The objective is simple: understand deeply,
-        build intelligently and keep improving.
-
-      </p>
-
+    <div class="section-title">
+        <span>Who We Are</span>
+        <h2>About CIRDRIO</h2>
     </div>
 
+    <div class="vision">
 
+        <div class="vision-box">
 
-    <!-- ABOUT 3D PANEL -->
+            <h3>Ideas → Products</h3>
 
-    <div
-      style="
-        min-height:430px;
-        position:relative;
-        overflow:hidden;
-        border:1px solid rgba(255,255,255,.09);
-        border-radius:30px;
-        background:
-          radial-gradient(
-            circle at 50% 50%,
-            rgba(75,95,255,.20),
-            transparent 42%
-          ),
-          rgba(255,255,255,.025);
-        box-shadow:
-          inset 0 0 80px rgba(80,100,255,.04),
-          0 30px 80px rgba(0,0,0,.30);
-      "
-    >
+            <p>
+                We transform ambitious ideas into meaningful
+                digital experiences, products and technology.
+                Our focus is simple — build useful things
+                that can create real impact.
+            </p>
 
+        </div>
 
-      <div
-        style="
-          position:absolute;
-          width:280px;
-          height:280px;
-          left:50%;
-          top:50%;
-          transform:translate(-50%,-50%);
-          border:1px solid rgba(105,125,255,.25);
-          border-radius:50%;
-          animation:orbitC 20s linear infinite;
-        "
-      ></div>
+        <div class="vision-box">
 
+            <h3>Built For The Future</h3>
 
-      <div
-        style="
-          position:absolute;
-          width:210px;
-          height:210px;
-          left:50%;
-          top:50%;
-          transform:translate(-50%,-50%);
-          border:1px solid rgba(30,195,255,.25);
-          border-radius:50%;
-          animation:orbitC 13s linear infinite reverse;
-        "
-      ></div>
+            <p>
+                CIRDRIO is being built with a long-term vision:
+                technology, creativity and people working together
+                to create something bigger.
+            </p>
 
-
-      <div
-        style="
-          position:absolute;
-          width:105px;
-          height:105px;
-          left:50%;
-          top:50%;
-          transform:translate(-50%,-50%);
-          border-radius:50%;
-          background:
-            radial-gradient(
-              circle at 30% 25%,
-              #ffffff,
-              #7283ff 24%,
-              #2639c8 53%,
-              #080b20 75%
-            );
-          box-shadow:
-            0 0 35px rgba(90,110,255,.8),
-            0 0 90px rgba(65,85,255,.35);
-        "
-      ></div>
-
-
-      <div
-        style="
-          position:absolute;
-          bottom:25px;
-          left:28px;
-          color:rgba(255,255,255,.28);
-          font-family:'Space Grotesk';
-          font-size:10px;
-          font-weight:600;
-          letter-spacing:3px;
-        "
-      >
-        SYSTEM / 001
-      </div>
-
-
-      <div
-        style="
-          position:absolute;
-          bottom:25px;
-          right:28px;
-          color:rgba(255,255,255,.25);
-          font-size:9px;
-          letter-spacing:2px;
-        "
-      >
-        CIRDRIO
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
+<!-- WHAT WE DO -->
 
-<!-- =========================================
-     CAPABILITIES
-========================================= -->
+<section id="work">
 
-<section id="capabilities">
+    <div class="section-title">
 
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-    "
-  >
+        <span>Our Focus</span>
 
+        <h2>What We Do</h2>
 
-    <div
-      style="
-        color:#7181ff;
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:3px;
-        text-transform:uppercase;
-      "
-    >
-      What We Build
     </div>
 
 
-    <h2
-      style="
-        margin-top:14px;
-        font-family:'Space Grotesk';
-        font-size:clamp(40px,5vw,62px);
-        line-height:1;
-        letter-spacing:-3px;
-      "
-    >
-      Technology with purpose.
-    </h2>
+    <div class="grid">
 
+        <div class="card">
 
-    <p
-      style="
-        max-width:680px;
-        margin-top:18px;
-        color:#8d94a6;
-        font-size:14px;
-        line-height:1.9;
-      "
-    >
+            <div class="icon">⚡</div>
 
-      CIRDRIO explores the intersection of
-      software, intelligent systems, product
-      development and digital experiences.
+            <h3>Innovation</h3>
 
-    </p>
+            <p>
+                Exploring new technologies and turning
+                ambitious ideas into practical solutions.
+            </p>
 
-
-
-    <div
-      style="
-        display:grid;
-        grid-template-columns:
-          repeat(3,1fr);
-        gap:17px;
-        margin-top:52px;
-      "
-    >
-
-
-      <!-- CARD 01 -->
-
-      <div class="cap-card">
-
-        <div class="cap-number">
-          01
         </div>
 
-        <div class="cap-icon">
-          ◈
+
+        <div class="card">
+
+            <div class="icon">🚀</div>
+
+            <h3>Build</h3>
+
+            <p>
+                Designing and developing modern digital
+                products with performance and simplicity.
+            </p>
+
         </div>
 
-        <h3>
-          Digital Engineering
-        </h3>
 
-        <p>
-          Modern websites, software platforms
-          and technical foundations designed
-          for performance, reliability and
-          growth.
-        </p>
+        <div class="card">
 
-      </div>
+            <div class="icon">🌐</div>
 
+            <h3>Technology</h3>
 
+            <p>
+                Building technology-driven experiences
+                for a rapidly changing digital world.
+            </p>
 
-      <!-- CARD 02 -->
-
-      <div class="cap-card">
-
-        <div class="cap-number">
-          02
         </div>
 
-        <div class="cap-icon">
-          ⬡
+
+        <div class="card">
+
+            <div class="icon">🎯</div>
+
+            <h3>Strategy</h3>
+
+            <p>
+                Combining business thinking, creativity
+                and technology to solve meaningful problems.
+            </p>
+
         </div>
 
-        <h3>
-          Intelligent Systems
-        </h3>
 
-        <p>
-          Exploring AI, automation and intelligent
-          workflows that make digital systems
-          more capable and efficient.
-        </p>
+        <div class="card">
 
-      </div>
+            <div class="icon">🧠</div>
 
+            <h3>Research</h3>
 
+            <p>
+                Learning, experimenting and continuously
+                exploring what can be built next.
+            </p>
 
-      <!-- CARD 03 -->
-
-      <div class="cap-card">
-
-        <div class="cap-number">
-          03
         </div>
 
-        <div class="cap-icon">
-          ◇
+
+        <div class="card">
+
+            <div class="icon">🌍</div>
+
+            <h3>Impact</h3>
+
+            <p>
+                Creating products and ideas that aim to
+                deliver useful and lasting impact.
+            </p>
+
         </div>
-
-        <h3>
-          Product Development
-        </h3>
-
-        <p>
-          Turning early concepts into focused,
-          useful products through design,
-          engineering and iteration.
-        </p>
-
-      </div>
-
-
-
-      <!-- CARD 04 -->
-
-      <div class="cap-card">
-
-        <div class="cap-number">
-          04
-        </div>
-
-        <div class="cap-icon">
-          ✦
-        </div>
-
-        <h3>
-          Digital Experience
-        </h3>
-
-        <p>
-          Premium interfaces designed to feel
-          intuitive, modern and purposeful
-          across devices.
-        </p>
-
-      </div>
-
-
-
-      <!-- CARD 05 -->
-
-      <div class="cap-card">
-
-        <div class="cap-number">
-          05
-        </div>
-
-        <div class="cap-icon">
-          ⌁
-        </div>
-
-        <h3>
-          Product Strategy
-        </h3>
-
-        <p>
-          Finding the right direction and turning
-          opportunities into focused product
-          ideas.
-        </p>
-
-      </div>
-
-
-
-      <!-- CARD 06 -->
-
-      <div class="cap-card">
-
-        <div class="cap-number">
-          06
-        </div>
-
-        <div class="cap-icon">
-          ◎
-        </div>
-
-        <h3>
-          Future Exploration
-        </h3>
-
-        <p>
-          Studying emerging technologies and
-          exploring what new products and
-          systems could become.
-        </p>
-
-      </div>
-
 
     </div>
-
-  </div>
 
 </section>
 
 
-
-<!-- =========================================
-     APPROACH
-========================================= -->
-
-<section id="approach">
-
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-    "
-  >
-
-
-    <div
-      style="
-        color:#7181ff;
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:3px;
-        text-transform:uppercase;
-      "
-    >
-      How We Think
-    </div>
-
-
-    <h2
-      style="
-        margin-top:14px;
-        font-family:'Space Grotesk';
-        font-size:clamp(40px,5vw,62px);
-        line-height:1;
-        letter-spacing:-3px;
-      "
-    >
-      From idea to reality.
-    </h2>
-
-
-    <p
-      style="
-        max-width:650px;
-        margin-top:18px;
-        color:#8d94a6;
-        font-size:14px;
-        line-height:1.9;
-      "
-    >
-
-      A focused process designed to turn
-      uncertainty into direction and direction
-      into something real.
-
-    </p>
-
-
-
-    <div
-      style="
-        display:grid;
-        grid-template-columns:
-          repeat(4,1fr);
-        gap:15px;
-        margin-top:55px;
-      "
-    >
-
-
-      <div class="step-card">
-
-        <span>01</span>
-
-        <h3>
-          Discover
-        </h3>
-
-        <p>
-          Understand the problem, opportunity
-          and people behind the idea.
-        </p>
-
-      </div>
-
-
-
-      <div class="step-card">
-
-        <span>02</span>
-
-        <h3>
-          Design
-        </h3>
-
-        <p>
-          Define the product, experience and
-          technical direction.
-        </p>
-
-      </div>
-
-
-
-      <div class="step-card">
-
-        <span>03</span>
-
-        <h3>
-          Build
-        </h3>
-
-        <p>
-          Turn the concept into working
-          technology through focused execution.
-        </p>
-
-      </div>
-
-
-
-      <div class="step-card">
-
-        <span>04</span>
-
-        <h3>
-          Evolve
-        </h3>
-
-        <p>
-          Learn, improve and keep moving as
-          the product grows.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================
-     PART 3 STYLING
-========================================= -->
-
-<style>
-
-section{
-
-  padding:
-    110px 6%;
-
-}
-
-
-.cap-card{
-
-  position:relative;
-
-  min-height:285px;
-
-  padding:30px;
-
-  overflow:hidden;
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
-  border-radius:23px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.018)
-    );
-
-  transition:
-    transform .4s ease,
-    border-color .4s ease,
-    box-shadow .4s ease;
-
-}
-
-
-.cap-card::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  right:-100px;
-  top:-100px;
-
-  border-radius:50%;
-
-  background:
-    rgba(70,95,255,.14);
-
-  filter:blur(35px);
-
-  transition:
-    transform .5s ease;
-
-}
-
-
-.cap-card:hover{
-
-  transform:
-    translateY(-9px);
-
-  border-color:
-    rgba(100,120,255,.35);
-
-  box-shadow:
-    0 28px 70px
-    rgba(0,0,0,.35);
-
-}
-
-
-.cap-card:hover::before{
-
-  transform:
-    scale(1.5);
-
-}
-
-
-.cap-number{
-
-  position:absolute;
-
-  right:25px;
-  top:25px;
-
-  color:#4c5363;
-
-  font-family:
-    "Space Grotesk";
-
-  font-size:11px;
-
-  font-weight:700;
-
-}
-
-
-.cap-icon{
-
-  width:54px;
-  height:54px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-radius:15px;
-
-  color:#b8c1ff;
-
-  font-size:22px;
-
-  border:
-    1px solid
-    rgba(100,120,255,.20);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(80,105,255,.20),
-      rgba(255,255,255,.025)
-    );
-
-}
-
-
-.cap-card h3{
-
-  margin-top:23px;
-
-  font-family:
-    "Space Grotesk";
-
-  font-size:20px;
-
-}
-
-
-.cap-card p{
-
-  margin-top:11px;
-
-  color:#858c9e;
-
-  font-size:12px;
-
-  line-height:1.85;
-
-}
-
-
-.step-card{
-
-  min-height:220px;
-
-  padding:28px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.13);
-
-  transition:
-    transform .35s ease,
-    border-color .35s ease;
-
-}
-
-
-.step-card:hover{
-
-  transform:
-    translateY(-7px);
-
-  border-color:
-    #6578ff;
-
-}
-
-
-.step-card span{
-
-  color:#687aff;
-
-  font-family:
-    "Space Grotesk";
-
-  font-size:12px;
-
-  font-weight:700;
-
-}
-
-
-.step-card h3{
-
-  margin-top:50px;
-
-  font-family:
-    "Space Grotesk";
-
-  font-size:20px;
-
-}
-
-
-.step-card p{
-
-  margin-top:11px;
-
-  color:#858c9e;
-
-  font-size:12px;
-
-  line-height:1.8;
-
-}
-
-
-@media(max-width:900px){
-
-  .cap-card{
-
-    min-height:250px;
-
-  }
-
-  .step-card{
-
-    min-height:190px;
-
-  }
-
-}
-
-
-@media(max-width:700px){
-
-  section{
-
-    padding:
-      85px 6%;
-
-  }
-
-  #capabilities > div > div:nth-child(4){
-
-    grid-template-columns:1fr !important;
-
-  }
-
-  #approach > div > div:nth-child(4){
-
-    grid-template-columns:
-      1fr 1fr !important;
-
-  }
-
-}
-
-
-@media(max-width:520px){
-
-  #approach > div > div:nth-child(4){
-
-    grid-template-columns:1fr !important;
-
-  }
-
-}
-
-</style>
-
-
-
-<!-- =========================================
-     PART 4 STARTS BELOW
-========================================= --><!-- =========================================
-     VISION
-========================================= -->
+<!-- VISION -->
 
 <section id="vision">
 
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-    "
-  >
+    <div class="section-title">
 
-    <div
-      style="
-        position:relative;
-        overflow:hidden;
-        padding:75px 60px;
-        border:1px solid rgba(100,120,255,.18);
-        border-radius:30px;
-        background:
-          radial-gradient(
-            circle at 15% 0%,
-            rgba(75,95,255,.20),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at 90% 100%,
-            rgba(0,180,255,.08),
-            transparent 35%
-          ),
-          rgba(255,255,255,.025);
-        box-shadow:
-          0 40px 100px rgba(0,0,0,.30);
-      "
-    >
+        <span>The Future</span>
 
-      <div
-        style="
-          color:#7181ff;
-          font-size:10px;
-          font-weight:800;
-          letter-spacing:3px;
-          text-transform:uppercase;
-        "
-      >
-        The Vision
-      </div>
-
-
-      <h2
-        style="
-          max-width:850px;
-          margin-top:18px;
-          font-family:'Space Grotesk';
-          font-size:clamp(40px,6vw,72px);
-          line-height:.95;
-          letter-spacing:-4px;
-        "
-      >
-
-        Don't predict
-        the future.
-
-        <span style="color:#667aff;">
-          Build it.
-        </span>
-
-      </h2>
-
-
-      <p
-        style="
-          max-width:700px;
-          margin-top:25px;
-          color:#8d94a6;
-          font-size:14px;
-          line-height:1.95;
-        "
-      >
-
-        CIRDRIO exists to explore what technology
-        can become when ambitious thinking meets
-        disciplined execution.
-
-        We are building toward products, systems
-        and experiences that can create meaningful
-        impact in the years ahead.
-
-      </p>
-
-
-      <div
-        style="
-          position:absolute;
-          width:300px;
-          height:300px;
-          right:-130px;
-          top:-150px;
-          border:1px solid rgba(100,120,255,.13);
-          border-radius:50%;
-        "
-      ></div>
-
-
-      <div
-        style="
-          position:absolute;
-          width:190px;
-          height:190px;
-          right:-70px;
-          top:-95px;
-          border:1px solid rgba(30,195,255,.13);
-          border-radius:50%;
-        "
-      ></div>
+        <h2>Our Vision</h2>
 
     </div>
 
-  </div>
+
+    <div class="cta">
+
+        <img
+            src="logo.png"
+            alt="CIRDRIO Logo"
+        >
+
+        <h2>Build. Learn. Evolve.</h2>
+
+        <p>
+            CIRDRIO is not just about making websites or software.
+            We are building a technology-focused company around
+            ideas that can become real products.
+        </p>
+
+        <a
+            href="mailto:cirdrio.dm@gmail.com"
+            class="btn btn-primary"
+        >
+            Contact CIRDRIO
+        </a>
+
+    </div>
 
 </section>
 
 
-
-<!-- =========================================
-     JOIN THE TEAM
-========================================= -->
-
-<section id="team">
-
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-    "
-  >
-
-    <div
-      style="
-        color:#7181ff;
-        font-size:10px;
-        font-weight:800;
-        letter-spacing:3px;
-        text-transform:uppercase;
-      "
-    >
-      Build With Us
-    </div>
-
-
-    <h2
-      style="
-        margin-top:14px;
-        font-family:'Space Grotesk';
-        font-size:clamp(40px,5vw,62px);
-        line-height:1;
-        letter-spacing:-3px;
-      "
-    >
-
-      The next chapter
-      needs builders.
-
-    </h2>
-
-
-    <p
-      style="
-        max-width:680px;
-        margin-top:19px;
-        color:#8d94a6;
-        font-size:14px;
-        line-height:1.9;
-      "
-    >
-
-      CIRDRIO is at the beginning of its journey.
-
-      We are looking for ambitious people who
-      want to learn, build and work on ideas that
-      have the potential to become something much
-      bigger.
-
-    </p>
-
-
-
-    <div
-      style="
-        display:grid;
-        grid-template-columns:
-          repeat(3,1fr);
-        gap:17px;
-        margin-top:50px;
-      "
-    >
-
-
-      <!-- BUILDER -->
-
-      <div class="team-card">
-
-        <div class="team-icon">
-          ◉
-        </div>
-
-        <h3>
-          Builders
-        </h3>
-
-        <p>
-          Developers and problem-solvers who
-          enjoy turning ideas into real,
-          working technology.
-        </p>
-
-      </div>
-
-
-
-      <!-- DESIGNER -->
-
-      <div class="team-card">
-
-        <div class="team-icon">
-          ✦
-        </div>
-
-        <h3>
-          Creators
-        </h3>
-
-        <p>
-          Designers and creative thinkers who
-          care about how products look, feel
-          and work.
-        </p>
-
-      </div>
-
-
-
-      <!-- THINKER -->
-
-      <div class="team-card">
-
-        <div class="team-icon">
-          ◇
-        </div>
-
-        <h3>
-          Thinkers
-        </h3>
-
-        <p>
-          Curious minds who challenge
-          assumptions and see opportunities
-          beyond the obvious.
-        </p>
-
-      </div>
-
-
-    </div>
-
-
-
-    <div
-      style="
-        margin-top:38px;
-      "
-    >
-
-      <a
-        href="mailto:cirdrio.dm@gmail.com?subject=I%20want%20to%20build%20with%20CIRDRIO"
-        class="btn btn-primary"
-      >
-
-        Join the Journey
-
-        <span>→</span>
-
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================
-     CONTACT
-========================================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-    "
-  >
+    <div class="section-title">
 
-    <div
-      style="
-        text-align:center;
-        padding:85px 30px;
-        border:1px solid rgba(100,120,255,.20);
-        border-radius:30px;
-        background:
-          radial-gradient(
-            circle at 50% 0%,
-            rgba(75,95,255,.22),
-            transparent 52%
-          ),
-          rgba(255,255,255,.025);
-        box-shadow:
-          0 45px 110px rgba(0,0,0,.35);
-      "
-    >
+        <span>Let's Connect</span>
 
-      <div
-        style="
-          color:#7181ff;
-          font-size:10px;
-          font-weight:800;
-          letter-spacing:3px;
-          text-transform:uppercase;
-        "
-      >
-        Start Something
-      </div>
-
-
-      <h2
-        style="
-          margin-top:17px;
-          font-family:'Space Grotesk';
-          font-size:clamp(42px,6vw,72px);
-          line-height:.95;
-          letter-spacing:-4px;
-        "
-      >
-
-        Have an idea?
-
-      </h2>
-
-
-      <p
-        style="
-          max-width:620px;
-          margin:22px auto 0;
-          color:#8d94a6;
-          font-size:14px;
-          line-height:1.9;
-        "
-      >
-
-        Whether you want to build something,
-        collaborate with CIRDRIO or simply
-        start a conversation about technology,
-        we'd love to hear from you.
-
-      </p>
-
-
-      <div
-        class="hero-actions"
-        style="
-          justify-content:center;
-          margin-top:32px;
-        "
-      >
-
-        <a
-          href="mailto:cirdrio.dm@gmail.com"
-          class="btn btn-primary"
-        >
-
-          cirdrio.dm@gmail.com
-
-          <span>→</span>
-
-        </a>
-
-
-        <a
-          href="#home"
-          class="btn btn-secondary"
-        >
-
-          Back to Top
-
-          <span>↑</span>
-
-        </a>
-
-      </div>
+        <h2>Want To Build With Us?</h2>
 
     </div>
 
-  </div>
+
+    <div class="cta">
+
+        <p>
+            Have an idea, project or opportunity?
+            Let's start a conversation.
+        </p>
+
+        <a
+            href="mailto:cirdrio.dm@gmail.com"
+            class="btn btn-primary"
+        >
+            cirdrio.dm@gmail.com
+        </a>
+
+    </div>
 
 </section>
 
 
+<!-- FOOTER -->
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<footer>
 
-<footer
-  style="
-    border-top:
-      1px solid
-      rgba(255,255,255,.07);
-
-    padding:
-      35px 6%;
-  "
->
-
-  <div
-    style="
-      max-width:1180px;
-      margin:auto;
-
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
-      gap:20px;
-    "
-  >
-
-
-    <div
-      style="
-        display:flex;
-        align-items:center;
-        gap:10px;
-      "
-    >
-
-      <img
-        src="cirdrio-logo-transparent.png"
-        alt="CIRDRIO Logo"
-        style="
-          width:34px;
-          height:34px;
-          object-fit:contain;
-        "
-      >
-
-      <span
-        style="
-          font-family:'Space Grotesk';
-          font-size:11px;
-          font-weight:700;
-          letter-spacing:2px;
-        "
-      >
-        CIRDRIO
-      </span>
-
+    <div>
+        © 2026 <strong>CIRDRIO</strong>
     </div>
 
-
-    <span
-      style="
-        color:#5e6474;
-        font-size:10px;
-      "
-    >
-
-      © 2026 CIRDRIO.
-      All rights reserved.
-
-    </span>
-
-
-    <a
-      href="mailto:cirdrio.dm@gmail.com"
-      style="
-        color:#73798a;
-        text-decoration:none;
-        font-size:11px;
-      "
-    >
-
-      cirdrio.dm@gmail.com
-
-    </a>
-
-
-  </div>
+    <div>
+        Build What's Next.
+    </div>
 
 </footer>
 
 
-
-<!-- =========================================
-     FINAL RESPONSIVE + CARD STYLES
-========================================= -->
-
-<style>
-
-.team-card{
-
-  min-height:230px;
-
-  padding:30px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
-  border-radius:22px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.06),
-      rgba(255,255,255,.018)
-    );
-
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
-
-}
-
-
-.team-card:hover{
-
-  transform:
-    translateY(-8px);
-
-  border-color:
-    rgba(100,120,255,.35);
-
-  box-shadow:
-    0 28px 65px
-    rgba(0,0,0,.35);
-
-}
-
-
-.team-icon{
-
-  width:52px;
-  height:52px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-radius:14px;
-
-  color:#b8c1ff;
-
-  font-size:21px;
-
-  border:
-    1px solid
-    rgba(100,120,255,.18);
-
-  background:
-    rgba(75,95,255,.10);
-
-}
-
-
-.team-card h3{
-
-  margin-top:22px;
-
-  font-family:
-    "Space Grotesk";
-
-  font-size:20px;
-
-}
-
-
-.team-card p{
-
-  margin-top:11px;
-
-  color:#858c9e;
-
-  font-size:12px;
-
-  line-height:1.85;
-
-}
-
-
-@media(max-width:900px){
-
-  .team-card{
-
-    min-height:210px;
-
-  }
-
-}
-
-
-@media(max-width:700px){
-
-  #team > div > div:nth-child(5){
-
-    grid-template-columns:1fr !important;
-
-  }
-
-
-  #vision > div > div{
-
-    padding:55px 28px !important;
-
-  }
-
-
-  footer > div{
-
-    flex-direction:column;
-
-    text-align:center;
-
-  }
-
-}
-
-
-@media(max-width:600px){
-
-  .hero-actions .btn{
-
-    width:100%;
-
-  }
-
-}
-
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-
-    animation:none !important;
-
-    transition:none !important;
-
-    scroll-behavior:auto !important;
-
-  }
-
-}
-
-</style>
-
-
-
-</main>
-
 </body>
-
 </html>
