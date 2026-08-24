@@ -1,743 +1,1158 @@
-ion</h3>
-                <p>
-                    Exploring emerging technologies,
-                    new possibilities and ideas that
-                    could shape the next generation.
-                </p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-        </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    </div>
+<title>CIRDRIO — Intelligence. Systems. Future.</title>
 
-</section>
+<meta name="description"
+content="CIRDRIO builds intelligent technology, digital systems and next-generation products engineered for the future.">
 
-<!-- PROCESS -->
-<section id="process">
+<meta name="theme-color" content="#05070d">
 
-    <div class="container">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <div class="reveal">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-            <div class="label">
-                How We Work
-            </div>
+<style>
 
-            <h2 class="section-title">
-                Think. Build. Improve.
-            </h2>
+/* =========================================================
+   CIRDRIO — GLOBAL SYSTEM
+   ========================================================= */
 
-            <p class="section-text">
-                A focused approach designed to move from
-                an early idea to a meaningful product
-                without losing clarity or purpose.
-            </p>
+:root{
 
-        </div>
+    --bg:#04050a;
+    --bg-soft:#080a12;
 
-        <div class="process">
+    --white:#ffffff;
+    --text:#eef1ff;
+    --muted:#8b92a7;
+    --muted-2:#60677b;
 
-            <div class="process-item reveal">
+    --blue:#5b6cff;
+    --blue-bright:#7c8aff;
+    --cyan:#32d8ff;
+    --violet:#8b5cf6;
 
-                <div class="number">
-                    01
-                </div>
+    --line:rgba(255,255,255,.09);
+    --line-blue:rgba(100,120,255,.22);
 
-                <h3>Discover</h3>
+    --glass:rgba(255,255,255,.035);
 
-                <p>
-                    Understand the problem, opportunity
-                    and people behind the idea.
-                </p>
+    --font-main:"DM Sans",Arial,sans-serif;
+    --font-display:"Space Grotesk",Arial,sans-serif;
 
-            </div>
+    --ease:cubic-bezier(.16,1,.3,1);
+}
 
-            <div class="process-item reveal">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-                <div class="number">
-                    02
-                </div>
+html{
+    scroll-behavior:smooth;
+    background:var(--bg);
+}
 
-                <h3>Design</h3>
+body{
 
-                <p>
-                    Shape the idea into a clear product,
-                    experience or technical direction.
-                </p>
+    font-family:var(--font-main);
 
-            </div>
+    background:var(--bg);
 
-            <div class="process-item reveal">
+    color:var(--text);
 
-                <div class="number">
-                    03
-                </div>
+    overflow-x:hidden;
 
-                <h3>Build</h3>
+    min-height:100vh;
 
-                <p>
-                    Turn the direction into working
-                    technology with attention to detail.
-                </p>
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
 
-            </div>
+a{
+    color:inherit;
+}
 
-            <div class="process-item reveal">
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
 
-                <div class="number">
-                    04
-                </div>
+/* =========================================================
+   GLOBAL BACKGROUND
+   ========================================================= */
 
-                <h3>Evolve</h3>
+.system-background{
 
-                <p>
-                    Learn from real usage, improve the
-                    system and keep moving forward.
-                </p>
+    position:fixed;
 
-            </div>
+    inset:0;
 
-        </div>
+    z-index:-20;
 
-    </div>
+    overflow:hidden;
 
-</section>
+    background:
 
-<!-- VISION -->
-<section id="vision">
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(70,90,255,.14),
+            transparent 30%
+        ),
 
-    <div class="container">
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(35,190,255,.08),
+            transparent 28%
+        ),
 
-        <div class="vision reveal">
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(120,70,255,.10),
+            transparent 35%
+        ),
 
-            <div class="label">
-                Our Vision
-            </div>
+        #04050a;
+}
 
-            <h2>
-                Don't just follow
-                <span class="gradient">
-                    what's next.
+/* subtle technical grid */
+
+.system-background::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-20%;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    transform:
+        perspective(900px)
+        rotateX(62deg)
+        scale(1.7);
+
+    transform-origin:center bottom;
+
+    opacity:.28;
+}
+
+/* horizon */
+
+.system-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:0;
+
+    height:45%;
+
+    background:
+
+        linear-gradient(
+            to top,
+            rgba(4,5,10,.95),
+            transparent
+        );
+
+    pointer-events:none;
+}
+
+/* =========================================================
+   AMBIENT LIGHT SYSTEM
+   ========================================================= */
+
+.ambient{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    pointer-events:none;
+
+    opacity:.22;
+
+    animation:
+        ambientFloat 12s ease-in-out infinite;
+}
+
+.ambient.a{
+
+    width:420px;
+    height:420px;
+
+    left:-220px;
+    top:8%;
+
+    background:#465cff;
+}
+
+.ambient.b{
+
+    width:360px;
+    height:360px;
+
+    right:-190px;
+    top:30%;
+
+    background:#653cff;
+
+    animation-delay:-4s;
+}
+
+.ambient.c{
+
+    width:300px;
+    height:300px;
+
+    left:42%;
+    bottom:-190px;
+
+    background:#009dff;
+
+    animation-delay:-8s;
+}
+
+@keyframes ambientFloat{
+
+    0%,100%{
+        transform:translate3d(0,0,0);
+    }
+
+    50%{
+        transform:translate3d(0,-35px,0);
+    }
+}
+
+/* =========================================================
+   NOISE OVERLAY
+   ========================================================= */
+
+.noise{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    opacity:.025;
+
+    background-image:url(
+        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E"
+    );
+
+    mix-blend-mode:soft-light;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:500;
+
+    padding:18px 4.5%;
+
+    transition:.5s var(--ease);
+}
+
+.navbar.scrolled{
+
+    padding-top:10px;
+}
+
+.nav{
+
+    max-width:1280px;
+
+    margin:auto;
+
+    min-height:62px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    padding:9px 11px 9px 16px;
+
+    border:1px solid var(--line);
+
+    border-radius:18px;
+
+    background:
+        rgba(5,7,13,.68);
+
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* brand */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+}
+
+.logo{
+
+    width:39px;
+    height:39px;
+
+    object-fit:contain;
+
+    border-radius:11px;
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(91,108,255,.35)
+        );
+}
+
+.brand-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1;
+}
+
+.brand-name{
+
+    font-family:var(--font-display);
+
+    font-size:15px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+}
+
+.brand-tag{
+
+    margin-top:4px;
+
+    color:var(--muted-2);
+
+    font-size:7px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+/* links */
+
+.links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+}
+
+.links a{
+
+    position:relative;
+
+    color:#858ca0;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.2px;
+
+    transition:.3s;
+}
+
+.links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-7px;
+
+    width:0;
+
+    height:1px;
+
+    background:var(--blue-bright);
+
+    transition:.3s var(--ease);
+}
+
+.links a:hover{
+
+    color:#fff;
+}
+
+.links a:hover::after{
+
+    width:100%;
+}
+
+/* nav button */
+
+.nav-action{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:12px 18px;
+
+    border-radius:11px;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7181ff,
+            #4051e9
+        );
+
+    box-shadow:
+        0 10px 30px rgba(63,80,235,.25);
+
+    transition:.35s var(--ease);
+}
+
+.nav-action:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(63,80,235,.40);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:
+        155px
+        7%
+        100px;
+
+    overflow:hidden;
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:850px;
+}
+
+/* live status */
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 13px;
+
+    border:1px solid rgba(100,120,255,.22);
+
+    border-radius:50px;
+
+    background:
+        rgba(80,100,255,.055);
+
+    color:#aeb7ff;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.8px;
+
+    text-transform:uppercase;
+}
+
+.status-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#51ffb0;
+
+    box-shadow:
+        0 0 12px #51ffb0;
+
+    animation:
+        pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.45;
+        transform:scale(.72);
+    }
+}
+
+/* hero title */
+
+.hero h1{
+
+    margin-top:28px;
+
+    max-width:900px;
+
+    font-family:var(--font-display);
+
+    font-size:
+        clamp(
+            58px,
+            9.5vw,
+            118px
+        );
+
+    line-height:.88;
+
+    letter-spacing:-6px;
+
+    font-weight:600;
+}
+
+.hero h1 .line{
+
+    display:block;
+}
+
+.hero h1 .accent{
+
+    background:
+
+        linear-gradient(
+            110deg,
+            #ffffff 0%,
+            #cdd3ff 30%,
+            #7183ff 58%,
+            #ffffff 85%
+        );
+
+    background-size:250% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        textShine 7s linear infinite;
+}
+
+@keyframes textShine{
+
+    to{
+        background-position:250% center;
+    }
+}
+
+/* hero copy */
+
+.hero-description{
+
+    max-width:650px;
+
+    margin-top:30px;
+
+    color:#9198ab;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    letter-spacing:.1px;
+}
+
+/* hero buttons */
+
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:35px;
+}
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    min-height:48px;
+
+    padding:0 20px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.2px;
+
+    transition:.4s var(--ease);
+}
+
+.btn-primary{
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7181ff,
+            #3e4fe8
+        );
+
+    box-shadow:
+        0 16px 38px
+        rgba(55,70,235,.25);
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 22px 50px
+        rgba(55,70,235,.42);
+}
+
+.btn-secondary{
+
+    color:#d7dbea;
+
+    border:1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.btn-secondary:hover{
+
+    transform:translateY(-4px);
+
+    background:
+        rgba(255,255,255,.075);
+
+    border-color:
+        rgba(120,135,255,.28);
+}
+
+/* =========================================================
+   HERO 3D SYSTEM
+   ========================================================= */
+
+.hero-system{
+
+    position:absolute;
+
+    width:620px;
+    height:620px;
+
+    right:-30px;
+    top:50%;
+
+    transform:
+        translateY(-50%);
+
+    pointer-events:none;
+
+    z-index:2;
+}
+
+/* central energy core */
+
+.energy-core{
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    left:215px;
+    top:215px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle at 31% 25%,
+            #f5f7ff 0%,
+            #a9b3ff 11%,
+            #6074ff 28%,
+            #3045e8 48%,
+            #0a0d20 73%,
+            #05060b 100%
+        );
+
+    box-shadow:
+
+        0 0 35px rgba(92,112,255,.45),
+
+        0 0 100px rgba(72,92,255,.28),
+
+        inset
+        -25px -30px 45px
+        rgba(0,0,0,.72);
+
+    animation:
+        coreHover 6s ease-in-out infinite;
+}
+
+@keyframes coreHover{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* outer rings */
+
+.orbit{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(108,128,255,.28);
+
+    transform-style:preserve-3d;
+}
+
+.orbit.one{
+
+    width:490px;
+    height:150px;
+
+    left:65px;
+    top:235px;
+
+    transform:
+        rotateX(66deg)
+        rotateZ(-18deg);
+
+    animation:
+        orbitOne 15s linear infinite;
+}
+
+.orbit.two{
+
+    width:530px;
+    height:185px;
+
+    left:45px;
+    top:218px;
+
+    border-color:
+        rgba(50,210,255,.17);
+
+    transform:
+        rotateX(70deg)
+        rotateZ(37deg);
+
+    animation:
+        orbitTwo 20s linear infinite;
+}
+
+.orbit.three{
+
+    width:350px;
+    height:350px;
+
+    left:135px;
+    top:135px;
+
+    border-color:
+        rgba(115,100,255,.18);
+
+    animation:
+        orbitThree 24s linear infinite;
+}
+
+@keyframes orbitOne{
+
+    to{
+        transform:
+            rotateX(66deg)
+            rotateZ(342deg);
+    }
+}
+
+@keyframes orbitTwo{
+
+    to{
+        transform:
+            rotateX(70deg)
+            rotateZ(-323deg);
+    }
+}
+
+@keyframes orbitThree{
+
+    to{
+        transform:
+            rotateZ(360deg);
+    }
+}
+
+/* energy particles */
+
+.particle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#9da9ff;
+
+    box-shadow:
+        0 0 12px #6f82ff;
+}
+
+.particle.p1{
+    left:115px;
+    top:160px;
+}
+
+.particle.p2{
+    right:100px;
+    top:220px;
+
+    background:#43dfff;
+}
+
+.particle.p3{
+    left:180px;
+    bottom:105px;
+
+    background:#8d70ff;
+}
+
+.particle.p4{
+    right:160px;
+    bottom:135px;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.scroll-indicator{
+
+    position:absolute;
+
+    left:7%;
+
+    bottom:34px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#545b70;
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.scroll-line{
+
+    width:34px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #596cff,
+            transparent
+        );
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="system-background">
+
+    <div class="ambient a"></div>
+    <div class="ambient b"></div>
+    <div class="ambient c"></div>
+
+</div>
+
+<div class="noise"></div>
+
+<nav class="navbar">
+
+    <div class="nav">
+
+        <a href="#home" class="brand">
+
+            <img
+                src="cirdrio-logo-transparent.png"
+                alt="CIRDRIO"
+                class="logo"
+            >
+
+            <div class="brand-text">
+
+                <span class="brand-name">
+                    CIRDRIO
                 </span>
-                Build it.
-            </h2>
 
-            <p>
-                CIRDRIO aims to become a technology-driven
-                organization capable of creating products,
-                systems and experiences that solve meaningful
-                problems and create long-term value.
-            </p>
-
-            <div class="buttons">
-
-                <a
-                    href="#contact"
-                    class="btn btn-primary"
-                >
-                    Start the Journey →
-                </a>
+                <span class="brand-tag">
+                    Technology / Future
+                </span>
 
             </div>
 
-        </div>
+        </a>
 
-    </div>
+        <div class="links">
 
-</section>
+            <a href="#about">
+                About
+            </a>
 
-<!-- TEAM -->
-<section id="team">
+            <a href="#capabilities">
+                Capabilities
+            </a>
 
-    <div class="container">
+            <a href="#approach">
+                Approach
+            </a>
 
-        <div class="reveal">
+            <a href="#vision">
+                Vision
+            </a>
 
-            <div class="label">
-                The People
-            </div>
+            <a href="#contact">
+                Contact
+            </a>
 
-            <h2 class="section-title">
-                Built by curious minds.
-            </h2>
-
-            <p class="section-text">
-                CIRDRIO is being built around people who
-                are willing to learn, experiment, take
-                responsibility and build things that matter.
-            </p>
-
-        </div>
-
-        <div class="team">
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">
-                    ◉
-                </div>
-
-                <h3>Technology</h3>
-
-                <p>
-                    Developers, programmers, AI enthusiasts
-                    and technical minds building the systems
-                    behind the vision.
-                </p>
-
-            </div>
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">
-                    ◇
-                </div>
-
-                <h3>Design</h3>
-
-                <p>
-                    Designers and creative thinkers shaping
-                    interfaces, identities and experiences.
-                </p>
-
-            </div>
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">
-                    ◎
-                </div>
-
-                <h3>Business</h3>
-
-                <p>
-                    Strategic thinkers exploring markets,
-                    opportunities and sustainable growth.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-
-    <div class="container">
-
-        <div class="contact">
-
-            <div class="contact-box reveal">
-
-                <div class="label">
-                    Get In Touch
-                </div>
-
-                <h2>
-                    Ready to build
-                    <span class="gradient">
-                        what's next?
-                    </span>
-                </h2>
-
-                <p>
-                    Have an idea, want to collaborate,
-                    or simply want to connect with CIRDRIO?
-                    Let's start a conversation.
-                </p>
-
-                <div class="buttons contact-buttons">
-
-                    <a
-                        href="mailto:cirdrio.dm@gmail.com?subject=CIRDRIO%20-%20Let's%20Connect"
-                        class="btn btn-primary"
-                    >
-                        Contact CIRDRIO →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-
-    <div class="footer">
-
-        <div class="footer-brand">
-
-            <img
-                src="cirdrio-logo-transparent.png"
-                alt="CIRDRIO Logo"
-                class="footer-logo"
-            >
-
-            <span class="footer-name">
-                CIRDRIO
-            </span>
-
-        </div>
-
-        <div class="footer-copy">
-            © 2026 CIRDRIO. All rights reserved.
         </div>
 
         <a
             href="mailto:cirdrio.dm@gmail.com"
-            class="footer-email"
+            class="nav-action"
         >
-            cirdrio.dm@gmail.com
+            Let's Talk
+            <span>↗</span>
         </a>
 
     </div>
 
-</footer>
+</nav>
 
-<script>
+<header class="hero" id="home">
 
-/* ================= SCROLL REVEAL ================= */
+    <div class="hero-content">
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+        <div class="status">
 
-const revealObserver =
-    new IntersectionObserver(
-        (entries) => {
+            <span class="status-dot"></span>
 
-            entries.forEach(
-                (entry) => {
-
-                    if(entry.isIntersecting){
-
-                        entry.target.classList.add("show");
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold:0.12
-        }
-    );
-
-revealElements.forEach(
-    (element) => {
-
-        revealObserver.observe(element);
-
-    }
-);
-
-
-/* ================= NAVBAR EFFECT ================= */
-
-const navbar =
-    document.querySelector(".navbar");
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if(window.scrollY > 30){
-
-            navbar.style.paddingTop = "10px";
-            navbar.style.paddingBottom = "10px";
-
-        }else{
-
-            navbar.style.paddingTop = "18px";
-            navbar.style.paddingBottom = "18px";
-
-        }
-
-    },
-    {
-        passive:true
-    }
-);
-
-
-/* ================= 3D CORE PARALLAX ================= */
-
-const visual =
-    document.querySelector(".visual");
-
-if(visual){
-
-    window.addEventListener(
-        "mousemove",
-        (event) => {
-
-            const x =
-                (event.clientX /
-                window.innerWidth - .5) * 18;
-
-            const y =
-                (event.clientY /
-                window.innerHeight - .5) * 18;
-
-            visual.style.transform =
-                `translateY(-50%)
-                 rotateX(${-y}deg)
-                 rotateY(${x}deg)`;
-
-        },
-        {
-            passive:true
-        }
-    );
-
-}
-
-
-/* ================= YEAR ================= */
-
-const yearElements =
-    document.querySelectorAll(
-        "[data-year]"
-    );
-
-yearElements.forEach(
-    (element) => {
-
-        element.textContent =
-            new Date().getFullYear();
-
-    }
-);
-
-</script>
-
-</body>
-</html>oratory</h3>
-                <p>
-                    Researching emerging technologies and
-                    exploring new possibilities that could shape
-                    the next generation of products and systems.
-                </p>
-            </div>
+            CIRDRIO SYSTEMS ONLINE
 
         </div>
 
-    </div>
+        <h1>
 
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-
-    <div class="container">
-
-        <div class="reveal">
-
-            <div class="label">
-                Our Approach
-            </div>
-
-            <h2 class="section-title">
-                From idea to reality.
-            </h2>
-
-            <p class="section-text">
-                A focused process that turns complex ideas into
-                clear, useful and scalable technology.
-            </p>
-
-        </div>
-
-        <div class="process">
-
-            <div class="process-item reveal">
-                <div class="number">01</div>
-                <h3>Understand</h3>
-                <p>
-                    Understand the problem, users, goals and
-                    opportunities before building anything.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">02</div>
-                <h3>Design</h3>
-                <p>
-                    Define the right product experience,
-                    architecture and technical direction.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">03</div>
-                <h3>Build</h3>
-                <p>
-                    Turn the concept into reliable technology
-                    with attention to quality and performance.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">04</div>
-                <h3>Evolve</h3>
-                <p>
-                    Learn from real usage, improve continuously
-                    and prepare the product for what comes next.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- VISION -->
-<section id="vision">
-
-    <div class="container">
-
-        <div class="vision reveal">
-
-            <div class="label">
-                Our Vision
-            </div>
-
-            <h2>
-                Build technology
-                that matters.
-            </h2>
-
-            <p>
-                We believe the best technology is not created
-                simply because it can be built. It is created
-                because it can make something better.
-                CIRDRIO aims to build products and systems that
-                are useful today while remaining ready for
-                tomorrow.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- TEAM -->
-<section>
-
-    <div class="container">
-
-        <div class="reveal">
-
-            <div class="label">
-                What Drives Us
-            </div>
-
-            <h2 class="section-title">
-                Built with curiosity.
-            </h2>
-
-            <p class="section-text">
-                CIRDRIO is driven by people who enjoy solving
-                difficult problems, learning continuously and
-                building things that did not exist before.
-            </p>
-
-        </div>
-
-        <div class="team">
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">◉</div>
-
-                <h3>Curiosity</h3>
-
-                <p>
-                    We question how things work and constantly
-                    explore better possibilities.
-                </p>
-
-            </div>
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">✧</div>
-
-                <h3>Precision</h3>
-
-                <p>
-                    We care about the details that make products
-                    reliable, useful and enjoyable.
-                </p>
-
-            </div>
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">∞</div>
-
-                <h3>Long-Term Thinking</h3>
-
-                <p>
-                    We build with the future in mind, creating
-                    foundations that can grow and evolve.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-
-    <div class="container">
-
-        <div class="contact-box contact reveal">
-
-            <div class="label">
-                Let's Build
-            </div>
-
-            <h2>
-                Have an idea?
-            </h2>
-
-            <p>
-                Whether you are exploring a product idea,
-                looking for technical collaboration or simply
-                want to start a conversation, reach out to us.
-            </p>
-
-            <div class="buttons contact-buttons">
-
-                <a
-                    href="mailto:cirdrio.dm@gmail.com"
-                    class="btn btn-primary"
-                >
-                    cirdrio.dm@gmail.com →
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-
-    <div class="footer">
-
-        <div class="footer-brand">
-
-            <img
-                src="cirdrio-logo-transparent.png"
-                alt="CIRDRIO Logo"
-                class="footer-logo"
-            >
-
-            <span class="footer-name">
-                CIRDRIO
+            <span class="line">
+                Engineer
             </span>
 
-        </div>
+            <span class="line accent">
+                What's Next.
+            </span>
 
-        <div class="footer-copy">
-            © 2026 CIRDRIO. Build What's Next.
-        </div>
+        </h1>
 
-        <a
-            href="mailto:cirdrio.dm@gmail.com"
-            class="footer-email"
-        >
-            cirdrio.dm@gmail.com
-        </a>
+        <p class="hero-description">
+
+            CIRDRIO is a technology company focused on
+            intelligent products, digital infrastructure
+            and ambitious systems engineered to move ideas
+            from concept to reality.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#capabilities"
+                class="btn btn-primary"
+            >
+                Explore the System
+                <span>→</span>
+            </a>
+
+            <a
+                href="mailto:cirdrio.dm@gmail.com"
+                class="btn btn-secondary"
+            >
+                Start a Conversation
+                <span>↗</span>
+            </a>
+
+        </div>
 
     </div>
 
-</footer>
+    <div class="hero-system">
 
-<script>
+        <div class="orbit one"></div>
 
-/* ================= SCROLL REVEAL ================= */
+        <div class="orbit two"></div>
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+        <div class="orbit three"></div>
 
-const observer =
-    new IntersectionObserver(
-        (entries) => {
+        <div class="energy-core"></div>
 
-            entries.forEach((entry) => {
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
 
-                if(entry.isIntersecting){
+    </div>
 
-                    entry.target.classList.add("show");
+    <div class="scroll-indicator">
 
-                    observer.unobserve(entry.target);
+        <span class="scroll-line"></span>
 
-                }
+        Scroll to explore
 
-            });
+    </div>
 
-        },
-        {
-            threshold:0.12
-        }
-    );
-
-revealElements.forEach((element) => {
-
-    observer.observe(element);
-
-});
-
-/* ================= MOUSE PARALLAX ================= */
-
-const visual =
-    document.querySelector(".visual");
-
-if(
-    visual &&
-    window.matchMedia("(pointer:fine)").matches
-){
-
-    document.addEventListener("mousemove",(event)=>{
-
-        const x =
-            (event.clientX / window.innerWidth - 0.5) * 18;
-
-        const y =
-            (event.clientY / window.innerHeight - 0.5) * 18;
-
-        visual.style.transform =
-            `translateY(-50%) translate(${x}px,${y}px)`;
-
-    });
-
-}
-
-</script>
-
-</body>
-</html>
+</header>
