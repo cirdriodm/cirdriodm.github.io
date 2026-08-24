@@ -4,2604 +4,1140 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CIRDRIO — Engineering What's Next</title>
+<title>CIRDRIO — Build What's Next</title>
 
-<meta name="description"
-content="CIRDRIO is an independent technology company building intelligent systems, digital products and next-generation experiences.">
-
-<meta name="theme-color" content="#05060a">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="CIRDRIO — Technology, innovation and ambitious ideas built for the future.">
+<meta name="theme-color" content="#050507">
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root{
-    --bg:#05060a;
-    --bg-soft:#090b12;
-    --white:#f7f8ff;
-    --text:#a2a8ba;
-    --muted:#686f83;
-    --line:rgba(255,255,255,.09);
+  --bg:#050507;
+  --panel:#0b0c10;
+  --panel2:#101116;
+  --white:#f7f7f9;
+  --muted:#8d919d;
+  --line:rgba(255,255,255,.09);
+  --purple:#9b6cff;
+  --purple2:#5d35d8;
+  --blue:#4b8cff;
+  --max:1200px;
+}
 
-    --blue:#6578ff;
-    --blue-light:#91a0ff;
-    --cyan:#38d9ff;
-    --purple:#8a5cff;
-
-    --glass:rgba(255,255,255,.035);
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:Inter,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--white);
-    overflow-x:hidden;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(125,70,255,.18),transparent 32%),
+    radial-gradient(circle at 90% 35%,rgba(70,120,255,.08),transparent 25%),
+    var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
 }
 
 a{
-    color:inherit;
-}
-
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
-
-/* =========================================================
-   GLOBAL BACKGROUND
-========================================================= */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-20;
-    overflow:hidden;
-    background:
-        radial-gradient(
-            circle at 12% 18%,
-            rgba(74,91,255,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 87% 25%,
-            rgba(25,190,255,.10),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 50% 92%,
-            rgba(111,58,255,.13),
-            transparent 35%
-        ),
-        #05060a;
-}
-
-.background::before{
-    content:"";
-    position:absolute;
-    inset:-20%;
-    background:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-    background-size:65px 65px;
-    transform:
-        perspective(800px)
-        rotateX(62deg)
-        scale(1.7);
-    transform-origin:center bottom;
-    opacity:.45;
-}
-
-.background::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        radial-gradient(
-            ellipse at center,
-            transparent 35%,
-            rgba(0,0,0,.48) 100%
-        );
-    pointer-events:none;
-}
-
-.orb{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(90px);
-    pointer-events:none;
-    opacity:.22;
-    animation:orbFloat 11s ease-in-out infinite;
-}
-
-.orb-a{
-    width:360px;
-    height:360px;
-    left:-180px;
-    top:12%;
-    background:#465cff;
-}
-
-.orb-b{
-    width:330px;
-    height:330px;
-    right:-170px;
-    top:38%;
-    background:#713dff;
-    animation-delay:-4s;
-}
-
-.orb-c{
-    width:260px;
-    height:260px;
-    left:42%;
-    bottom:-160px;
-    background:#00baff;
-    animation-delay:-7s;
-}
-
-@keyframes orbFloat{
-
-    0%,100%{
-        transform:translate3d(0,0,0);
-    }
-
-    50%{
-        transform:translate3d(0,-38px,0);
-    }
-}
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:1000;
-    padding:18px 4.5%;
-}
-
-.nav-shell{
-    max-width:1220px;
-    margin:auto;
-    padding:9px 12px 9px 16px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    border:1px solid var(--line);
-    border-radius:18px;
-
-    background:rgba(5,6,12,.68);
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
-
-    box-shadow:
-        0 18px 60px rgba(0,0,0,.22),
-        inset 0 1px rgba(255,255,255,.035);
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    text-decoration:none;
-}
-
-.brand-logo{
-    width:38px;
-    height:38px;
-    object-fit:contain;
-    border-radius:10px;
-}
-
-.brand-name{
-    font-family:Manrope,Arial,sans-serif;
-    font-size:14px;
-    font-weight:800;
-    letter-spacing:2.5px;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:27px;
-}
-
-.nav-links a{
-    position:relative;
-    color:#858b9e;
-    text-decoration:none;
-    font-size:11px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.nav-links a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-7px;
-    width:0;
-    height:1px;
-    background:var(--blue-light);
-    transition:.3s;
-}
-
-.nav-links a:hover{
-    color:#fff;
-}
-
-.nav-links a:hover::after{
-    width:100%;
-}
-
-.nav-cta{
-    padding:11px 17px;
-    border-radius:10px;
-    text-decoration:none;
-    font-size:11px;
-    font-weight:700;
-    background:
-        linear-gradient(
-            135deg,
-            #7385ff,
-            #3c4be8
-        );
-    box-shadow:
-        0 10px 25px rgba(64,80,240,.25);
-    transition:.3s;
-}
-
-.nav-cta:hover{
-    transform:translateY(-2px);
-    box-shadow:
-        0 15px 35px rgba(64,80,240,.38);
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-    min-height:100vh;
-    position:relative;
-
-    display:flex;
-    align-items:center;
-
-    padding:155px 7% 100px;
-}
-
-.hero-inner{
-    width:100%;
-    max-width:1200px;
-    margin:auto;
-    position:relative;
-}
-
-.hero-content{
-    max-width:790px;
-    position:relative;
-    z-index:5;
-}
-
-.eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-
-    padding:8px 13px;
-
-    border:1px solid rgba(106,125,255,.25);
-    border-radius:100px;
-
-    background:rgba(70,85,255,.07);
-
-    color:#aab4ff;
-
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:1.4px;
-    text-transform:uppercase;
-}
-
-.live-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#55ffb2;
-
-    box-shadow:
-        0 0 8px #55ffb2,
-        0 0 18px rgba(85,255,178,.5);
-
-    animation:pulseDot 2s ease-in-out infinite;
-}
-
-@keyframes pulseDot{
-
-    0%,100%{
-        transform:scale(1);
-        opacity:1;
-    }
-
-    50%{
-        transform:scale(.65);
-        opacity:.55;
-    }
-}
-
-.hero h1{
-    margin-top:28px;
-
-    font-family:Manrope,Arial,sans-serif;
-    font-size:clamp(58px,9vw,112px);
-    font-weight:800;
-
-    line-height:.91;
-    letter-spacing:-7px;
-}
-
-.hero h1 .line{
-    display:block;
-}
-
-.gradient-text{
-    background:
-        linear-gradient(
-            105deg,
-            #ffffff 5%,
-            #cbd1ff 35%,
-            #667bff 58%,
-            #ffffff 90%
-        );
-
-    background-size:240% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-
-    animation:textShine 7s linear infinite;
-}
-
-@keyframes textShine{
-
-    to{
-        background-position:240% center;
-    }
-}
-
-.hero-description{
-    max-width:650px;
-    margin-top:30px;
-
-    color:#9298aa;
-    font-size:15px;
-    line-height:1.9;
-}
-
-.hero-description strong{
-    color:#dce0f0;
-    font-weight:600;
-}
-
-.hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:36px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-
-    min-height:48px;
-    padding:0 20px;
-
-    border-radius:12px;
-    text-decoration:none;
-
-    font-size:11px;
-    font-weight:700;
-
-    transition:.35s;
-}
-
-.btn-primary{
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7285ff,
-            #3d4de9
-        );
-
-    box-shadow:
-        0 14px 35px rgba(58,74,235,.28);
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px);
-    box-shadow:
-        0 20px 45px rgba(58,74,235,.42);
-}
-
-.btn-secondary{
-    color:#dfe2ed;
-
-    border:1px solid rgba(255,255,255,.10);
-
-    background:
-        rgba(255,255,255,.035);
-}
-
-.btn-secondary:hover{
-    transform:translateY(-4px);
-    background:
-        rgba(255,255,255,.07);
-    border-color:
-        rgba(255,255,255,.16);
-}
-
-/* =========================================================
-   HERO 3D SYSTEM
-========================================================= */
-
-.hero-visual{
-    position:absolute;
-
-    width:540px;
-    height:540px;
-
-    right:-30px;
-    top:50%;
-
-    transform:translateY(-50%);
-
-    pointer-events:none;
-
-    perspective:900px;
-}
-
-.energy{
-    position:absolute;
-    inset:50px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(85,105,255,.16),
-            transparent 62%
-        );
-
-    filter:blur(10px);
-    animation:energyPulse 5s ease-in-out infinite;
-}
-
-@keyframes energyPulse{
-
-    0%,100%{
-        transform:scale(.94);
-        opacity:.7;
-    }
-
-    50%{
-        transform:scale(1.08);
-        opacity:1;
-    }
-}
-
-.core-system{
-    position:absolute;
-
-    width:185px;
-    height:185px;
-
-    left:177px;
-    top:177px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 28% 22%,
-            #f1f3ff 0%,
-            #a9b5ff 10%,
-            #5d70ff 28%,
-            #2638d9 48%,
-            #0a0d25 73%,
-            #03040b 100%
-        );
-
-    box-shadow:
-        0 0 35px rgba(83,103,255,.5),
-        0 0 100px rgba(70,90,255,.25),
-        inset -30px -35px 45px rgba(0,0,0,.68);
-
-    animation:coreMotion 6s ease-in-out infinite;
-}
-
-@keyframes coreMotion{
-
-    0%,100%{
-        transform:translateY(0) rotate(0deg);
-    }
-
-    50%{
-        transform:translateY(-13px) rotate(2deg);
-    }
-}
-
-.core-system::before{
-    content:"";
-
-    position:absolute;
-    inset:20px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,.20);
-
-    box-shadow:
-        inset 0 0 25px rgba(105,125,255,.4);
-}
-
-.core-system::after{
-    content:"";
-
-    position:absolute;
-
-    width:20px;
-    height:20px;
-
-    top:34px;
-    left:42px;
-
-    border-radius:50%;
-
-    background:#fff;
-
-    filter:blur(7px);
-    opacity:.7;
-}
-
-.orbit{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    border:1px solid rgba(105,125,255,.34);
-
-    border-radius:50%;
-
-    transform-style:preserve-3d;
-}
-
-.orbit-a{
-    width:390px;
-    height:130px;
-
-    margin-left:-195px;
-    margin-top:-65px;
-
-    transform:
-        rotateX(68deg)
-        rotateZ(-18deg);
-
-    animation:orbitA 13s linear infinite;
-}
-
-.orbit-b{
-    width:440px;
-    height:155px;
-
-    margin-left:-220px;
-    margin-top:-77px;
-
-    border-color:rgba(52,210,255,.22);
-
-    transform:
-        rotateX(71deg)
-        rotateZ(43deg);
-
-    animation:orbitB 17s linear infinite;
-}
-
-.orbit-c{
-    width:300px;
-    height:300px;
-
-    margin-left:-150px;
-    margin-top:-150px;
-
-    border-color:rgba(118,100,255,.22);
-
-    animation:orbitC 20s linear infinite;
-}
-
-@keyframes orbitA{
-
-    to{
-        transform:
-            rotateX(68deg)
-            rotateZ(342deg);
-    }
-}
-
-@keyframes orbitB{
-
-    to{
-        transform:
-            rotateX(71deg)
-            rotateZ(-317deg);
-    }
-}
-
-@keyframes orbitC{
-
-    to{
-        transform:rotateZ(360deg);
-    }
-}
-
-.particle{
-    position:absolute;
-
-    width:4px;
-    height:4px;
-
-    border-radius:50%;
-
-    background:#8ea0ff;
-
-    box-shadow:
-        0 0 10px #7185ff;
-
-    animation:particleFloat 5s ease-in-out infinite;
-}
-
-.p1{
-    left:20%;
-    top:25%;
-}
-
-.p2{
-    right:14%;
-    top:28%;
-    animation-delay:-2s;
-}
-
-.p3{
-    left:28%;
-    bottom:20%;
-    animation-delay:-3.5s;
-}
-
-@keyframes particleFloat{
-
-    0%,100%{
-        transform:translateY(0);
-        opacity:.35;
-    }
-
-    50%{
-        transform:translateY(-22px);
-        opacity:1;
-    }
-}
-
-/* =========================================================
-   SCROLL INDICATOR
-========================================================= */
-
-.scroll-indicator{
-    position:absolute;
-
-    bottom:35px;
-    left:7%;
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    color:#62697a;
-
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-.scroll-line{
-    width:38px;
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #6478ff,
-            transparent
-        );
-}
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
-section{
-    padding:120px 7%;
+  color:inherit;
+  text-decoration:none;
 }
 
 .container{
-    width:100%;
-    max-width:1150px;
-    margin:auto;
+  width:min(92%,var(--max));
+  margin:auto;
+}
+
+/* ================= NAV ================= */
+
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  background:rgba(5,5,7,.62);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-mark{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  position:relative;
+  transform:rotate(45deg);
+  background:
+    linear-gradient(145deg,#ffffff 0%,#b68cff 38%,#6b3cf0 75%,#26105e 100%);
+  box-shadow:
+    0 0 25px rgba(139,92,246,.35),
+    inset -4px -5px 8px rgba(0,0,0,.35);
+}
+
+.brand-mark:after{
+  content:"";
+  position:absolute;
+  width:12px;
+  height:12px;
+  border-radius:3px;
+  background:#08070b;
+  top:11px;
+  left:11px;
+}
+
+.brand-name{
+  font-family:"Space Grotesk",sans-serif;
+  font-size:22px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.brand-name span{
+  color:#a678ff;
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.nav-links a{
+  color:#a8acb8;
+  font-size:13px;
+  transition:.25s;
+}
+
+.nav-links a:hover{
+  color:white;
+}
+
+.nav-cta{
+  padding:10px 17px;
+  border:1px solid var(--line);
+  border-radius:50px;
+  background:rgba(255,255,255,.05);
+  color:white!important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  padding:130px 0 80px;
+  overflow:hidden;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+  border-radius:50px;
+  color:#b8bbc6;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.live-dot{
+  width:6px;
+  height:6px;
+  background:#6dffa6;
+  border-radius:50%;
+  box-shadow:0 0 12px #6dffa6;
+}
+
+.hero h1{
+  font-family:"Space Grotesk",sans-serif;
+  font-size:clamp(55px,8vw,100px);
+  line-height:.92;
+  letter-spacing:-6px;
+}
+
+.hero h1 .light{
+  color:#858895;
+}
+
+.gradient{
+  background:linear-gradient(100deg,#fff 5%,#d0b5ff 48%,#8257ff 90%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero-text{
+  max-width:610px;
+  color:var(--muted);
+  margin-top:28px;
+  font-size:17px;
+  line-height:1.8;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:13px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 22px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:#fff;
+  color:#08080b;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 45px rgba(255,255,255,.13);
+}
+
+.btn-outline{
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.035);
+}
+
+.btn-outline:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* ================= 3D OBJECT ================= */
+
+.scene{
+  height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective:1100px;
+}
+
+.cube-wrap{
+  width:300px;
+  height:300px;
+  position:relative;
+  transform-style:preserve-3d;
+  animation:float 6s ease-in-out infinite;
+}
+
+.cube{
+  width:180px;
+  height:180px;
+  position:absolute;
+  top:60px;
+  left:60px;
+  transform-style:preserve-3d;
+  animation:rotateCube 18s linear infinite;
+}
+
+.face{
+  position:absolute;
+  width:180px;
+  height:180px;
+  border:1px solid rgba(205,177,255,.28);
+  background:
+    linear-gradient(145deg,
+      rgba(255,255,255,.16),
+      rgba(126,82,255,.10) 45%,
+      rgba(20,12,42,.72));
+  box-shadow:
+    inset 0 0 35px rgba(155,108,255,.08),
+    0 0 35px rgba(109,63,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  backface-visibility:visible;
+}
+
+.front{
+  transform:translateZ(90px);
+}
+
+.back{
+  transform:rotateY(180deg) translateZ(90px);
+}
+
+.right{
+  transform:rotateY(90deg) translateZ(90px);
+}
+
+.left{
+  transform:rotateY(-90deg) translateZ(90px);
+}
+
+.top{
+  transform:rotateX(90deg) translateZ(90px);
+}
+
+.bottom{
+  transform:rotateX(-90deg) translateZ(90px);
+}
+
+.face-logo{
+  font-family:"Space Grotesk";
+  font-weight:700;
+  font-size:25px;
+  letter-spacing:2px;
+  text-shadow:0 0 25px rgba(190,150,255,.5);
+}
+
+.ring{
+  position:absolute;
+  width:360px;
+  height:360px;
+  border:1px solid rgba(155,108,255,.18);
+  border-radius:50%;
+  transform:rotateX(70deg) rotateZ(10deg);
+  box-shadow:
+    0 0 60px rgba(124,70,255,.08);
+}
+
+.ring2{
+  position:absolute;
+  width:430px;
+  height:430px;
+  border:1px solid rgba(91,124,255,.09);
+  border-radius:50%;
+  transform:rotateY(65deg) rotateX(65deg);
+}
+
+.orb{
+  position:absolute;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  background:#c7a9ff;
+  box-shadow:
+    0 0 18px #9b6cff,
+    0 0 45px rgba(155,108,255,.8);
+}
+
+.orb1{
+  top:50px;
+  right:15px;
+}
+
+.orb2{
+  bottom:55px;
+  left:20px;
+}
+
+@keyframes rotateCube{
+  0%{
+    transform:rotateX(-12deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100%{
+    transform:rotateX(348deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0) rotateZ(0);
+  }
+  50%{
+    transform:translateY(-18px) rotateZ(1deg);
+  }
+}
+
+/* ================= TRUST BAR ================= */
+
+.trust{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.015);
+}
+
+.trust-inner{
+  min-height:100px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.trust-item{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px 25px;
+  border-right:1px solid var(--line);
+}
+
+.trust-item:last-child{
+  border-right:0;
+}
+
+.trust-item strong{
+  font-family:"Space Grotesk";
+  font-size:26px;
+}
+
+.trust-item span{
+  color:#777c89;
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:120px 0;
 }
 
 .section-label{
-    color:#7182ff;
-
-    font-size:10px;
-    font-weight:800;
-
-    letter-spacing:3px;
-    text-transform:uppercase;
+  color:#a678ff;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:15px;
 }
 
 .section-title{
-    max-width:850px;
-
-    margin-top:14px;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:clamp(38px,5.2vw,62px);
-    font-weight:800;
-
-    line-height:.98;
-    letter-spacing:-4px;
+  font-family:"Space Grotesk";
+  font-size:clamp(38px,5vw,62px);
+  letter-spacing:-3px;
+  line-height:1;
 }
 
-.section-description{
-    max-width:680px;
-
-    margin-top:20px;
-
-    color:#8d93a5;
-
-    font-size:14px;
-    line-height:1.9;
+.section-sub{
+  max-width:650px;
+  color:var(--muted);
+  margin-top:20px;
+  font-size:16px;
 }
 
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ================= CARDS ================= */
 
-.about-grid{
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        minmax(0,1fr);
-
-    gap:80px;
-
-    align-items:center;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:50px;
 }
 
-.about-copy p{
-    max-width:600px;
-
-    margin-top:22px;
-
-    color:#9298a9;
-
-    font-size:14px;
-    line-height:2;
+.card{
+  padding:32px;
+  min-height:270px;
+  border-radius:20px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(145deg,
+      rgba(255,255,255,.045),
+      rgba(255,255,255,.012));
+  transition:.35s;
 }
 
-.about-copy p strong{
-    color:#d9ddec;
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(166,120,255,.3);
+  box-shadow:0 25px 70px rgba(0,0,0,.3);
 }
 
-.about-visual{
-    min-height:390px;
-
-    position:relative;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-    border-radius:30px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(78,99,255,.18),
-            transparent 48%
-        ),
-        rgba(255,255,255,.025);
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.04);
+.card-icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  font-size:20px;
+  margin-bottom:55px;
 }
 
-.about-visual::before{
-    content:"";
-
-    position:absolute;
-
-    width:260px;
-    height:260px;
-
-    border:1px solid rgba(101,123,255,.22);
-
-    border-radius:50%;
-
-    animation:orbitC 18s linear infinite;
+.card h3{
+  font-family:"Space Grotesk";
+  font-size:22px;
+  margin-bottom:10px;
 }
 
-.about-visual::after{
-    content:"CIRDRIO";
-
-    position:absolute;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:35px;
-    font-weight:800;
-
-    letter-spacing:8px;
-
-    color:rgba(255,255,255,.055);
+.card p{
+  color:var(--muted);
+  font-size:13px;
 }
 
-.about-core{
-    width:105px;
-    height:105px;
-
-    border-radius:50%;
-
-    position:relative;
-    z-index:3;
-
-    background:
-        radial-gradient(
-            circle at 28% 23%,
-            #e9edff,
-            #697cff 25%,
-            #18225f 68%,
-            #060814 100%
-        );
-
-    box-shadow:
-        0 0 60px rgba(80,105,255,.45);
-}/* =========================================================
-   CAPABILITIES
-========================================================= */
-
-.capabilities-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:17px;
-
-    margin-top:58px;
-}
-
-.capability-card{
-    min-height:300px;
-
-    position:relative;
-
-    padding:30px;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
-        );
-
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-
-    transition:
-        transform .4s ease,
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
-
-.capability-card::before{
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-    height:170px;
-
-    right:-90px;
-    top:-90px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(95,115,255,.20),
-            transparent 68%
-        );
-
-    transition:.5s;
-}
-
-.capability-card:hover{
-    transform:translateY(-9px);
-
-    border-color:
-        rgba(105,125,255,.32);
-
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.32);
-}
-
-.capability-card:hover::before{
-    transform:scale(1.5);
-}
-
-.capability-number{
-    color:#5869dc;
-
-    font-size:10px;
-    font-weight:800;
-
-    letter-spacing:2px;
-}
-
-.capability-icon{
-    width:54px;
-    height:54px;
-
-    margin-top:23px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:15px;
-
-    font-size:22px;
-
-    color:#aab5ff;
-
-    border:1px solid
-        rgba(105,125,255,.18);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(88,108,255,.20),
-            rgba(255,255,255,.025)
-        );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.06);
-}
-
-.capability-card h3{
-    margin-top:24px;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:19px;
-    font-weight:700;
-
-    letter-spacing:-.4px;
-}
-
-.capability-card p{
-    margin-top:12px;
-
-    color:#858b9e;
-
-    font-size:12px;
-    line-height:1.85;
-}
-
-/* =========================================================
-   SYSTEM ARCHITECTURE
-========================================================= */
-
-.system-section{
-    position:relative;
-}
-
-.system-panel{
-    position:relative;
-
-    min-height:560px;
-
-    margin-top:58px;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-    border-radius:30px;
-
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(76,96,255,.13),
-            transparent 38%
-        ),
-        rgba(255,255,255,.02);
-}
-
-.system-panel::before{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
-    background-size:55px 55px;
-
-    opacity:.5;
-}
-
-.system-center{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:145px;
-    height:145px;
-
-    margin-left:-72.5px;
-    margin-top:-72.5px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #edf0ff,
-            #7084ff 25%,
-            #2639d6 53%,
-            #080a19 78%
-        );
-
-    box-shadow:
-        0 0 50px rgba(82,103,255,.45),
-        0 0 130px rgba(65,84,255,.20),
-        inset -20px -25px 35px rgba(0,0,0,.65);
-
-    z-index:5;
-
-    animation:centerFloat 5s ease-in-out infinite;
-}
-
-@keyframes centerFloat{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-10px);
-    }
-}
-
-.system-center span{
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:13px;
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    color:#fff;
-}
-
-.system-ring{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    border-radius:50%;
-
-    border:1px solid
-        rgba(103,123,255,.20);
-
-    transform:translate(-50%,-50%);
-}
-
-.system-ring.r1{
-    width:270px;
-    height:270px;
-
-    animation:systemRotate 18s linear infinite;
-}
-
-.system-ring.r2{
-    width:410px;
-    height:410px;
-
-    border-color:
-        rgba(49,203,255,.13);
-
-    animation:
-        systemRotateReverse
-        25s linear infinite;
-}
-
-.system-ring.r3{
-    width:520px;
-    height:520px;
-
-    border-color:
-        rgba(132,91,255,.11);
-
-    animation:systemRotate 32s linear infinite;
-}
-
-@keyframes systemRotate{
-
-    to{
-        transform:
-            translate(-50%,-50%)
-            rotate(360deg);
-    }
-}
-
-@keyframes systemRotateReverse{
-
-    to{
-        transform:
-            translate(-50%,-50%)
-            rotate(-360deg);
-    }
-}
-
-.system-node{
-    position:absolute;
-
-    width:155px;
-
-    padding:18px;
-
-    border:1px solid
-        rgba(255,255,255,.09);
-
-    border-radius:17px;
-
-    background:
-        rgba(7,9,17,.72);
-
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.25);
-
-    z-index:8;
-
-    transition:.35s;
-}
-
-.system-node:hover{
-    transform:translateY(-5px);
-
-    border-color:
-        rgba(105,125,255,.30);
-}
-
-.node-top{
-    display:flex;
-    align-items:center;
-    gap:9px;
-}
-
-.node-dot{
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:#687dff;
-
-    box-shadow:
-        0 0 10px rgba(104,125,255,.7);
-}
-
-.system-node h4{
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:12px;
-    font-weight:700;
-}
-
-.system-node p{
-    margin-top:8px;
-
-    color:#70778b;
-
-    font-size:9px;
-    line-height:1.6;
-}
-
-.node-one{
-    left:8%;
-    top:21%;
-}
-
-.node-two{
-    right:8%;
-    top:21%;
-}
-
-.node-three{
-    left:7%;
-    bottom:19%;
-}
-
-.node-four{
-    right:7%;
-    bottom:19%;
-}
-
-.connection{
-    position:absolute;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(100,122,255,.42),
-            transparent
-        );
-
-    transform-origin:left center;
-
-    z-index:2;
-}
-
-.connection.one{
-    width:230px;
-
-    left:22%;
-    top:36%;
-
-    transform:rotate(18deg);
-}
-
-.connection.two{
-    width:230px;
-
-    right:22%;
-    top:36%;
-
-    transform:rotate(162deg);
-}
-
-.connection.three{
-    width:240px;
-
-    left:22%;
-    bottom:35%;
-
-    transform:rotate(-18deg);
-}
-
-.connection.four{
-    width:240px;
-
-    right:22%;
-    bottom:35%;
-
-    transform:rotate(198deg);
-}
-
-/* =========================================================
-   PROCESS
-========================================================= */
-
-.process-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:14px;
-
-    margin-top:58px;
-}
-
-.process-card{
-    position:relative;
-
-    padding:28px 25px;
-
-    border-top:1px solid
-        rgba(255,255,255,.12);
-
-    transition:.35s;
-}
-
-.process-card:hover{
-    transform:translateY(-7px);
-
-    border-top-color:#7183ff;
-}
-
-.process-index{
-    color:#6477ff;
-
-    font-size:11px;
-    font-weight:800;
-
-    letter-spacing:2px;
-}
-
-.process-card h3{
-    margin-top:42px;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:17px;
-    font-weight:700;
-}
-
-.process-card p{
-    margin-top:11px;
-
-    color:#7f8698;
-
-    font-size:11px;
-    line-height:1.8;
-}
-
-/* =========================================================
-   VISION
-========================================================= */
-
-.vision-wrap{
-    position:relative;
-}
+/* ================= VISION ================= */
 
 .vision-box{
-    position:relative;
-
-    padding:85px 60px;
-
-    overflow:hidden;
-
-    border:1px solid
-        rgba(103,123,255,.16);
-
-    border-radius:32px;
-
-    background:
-        radial-gradient(
-            circle at 15% 0%,
-            rgba(78,100,255,.20),
-            transparent 42%
-        ),
-        radial-gradient(
-            circle at 90% 100%,
-            rgba(0,180,255,.07),
-            transparent 35%
-        ),
-        rgba(255,255,255,.025);
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.30);
+  margin-top:50px;
+  min-height:470px;
+  border:1px solid rgba(166,120,255,.2);
+  border-radius:28px;
+  padding:60px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 75% 35%,rgba(124,70,255,.16),transparent 28%),
+    linear-gradient(135deg,#101018,#090a0f);
 }
 
-.vision-box::before{
-    content:"";
-
-    position:absolute;
-
-    width:330px;
-    height:330px;
-
-    right:-160px;
-    top:-170px;
-
-    border-radius:50%;
-
-    border:1px solid
-        rgba(110,130,255,.13);
-
-    box-shadow:
-        0 0 0 50px
-        rgba(100,120,255,.025),
-        0 0 0 100px
-        rgba(100,120,255,.015);
+.vision-box:after{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-80px;
+  bottom:-100px;
+  border-radius:50%;
+  border:1px solid rgba(166,120,255,.18);
+  box-shadow:0 0 80px rgba(124,70,255,.12);
 }
 
-.vision-title{
-    max-width:850px;
-
-    margin-top:15px;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:clamp(38px,6vw,70px);
-
-    line-height:.96;
-
-    letter-spacing:-5px;
+.vision-box h2{
+  max-width:800px;
+  font-family:"Space Grotesk";
+  font-size:clamp(42px,6vw,75px);
+  letter-spacing:-4px;
+  line-height:1;
 }
 
-.vision-title span{
-    color:#7284ff;
+.vision-box p{
+  max-width:600px;
+  color:var(--muted);
+  margin:25px 0 30px;
 }
 
-.vision-text{
-    max-width:680px;
+/* ================= TEAM ================= */
 
-    margin-top:24px;
-
-    color:#8c93a5;
-
-    font-size:14px;
-    line-height:1.9;
+.team-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:50px;
 }
 
-/* =========================================================
-   PRINCIPLES
-========================================================= */
-
-.principles{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:17px;
-
-    margin-top:50px;
+.team-card{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:27px;
+  background:#0b0d12;
+  transition:.3s;
 }
 
-.principle{
-    padding:28px;
-
-    border:1px solid var(--line);
-
-    border-radius:20px;
-
-    background:
-        rgba(255,255,255,.025);
+.team-card:hover{
+  border-color:rgba(166,120,255,.3);
 }
 
-.principle-symbol{
-    font-size:22px;
-
-    color:#7789ff;
+.team-card span{
+  color:#a678ff;
+  font-size:11px;
+  letter-spacing:1px;
 }
 
-.principle h3{
-    margin-top:20px;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:17px;
+.team-card h3{
+  font-family:"Space Grotesk";
+  margin:10px 0;
 }
 
-.principle p{
-    margin-top:10px;
-
-    color:#7f8698;
-
-    font-size:11px;
-    line-height:1.8;
+.team-card p{
+  color:var(--muted);
+  font-size:13px;
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* ================= CTA ================= */
 
-.contact-section{
-    text-align:center;
+.cta{
+  text-align:center;
 }
 
-.contact-box{
-    position:relative;
-
-    padding:90px 25px;
-
-    overflow:hidden;
-
-    border:1px solid
-        rgba(105,125,255,.18);
-
-    border-radius:32px;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(76,98,255,.23),
-            transparent 55%
-        ),
-        rgba(255,255,255,.025);
-
-    box-shadow:
-        0 40px 110px rgba(0,0,0,.35);
+.cta-box{
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:80px 25px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(139,92,246,.16),transparent 35%),
+    #0b0c11;
 }
 
-.contact-box::before{
-    content:"";
-
-    position:absolute;
-
-    width:400px;
-    height:400px;
-
-    left:50%;
-    top:-330px;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    border:1px solid
-        rgba(105,125,255,.12);
-
-    box-shadow:
-        0 0 0 50px rgba(105,125,255,.025),
-        0 0 0 100px rgba(105,125,255,.015);
+.cta h2{
+  font-family:"Space Grotesk";
+  font-size:clamp(40px,6vw,70px);
+  line-height:1;
+  letter-spacing:-4px;
 }
 
-.contact-title{
-    position:relative;
-
-    margin-top:14px;
-
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:clamp(40px,6vw,72px);
-
-    line-height:.95;
-
-    letter-spacing:-5px;
+.cta p{
+  max-width:580px;
+  margin:20px auto 30px;
+  color:var(--muted);
 }
 
-.contact-description{
-    position:relative;
-
-    max-width:620px;
-
-    margin:21px auto 0;
-
-    color:#8d93a5;
-
-    font-size:14px;
-    line-height:1.9;
-}
-
-.contact-actions{
-    position:relative;
-
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:32px;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid
-        rgba(255,255,255,.07);
-
-    padding:38px 7%;
+  border-top:1px solid var(--line);
+  padding:35px 0;
+  color:#6f7481;
+  font-size:12px;
 }
 
 .footer-inner{
-    max-width:1150px;
-
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
 .footer-brand{
-    display:flex;
-    align-items:center;
-    gap:9px;
+  font-family:"Space Grotesk";
+  color:white;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
-.footer-logo{
-    width:30px;
-    height:30px;
-    object-fit:contain;
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+  .container{
+    width:92%;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero{
+    padding-top:115px;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:clamp(54px,15vw,78px);
+    letter-spacing:-4px;
+  }
+
+  .hero-text{
+    font-size:15px;
+  }
+
+  .scene{
+    height:370px;
+  }
+
+  .cube-wrap{
+    transform:scale(.78);
+  }
+
+  .trust-inner{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .trust-item:nth-child(2){
+    border-right:0;
+  }
+
+  .cards,
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:85px 0;
+  }
+
+  .vision-box{
+    padding:40px 25px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 }
-
-.footer-name{
-    font-family:Manrope,Arial,sans-serif;
-
-    font-size:11px;
-    font-weight:800;
-
-    letter-spacing:2px;
-}
-
-.footer-copy{
-    color:#555c6d;
-
-    font-size:10px;
-}
-
-.footer-mail{
-    color:#737a8c;
-
-    text-decoration:none;
-
-    font-size:10px;
-
-    transition:.3s;
-}
-
-.footer-mail:hover{
-    color:#fff;
-}
-
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-.reveal{
-    opacity:0;
-
-    transform:translateY(25px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.reveal.visible{
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
-
-@media(max-width:1000px){
-
-    .hero-visual{
-        right:-180px;
-        opacity:.25;
-    }
-
-    .capabilities-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
-
-        gap:45px;
-    }
-
-    .process-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .principles{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .system-panel{
-        min-height:540px;
-    }
-
-    .system-node{
-        width:145px;
-    }
-}
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
-
-@media(max-width:700px){
-
-    .navbar{
-        padding:11px 4%;
-    }
-
-    .nav-shell{
-        padding:8px 10px 8px 12px;
-    }
-
-    .brand-logo{
-        width:34px;
-        height:34px;
-    }
-
-    .brand-name{
-        font-size:12px;
-        letter-spacing:2px;
-    }
-
-    .nav-links,
-    .nav-cta{
-        display:none;
-    }
-
-    .hero{
-        padding:
-            145px
-            6%
-            100px;
-    }
-
-    .hero h1{
-        font-size:58px;
-        letter-spacing:-4.5px;
-    }
-
-    .hero-description{
-        font-size:13px;
-        line-height:1.85;
-    }
-
-    .hero-visual{
-        width:470px;
-        height:470px;
-
-        right:-270px;
-
-        opacity:.12;
-    }
-
-    .scroll-indicator{
-        left:6%;
-        bottom:28px;
-    }
-
-    section{
-        padding:90px 6%;
-    }
-
-    .section-title{
-        letter-spacing:-3px;
-    }
-
-    .capabilities-grid,
-    .process-grid,
-    .principles{
-        grid-template-columns:1fr;
-    }
-
-    .capability-card{
-        min-height:260px;
-    }
-
-    .system-panel{
-        min-height:600px;
-    }
-
-    .system-node{
-        width:130px;
-        padding:14px;
-    }
-
-    .system-node h4{
-        font-size:10px;
-    }
-
-    .system-node p{
-        font-size:8px;
-    }
-
-    .node-one{
-        left:4%;
-        top:16%;
-    }
-
-    .node-two{
-        right:4%;
-        top:16%;
-    }
-
-    .node-three{
-        left:4%;
-        bottom:16%;
-    }
-
-    .node-four{
-        right:4%;
-        bottom:16%;
-    }
-
-    .system-center{
-        width:125px;
-        height:125px;
-
-        margin-left:-62.5px;
-        margin-top:-62.5px;
-    }
-
-    .system-ring.r1{
-        width:230px;
-        height:230px;
-    }
-
-    .system-ring.r2{
-        width:340px;
-        height:340px;
-    }
-
-    .system-ring.r3{
-        width:430px;
-        height:430px;
-    }
-
-    .connection{
-        display:none;
-    }
-
-    .vision-box{
-        padding:55px 25px;
-    }
-
-    .vision-title{
-        letter-spacing:-3px;
-    }
-
-    .contact-box{
-        padding:65px 20px;
-    }
-
-    .contact-title{
-        letter-spacing:-3px;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-
-        text-align:center;
-    }
-}
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation:none !important;
-
-        transition:none !important;
-
-        scroll-behavior:auto !important;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="background">
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
-</div>
+<!-- ================= NAV ================= -->
 
-<nav class="navbar">
+<nav class="nav">
+  <div class="container nav-inner">
 
-    <div class="nav-shell">
+    <a href="#" class="brand">
+      <div class="brand-mark"></div>
 
-        <a href="#home" class="brand">
+      <div class="brand-name">
+        CIRD<span>RIO</span>
+      </div>
+    </a>
 
-            <img
-                src="cirdrio-logo-transparent.png"
-                alt="CIRDRIO"
-                class="brand-logo"
-            >
-
-            <span class="brand-name">
-                CIRDRIO
-            </span>
-
-        </a>
-
-        <div class="nav-links">
-
-            <a href="#about">About</a>
-
-            <a href="#capabilities">
-                Capabilities
-            </a>
-
-            <a href="#system">
-                Systems
-            </a>
-
-            <a href="#vision">
-                Vision
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-        <a
-            href="mailto:cirdrio.dm@gmail.com"
-            class="nav-cta"
-        >
-            Let's Talk
-        </a>
-
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">What We Do</a>
+      <a href="#vision">Vision</a>
+      <a href="#team">Team</a>
+      <a href="#contact" class="nav-cta">Let's Talk →</a>
     </div>
 
+  </div>
 </nav>
 
-<header class="hero" id="home">
 
-    <div class="hero-inner">
+<!-- ================= HERO ================= -->
 
-        <div class="hero-content reveal">
+<header class="hero">
 
-            <div class="eyebrow">
+  <div class="container hero-grid">
 
-                <span class="live-dot"></span>
+    <div>
 
-                Engineering the next generation
+      <div class="eyebrow">
+        <span class="live-dot"></span>
+        CIRDRIO — BUILDING THE FUTURE
+      </div>
 
-            </div>
+      <h1>
+        We build
+        <span class="light">what's</span>
+        <span class="gradient">next.</span>
+      </h1>
 
-            <h1>
+      <p class="hero-text">
+        CIRDRIO is an independent technology and innovation venture
+        focused on turning ambitious ideas into meaningful products,
+        systems and experiences.
+      </p>
 
-                <span class="line">
-                    Build
-                </span>
+      <div class="hero-buttons">
 
-                <span class="line gradient-text">
-                    What's Next.
-                </span>
+        <a href="#team" class="btn btn-primary">
+          Join Our Team →
+        </a>
 
-            </h1>
+        <a href="#about" class="btn btn-outline">
+          Explore CIRDRIO
+        </a>
 
-            <p class="hero-description">
-
-                CIRDRIO is an independent technology company
-                focused on building <strong>intelligent systems,
-                digital products and ambitious ideas</strong>
-                designed to become part of the future.
-
-            </p>
-
-            <div class="hero-actions">
-
-                <a
-                    href="#capabilities"
-                    class="btn btn-primary"
-                >
-                    Explore CIRDRIO
-                    <span>→</span>
-                </a>
-
-                <a
-                    href="mailto:cirdrio.dm@gmail.com"
-                    class="btn btn-secondary"
-                >
-                    Start a Conversation
-                </a>
-
-            </div>
-
-        </div>
-
-        <div class="hero-visual">
-
-            <div class="energy"></div>
-
-            <div class="orbit orbit-a"></div>
-            <div class="orbit orbit-b"></div>
-            <div class="orbit orbit-c"></div>
-
-            <div class="particle p1"></div>
-            <div class="particle p2"></div>
-            <div class="particle p3"></div>
-
-            <div class="core-system"></div>
-
-        </div>
+      </div>
 
     </div>
 
-    <div class="scroll-indicator">
 
-        <span class="scroll-line"></span>
+    <!-- 3D -->
 
-        Scroll to explore
+    <div class="scene">
+
+      <div class="ring"></div>
+      <div class="ring2"></div>
+
+      <div class="cube-wrap">
+
+        <div class="cube">
+
+          <div class="face front">
+            <div class="face-logo">CIRDRIO</div>
+          </div>
+
+          <div class="face back">
+            <div class="face-logo">CIRDRIO</div>
+          </div>
+
+          <div class="face right">
+            <div class="face-logo">CIRDRIO</div>
+          </div>
+
+          <div class="face left">
+            <div class="face-logo">CIRDRIO</div>
+          </div>
+
+          <div class="face top">
+            <div class="face-logo">C</div>
+          </div>
+
+          <div class="face bottom">
+            <div class="face-logo">C</div>
+          </div>
+
+        </div>
+
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+
+      </div>
 
     </div>
+
+  </div>
 
 </header>
 
+
+<!-- ================= TRUST ================= -->
+
+<div class="trust">
+
+  <div class="container trust-inner">
+
+    <div class="trust-item">
+      <strong>01</strong>
+      <span>Vision</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>∞</strong>
+      <span>Possibilities</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>24/7</strong>
+      <span>Curiosity</span>
+    </div>
+
+    <div class="trust-item">
+      <strong>→</strong>
+      <span>Always Forward</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
 <section id="about">
 
-    <div class="container about-grid">
+  <div class="container">
 
-        <div class="about-copy reveal">
+    <div class="section-label">
+      01 — ABOUT
+    </div>
 
-            <div class="section-label">
-                About CIRDRIO
-            </div>
+    <h2 class="section-title">
+      An idea is only<br>
+      <span class="gradient">the beginning.</span>
+    </h2>
 
-            <h2 class="section-title">
-                We don't wait for the future.
-                We engineer toward it.
-            </h2>
+    <p class="section-sub">
+      CIRDRIO is being built around a simple belief:
+      ambitious ideas deserve serious execution.
+      We combine technology, creativity and business thinking
+      to explore what can be built next.
+    </p>
 
-            <p>
-                CIRDRIO exists to transform ambitious ideas
-                into <strong>real, useful technology.</strong>
-                We bring together engineering, design,
-                systems thinking and product strategy.
-            </p>
+    <div class="cards">
 
-            <p>
-                Our approach is simple:
-                <strong>understand deeply, build intelligently,
-                move deliberately and improve continuously.</strong>
-            </p>
+      <div class="card">
 
-        </div>
+        <div class="card-icon">◈</div>
 
-        <div class="about-visual reveal">
+        <h3>Innovation</h3>
 
-            <div class="about-core"></div>
+        <p>
+          We explore emerging technologies, new business models
+          and unconventional ideas.
+        </p>
 
-        </div>
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">⚡</div>
+
+        <h3>Execution</h3>
+
+        <p>
+          Ideas become valuable when they are turned into
+          real products and experiences.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">◎</div>
+
+        <h3>Long-Term</h3>
+
+        <p>
+          We are building a foundation designed to grow,
+          adapt and create lasting value.
+        </p>
+
+      </div>
 
     </div>
 
+  </div>
+
 </section>
 
-<section id="capabilities">
 
-    <div class="container">
+<!-- ================= WHAT WE DO ================= -->
 
-        <div class="reveal">
+<section id="work">
 
-            <div class="section-label">
-                Capabilities
-            </div>
+  <div class="container">
 
-            <h2 class="section-title">
-                Ideas are only the beginning.
-            </h2>
+    <div class="section-label">
+      02 — WHAT WE DO
+    </div>
 
-            <p class="section-description">
-                CIRDRIO works across the layers required to
-                turn a concept into a capable digital product,
-                system or experience.
-            </p>
+    <h2 class="section-title">
+      From concept<br>
+      <span class="gradient">to reality.</span>
+    </h2>
 
-        </div>
+    <p class="section-sub">
+      CIRDRIO brings together technology, design, business
+      and people to create things that matter.
+    </p>
 
-        <div class="capabilities-grid">
+    <div class="team-grid">
 
-            <div class="capability-card reveal">
+      <div class="team-card">
+        <span>TECHNOLOGY</span>
+        <h3>Build Digital Products</h3>
+        <p>
+          Websites, software, automation, AI and technology
+          experiments built around real problems.
+        </p>
+      </div>
 
-                <div class="capability-number">
-                    01 / ENGINEERING
-                </div>
+      <div class="team-card">
+        <span>BUSINESS</span>
+        <h3>Explore Opportunities</h3>
+        <p>
+          Research, strategy, market analysis and ideas that
+          can become scalable ventures.
+        </p>
+      </div>
 
-                <div class="capability-icon">
-                    ◈
-                </div>
+      <div class="team-card">
+        <span>DESIGN</span>
+        <h3>Create Experiences</h3>
+        <p>
+          Brand identity, UI/UX and visual experiences designed
+          to feel modern and purposeful.
+        </p>
+      </div>
 
-     orator</h3>
-                <p>
-                    Turning emerging ideas, experiments and
-                    future-facing concepts into practical
-                    technology with real potential.
-                </p>
-            </div>
-
-        </div>
+      <div class="team-card">
+        <span>GROWTH</span>
+        <h3>Build an Audience</h3>
+        <p>
+          Content, community, marketing and communication
+          that help ideas reach the right people.
+        </p>
+      </div>
 
     </div>
 
-</section>
-
-<!-- APPROACH -->
-<section id="process">
-
-    <div class="container">
-
-        <div class="reveal">
-
-            <div class="label">
-                Our Approach
-            </div>
-
-            <h2 class="section-title">
-                Think deeply. Build precisely.
-            </h2>
-
-            <p class="section-text">
-                Great technology starts with clarity. We move
-                from understanding to execution through a
-                focused and disciplined process.
-            </p>
-
-        </div>
-
-        <div class="process">
-
-            <div class="process-item reveal">
-                <div class="number">01</div>
-                <h3>Discover</h3>
-                <p>
-                    Understand the problem, the opportunity,
-                    the users and the larger objective before
-                    writing a single line of code.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">02</div>
-                <h3>Design</h3>
-                <p>
-                    Shape the architecture, experience and
-                    direction into a clear system that can
-                    actually be built.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">03</div>
-                <h3>Build</h3>
-                <p>
-                    Engineer the product with modern tools,
-                    thoughtful interfaces and a foundation
-                    designed for long-term growth.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">04</div>
-                <h3>Evolve</h3>
-                <p>
-                    Measure, learn and continuously improve.
-                    A strong product is never truly finished.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
-<!-- VISION -->
+
+<!-- ================= VISION ================= -->
+
 <section id="vision">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="vision reveal">
+    <div class="vision-box">
 
-            <div class="label">
-                The Vision
-            </div>
+      <div class="section-label">
+        03 — VISION
+      </div>
 
-            <h2>
-                Building technology that
-                feels inevitable.
-            </h2>
+      <h2>
+        Don't just follow<br>
+        the future.
+        <span class="gradient">Build it.</span>
+      </h2>
 
-            <p>
-                We believe the most meaningful technology should
-                feel powerful without feeling complicated. CIRDRIO
-                aims to create products and systems that quietly
-                solve difficult problems, amplify human capability
-                and open new possibilities.
-            </p>
+      <p>
+        Our long-term goal is to create a strong team and a portfolio
+        of products that combine technology, creativity and business
+        into something genuinely useful.
+      </p>
 
-        </div>
-
-    </div>
-
-</section>
-
-<!-- TEAM / MINDSET -->
-<section>
-
-    <div class="container">
-
-        <div class="reveal">
-
-            <div class="label">
-                The CIRDRIO Mindset
-            </div>
-
-            <h2 class="section-title">
-                Small details. Big ambition.
-            </h2>
-
-            <p class="section-text">
-                Our work is guided by a few principles that shape
-                how we think, build and make decisions.
-            </p>
-
-        </div>
-
-        <div class="team">
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">◉</div>
-
-                <h3>Clarity</h3>
-
-                <p>
-                    Remove unnecessary complexity. Understand
-                    what matters and focus energy where it creates
-                    the most value.
-                </p>
-
-            </div>
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">✧</div>
-
-                <h3>Craft</h3>
-
-                <p>
-                    Details matter. From architecture to interface,
-                    every layer should be intentional, refined and
-                    reliable.
-                </p>
-
-            </div>
-
-            <div class="team-card reveal">
-
-                <div class="team-icon">∞</div>
-
-                <h3>Long-Term Thinking</h3>
-
-                <p>
-                    Build beyond the immediate moment. Create
-                    systems that can adapt as technology, people
-                    and possibilities evolve.
-                </p>
-
-            </div>
-
-        </div>
+      <a href="#contact" class="btn btn-primary">
+        Start the Journey →
+      </a>
 
     </div>
 
+  </div>
+
 </section>
 
-<!-- CONTACT -->
+
+<!-- ================= TEAM ================= -->
+
+<section id="team">
+
+  <div class="container">
+
+    <div class="section-label">
+      04 — TEAM
+    </div>
+
+    <h2 class="section-title">
+      We're building<br>
+      <span class="gradient">with people.</span>
+    </h2>
+
+    <p class="section-sub">
+      CIRDRIO is looking for curious, ambitious and responsible
+      people who want to learn, contribute and build from the ground up.
+    </p>
+
+    <div class="team-grid">
+
+      <div class="team-card">
+        <span>01</span>
+        <h3>Technology</h3>
+        <p>
+          Developers, programmers, AI enthusiasts and technical minds.
+        </p>
+      </div>
+
+      <div class="team-card">
+        <span>02</span>
+        <h3>Design</h3>
+        <p>
+          UI/UX designers, graphic designers and creative thinkers.
+        </p>
+      </div>
+
+      <div class="team-card">
+        <span>03</span>
+        <h3>Business</h3>
+        <p>
+          Strategy, research, business development and market thinkers.
+        </p>
+      </div>
+
+      <div class="team-card">
+        <span>04</span>
+        <h3>Marketing</h3>
+        <p>
+          Content creators, social media and growth-focused people.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
 <section id="contact">
 
-    <div class="container contact">
+  <div class="container">
 
-        <div class="contact-box reveal">
+    <div class="cta">
 
-            <div class="label">
-                Let's Build
-            </div>
+      <div class="cta-box">
 
-            <h2>
-                Have an idea?
-                Make it real.
-            </h2>
-
-            <p>
-                Whether you're exploring a product, a digital
-                system or something entirely new, CIRDRIO is
-                always interested in ambitious ideas.
-            </p>
-
-            <div class="buttons contact-buttons">
-
-                <a
-                    href="mailto:cirdrio.dm@gmail.com"
-                    class="btn btn-primary"
-                >
-                    Start a Conversation →
-                </a>
-
-                <a
-                    href="#home"
-                    class="btn btn-secondary"
-                >
-                    Back to Top ↑
-                </a>
-
-            </div>
-
+        <div class="section-label">
+          05 — CONNECT
         </div>
 
+        <h2>
+          Ready to build<br>
+          <span class="gradient">what's next?</span>
+        </h2>
+
+        <p>
+          Have an idea, want to collaborate, or want to join
+          the CIRDRIO journey? Let's start a conversation.
+        </p>
+
+        <a
+          href="mailto:cirdrio.dm@gmail.com?subject=CIRDRIO%20—%20Let's%20Connect"
+          class="btn btn-primary">
+          Contact CIRDRIO →
+        </a>
+
+      </div>
+
     </div>
+
+  </div>
 
 </section>
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    <div class="footer">
+  <div class="container footer-inner">
 
-        <div class="footer-brand">
+    <div>
 
-            <img
-                src="cirdrio-logo-transparent.png"
-                alt="CIRDRIO"
-                class="footer-logo"
-            >
+      <div class="footer-brand">
+        CIRDRIO
+      </div>
 
-            <span class="footer-name">
-                CIRDRIO
-            </span>
-
-        </div>
-
-        <div class="footer-copy">
-            © 2026 CIRDRIO. Built for what's next.
-        </div>
-
-        <a
-            href="mailto:cirdrio.dm@gmail.com"
-            class="footer-email"
-        >
-            cirdrio.dm@gmail.com
-        </a>
+      <div>
+        Building ideas. Building products. Building the future.
+      </div>
 
     </div>
 
+    <div>
+      © 2026 CIRDRIO. All rights reserved.
+    </div>
+
+  </div>
+
 </footer>
-
-<script>
-
-/* ================= SCROLL REVEAL ================= */
-
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("show");
-
-                revealObserver.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-    {
-        threshold:0.12
-    }
-);
-
-revealElements.forEach((element) => {
-
-    revealObserver.observe(element);
-
-});
-
-
-/* ================= ACTIVE NAVIGATION ================= */
-
-const sections = document.querySelectorAll("section, header");
-
-const navigationLinks = document.querySelectorAll(".links a");
-
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if(entry.isIntersecting){
-
-                navigationLinks.forEach((link) => {
-
-                    link.classList.remove("active");
-
-                });
-
-                const activeLink =
-                    document.querySelector(
-                        `.links a[href="#${entry.target.id}"]`
-                    );
-
-                if(activeLink){
-
-                    activeLink.classList.add("active");
-
-                }
-
-            }
-
-        });
-
-    },
-    {
-        threshold:0.45
-    }
-);
-
-sections.forEach((section) => {
-
-    if(section.id){
-
-        sectionObserver.observe(section);
-
-    }
-
-});
-
-
-/* ================= MOUSE PARALLAX ================= */
-
-const visual = document.querySelector(".visual");
-
-if(visual && !window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches){
-
-    window.addEventListener("mousemove",(event)=>{
-
-        const x =
-            (event.clientX / window.innerWidth - 0.5);
-
-        const y =
-            (event.clientY / window.innerHeight - 0.5);
-
-        visual.style.transform =
-            `translateY(-50%)
-             rotateX(${y * -8}deg)
-             rotateY(${x * 10}deg)`;
-
-    });
-
-}
-
-
-/* ================= SMOOTH BUTTON FEEDBACK ================= */
-
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach((link)=>{
-
-    link.addEventListener("click",(event)=>{
-
-        const targetId =
-            link.getAttribute("href");
-
-        const target =
-            document.querySelector(targetId);
-
-        if(target){
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
-
-        }
-
-    });
-
-});
-
-
-/* ================= YEAR ================= */
-
-const yearElement =
-    document.querySelector(".footer-copy");
-
-if(yearElement){
-
-    yearElement.innerHTML =
-        `© ${new Date().getFullYear()} CIRDRIO.
-        Built for what's next.`;
-
-}
-
-</script>
 
 </body>
 </html>
