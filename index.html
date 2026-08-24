@@ -1,600 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CIRDRIO | Build What's Next</title>
+<title>CIRDRIO — Build What's Next.</title>
 
-  <meta name="description" content="CIRDRIO — building ideas, products and technology for the future.">
-  <meta name="theme-color" content="#07080d">
+<meta name="description" content="CIRDRIO — Building ideas, products and a strong team for the future.">
+<meta name="theme-color" content="#07080c">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#07080c;
+    --bg2:#0b0d12;
+    --card:#10131a;
+    --card2:#0d1016;
+    --text:#f5f7fb;
+    --muted:#9299a8;
+    --line:rgba(255,255,255,.09);
+    --accent:#b98cff;
+    --accent2:#7c5cff;
+    --green:#72e6a5;
+    --max:1180px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 80% 10%, rgba(124,92,255,.13), transparent 28%),
+        radial-gradient(circle at 10% 30%, rgba(185,140,255,.07), transparent 25%),
+        var(--bg);
+    color:var(--text);
+    font-family:Inter,Arial,sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(100% - 40px,var(--max));
+    margin:auto;
+}
+
+/* NAV */
+
+.nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    background:rgba(7,8,12,.72);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+    height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    color:#b5bac6;
+    font-size:14px;
+}
+
+.nav-links a{
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-btn{
+    padding:11px 18px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:100px;
+    background:rgba(255,255,255,.05);
+    color:white!important;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:140px 0 80px;
+    position:relative;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 13px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    background:rgba(255,255,255,.035);
+    color:#c3c7d2;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 14px var(--green);
+}
+
+.hero h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(52px,8vw,92px);
+    line-height:.98;
+    letter-spacing:-5px;
+    max-width:850px;
+}
+
+.gradient{
+    background:linear-gradient(100deg,#fff 15%,#c6a8ff 55%,#8c6cff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:620px;
+    color:var(--muted);
+    font-size:17px;
+    margin:28px 0 34px;
+}
+
+.buttons{
+    display:flex;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 22px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:14px;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:white;
+    color:#08090d;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 35px rgba(255,255,255,.12);
+}
+
+.btn-secondary{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.035);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* HERO VISUAL */
+
+.hero-visual{
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.orbit{
+    width:330px;
+    height:330px;
+    border:1px solid rgba(185,140,255,.18);
+    border-radius:50%;
+    position:relative;
+    animation:spin 22s linear infinite;
+}
+
+.orbit:before,
+.orbit:after{
+    content:"";
+    position:absolute;
+    inset:35px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+}
+
+.orbit:after{
+    inset:80px;
+}
+
+.core{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:115px;
+    height:115px;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(145deg,#1a1725,#0d0f15);
+    border:1px solid rgba(185,140,255,.3);
+    box-shadow:
+        0 0 80px rgba(124,92,255,.22),
+        inset 0 0 35px rgba(185,140,255,.07);
+    font-family:"Space Grotesk";
+    font-weight:700;
+    font-size:24px;
+}
+
+.satellite{
+    position:absolute;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:#c5a4ff;
+    box-shadow:0 0 20px #9d72ff;
+}
+
+.s1{top:35px;left:85px;}
+.s2{right:20px;top:140px;}
+.s3{bottom:45px;left:105px;}
+
+@keyframes spin{
+    from{transform:rotate(0)}
+    to{transform:rotate(360deg)}
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 0;
+}
+
+.section-head{
+    max-width:700px;
+    margin-bottom:55px;
+}
+
+.eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.section-head h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(35px,5vw,58px);
+    line-height:1.05;
+    letter-spacing:-2.5px;
+}
+
+.section-head p{
+    color:var(--muted);
+    margin-top:18px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.stat{
+    padding:35px 25px;
+    border-right:1px solid var(--line);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat strong{
+    display:block;
+    font-family:"Space Grotesk";
+    font-size:34px;
+    margin-bottom:5px;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.card{
+    background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:32px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(185,140,255,.28);
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.card h3{
+    font-family:"Space Grotesk";
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.service{
+    min-height:250px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--line);
+    border-radius:13px;
+    font-size:20px;
+    background:rgba(255,255,255,.04);
+}
+
+.service h3{
+    margin-top:40px;
+}
+
+/* VISION */
+
+.vision{
+    position:relative;
+    overflow:hidden;
+}
+
+.vision-box{
+    border:1px solid rgba(185,140,255,.2);
+    background:
+        radial-gradient(circle at 80% 20%,rgba(124,92,255,.15),transparent 30%),
+        linear-gradient(135deg,#11101a,#0b0d12);
+    border-radius:25px;
+    padding:70px;
+}
+
+.vision-box h2{
+    max-width:850px;
+    font-family:"Space Grotesk";
+    font-size:clamp(38px,6vw,70px);
+    line-height:1.03;
+    letter-spacing:-3px;
+}
+
+.vision-box p{
+    max-width:650px;
+    color:var(--muted);
+    margin:25px 0 30px;
+}
+
+/* VALUES */
+
+.values{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.value-number{
+    font-size:12px;
+    color:var(--accent);
+    margin-bottom:50px;
+}
+
+.value h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding-bottom:130px;
+}
+
+.cta-box{
+    padding:75px 30px;
+    border:1px solid var(--line);
+    border-radius:25px;
+    background:linear-gradient(135deg,rgba(185,140,255,.08),rgba(255,255,255,.025));
+}
+
+.cta h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(38px,6vw,65px);
+    letter-spacing:-3px;
+}
+
+.cta p{
+    max-width:560px;
+    margin:18px auto 30px;
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:35px 0;
+}
+
+.footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.footer-copy{
+    color:#737987;
+    font-size:12px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+    color:#9ca2af;
+    font-size:12px;
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .container{
+        width:min(100% - 28px,var(--max));
     }
 
-    html {
-      scroll-behavior: smooth;
+    .nav-inner{
+        height:68px;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #07080d;
-      color: #f5f5f7;
-      line-height: 1.6;
-      overflow-x: hidden;
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:68px;
+        left:14px;
+        right:14px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:10px;
+        background:rgba(12,14,20,.97);
+        border:1px solid var(--line);
+        border-radius:15px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .nav-links.active{
+        display:flex;
     }
 
-    .container {
-      width: min(1100px, 92%);
-      margin: auto;
+    .nav-links a{
+        padding:14px;
     }
 
-    /* NAVBAR */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(7, 8, 13, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid #1c1e27;
+    .nav-btn{
+        text-align:center;
     }
 
-    .nav-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+    .menu{
+        display:block;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 3px;
+    .hero{
+        padding-top:115px;
     }
 
-    .logo span {
-      color: #a855f7;
+    .hero-grid{
+        grid-template-columns:1fr;
+        gap:40px;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
+    .hero h1{
+        font-size:clamp(50px,15vw,76px);
+        letter-spacing:-4px;
     }
 
-    .nav-links a {
-      color: #b8bac4;
-      font-size: 14px;
-      transition: 0.2s;
+    .hero p{
+        font-size:15px;
     }
 
-    .nav-links a:hover {
-      color: #fff;
+    .hero-visual{
+        min-height:310px;
     }
 
-    /* HERO */
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    .orbit{
+        width:260px;
+        height:260px;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      background: #7c3aed;
-      filter: blur(150px);
-      opacity: 0.18;
-      top: -100px;
-      left: 50%;
-      transform: translateX(-50%);
+    .core{
+        width:90px;
+        height:90px;
+        border-radius:24px;
+        font-size:19px;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: 100%;
+    section{
+        padding:80px 0;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 7px 14px;
-      border: 1px solid #2a2d39;
-      border-radius: 999px;
-      color: #bfc2ce;
-      background: #101119;
-      font-size: 13px;
-      margin-bottom: 22px;
+    .stats{
+        grid-template-columns:1fr 1fr;
     }
 
-    h1 {
-      font-size: clamp(48px, 10vw, 92px);
-      line-height: 0.98;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
+    .stat{
+        border-bottom:1px solid var(--line);
     }
 
-    .gradient {
-      background: linear-gradient(90deg, #fff, #b7b9ff, #c084fc);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .stat:nth-child(2){
+        border-right:0;
     }
 
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #a8abb7;
-      font-size: 18px;
+    .about-grid,
+    .services,
+    .values{
+        grid-template-columns:1fr;
     }
 
-    .buttons {
-      margin-top: 34px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+    .vision-box{
+        padding:38px 25px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 21px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: 0.2s;
+    .vision-box h2{
+        letter-spacing:-2px;
     }
 
-    .btn-primary {
-      background: #fff;
-      color: #08090d;
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
     }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      border: 1px solid #30333f;
-      color: #fff;
-      background: #11131b;
-    }
-
-    .btn-secondary:hover {
-      border-color: #777b8d;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 100px 0;
-    }
-
-    .section-label {
-      color: #a855f7;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(32px, 6vw, 52px);
-      line-height: 1.05;
-      margin-bottom: 18px;
-    }
-
-    .section-text {
-      color: #999daa;
-      max-width: 680px;
-      font-size: 17px;
-    }
-
-    /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-top: 45px;
-    }
-
-    .card {
-      background: #0d0f16;
-      border: 1px solid #20232d;
-      border-radius: 18px;
-      padding: 30px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
-
-    .card p {
-      color: #989ba8;
-    }
-
-    /* SERVICES */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 45px;
-    }
-
-    .service-icon {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    /* PROJECTS */
-    .project {
-      margin-top: 45px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .project-card {
-      min-height: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background: linear-gradient(145deg, #11131d, #0b0c12);
-      border: 1px solid #252834;
-      border-radius: 20px;
-      padding: 30px;
-    }
-
-    .project-card h3 {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-
-    .project-card p {
-      color: #9699a6;
-    }
-
-    .status {
-      display: inline-block;
-      width: fit-content;
-      margin-bottom: auto;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #181a24;
-      color: #b9bbc7;
-      font-size: 12px;
-    }
-
-    /* VISION */
-    .vision {
-      text-align: center;
-    }
-
-    .vision-box {
-      margin-top: 40px;
-      padding: 55px 25px;
-      border: 1px solid #272a36;
-      border-radius: 24px;
-      background: radial-gradient(circle at top, #171522, #0c0d13);
-    }
-
-    .vision-box p {
-      max-width: 700px;
-      margin: auto;
-      color: #a1a4b0;
-      font-size: 18px;
-    }
-
-    /* CONTACT */
-    .contact {
-      text-align: center;
-    }
-
-    .contact-box {
-      margin-top: 35px;
-      padding: 45px 25px;
-      border-radius: 22px;
-      border: 1px solid #252834;
-      background: #0d0f16;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid #1c1e27;
-      padding: 35px 0;
-      color: #777b88;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    .footer-logo {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 750px) {
-
-      .nav-inner {
-        min-height: 60px;
-      }
-
-      .logo {
-        font-size: 19px;
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links a {
-        font-size: 11px;
-      }
-
-      .hero {
-        min-height: 82vh;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      section {
-        padding: 75px 0;
-      }
-
-      .about-grid,
-      .project {
-        grid-template-columns: 1fr;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 24px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
+<!-- NAV -->
+
+<nav class="nav">
     <div class="container nav-inner">
-      <a href="#home" class="logo">CIRD<span>RIO</span></a>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+        <a href="#" class="logo">CIRD<span>RIO</span></a>
 
-  <!-- HERO -->
-  <main id="home">
-    <section class="hero">
-      <div class="container hero-content">
-
-        <div class="badge">⚡ BUILDING WHAT'S NEXT</div>
-
-        <h1>
-          Build<br>
-          <span class="gradient">What's Next.</span>
-        </h1>
-
-        <p>
-          CIRDRIO is focused on turning ambitious ideas into
-          useful products, technology and experiences built for the future.
-        </p>
-
-        <div class="buttons">
-          <a href="#contact" class="btn btn-primary">Join the Team</a>
-          <a href="#work" class="btn btn-secondary">Explore CIRDRIO</a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#services">What We Do</a>
+            <a href="#vision">Vision</a>
+            <a href="#values">Values</a>
+            <a href="#contact" class="nav-btn">Let's Talk</a>
         </div>
 
-      </div>
-    </section>
+        <div class="menu" id="menu">☰</div>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container">
+    </div>
+</nav>
 
-        <div class="section-label">01 — About</div>
 
-        <h2 class="section-title">About CIRDRIO</h2>
+<!-- HERO -->
 
-        <p class="section-text">
-          CIRDRIO is a future-focused technology and product initiative.
-          We believe great things begin with a simple idea and become real
-          through execution, creativity and teamwork.
-        </p>
+<header class="hero">
+    <div class="container hero-grid">
+
+        <div class="reveal">
+
+            <div class="badge">
+                <span class="dot"></span>
+                Building the future
+            </div>
+
+            <h1>
+                Build<br>
+                <span class="gradient">What's Next.</span>
+            </h1>
+
+            <p>
+                CIRDRIO is a technology-driven team focused on turning
+                ambitious ideas into meaningful products, systems and
+                experiences.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="btn btn-primary">
+                    Start a Conversation →
+                </a>
+
+                <a href="#about" class="btn btn-secondary">
+                    Explore CIRDRIO
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-visual reveal">
+
+            <div class="orbit">
+                <div class="satellite s1"></div>
+                <div class="satellite s2"></div>
+                <div class="satellite s3"></div>
+
+                <div class="core">CIRDRIO</div>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+
+<!-- STATS -->
+
+<section>
+    <div class="container">
+
+        <div class="stats reveal">
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>Vision</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Possibilities</span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Curiosity</span>
+            </div>
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>Direction — Forward</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="eyebrow">About CIRDRIO</div>
+
+            <h2>
+                Ideas are easy.<br>
+                <span class="gradient">Building them isn't.</span>
+            </h2>
+
+            <p>
+                We believe the best work happens when technology,
+                creativity and execution come together.
+            </p>
+        </div>
 
         <div class="about-grid">
 
-          <div class="card">
-            <h3>What We Do</h3>
-            <p>
-              We explore ideas, design digital products and build technology
-              that can solve meaningful problems.
-            </p>
-          </div>
+            <div class="card reveal">
+                <h3>What We Do</h3>
+                <p>
+                    We explore ideas, design digital experiences and
+                    build technology with a long-term mindset.
+                    From early concepts to real products, we focus on
+                    creating things that are useful, scalable and meaningful.
+                </p>
+            </div>
 
-          <div class="card">
-            <h3>Why CIRDRIO Exists</h3>
-            <p>
-              To create a place where ambitious people can experiment,
-              learn, build and turn ideas into something real.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section id="work">
-      <div class="container">
-
-        <div class="section-label">02 — What We Build</div>
-
-        <h2 class="section-title">Ideas → Products</h2>
-
-        <p class="section-text">
-          Our focus is simple: learn fast, build intelligently and create
-          products that have real-world value.
-        </p>
-
-        <div class="cards">
-
-          <div class="card">
-            <div class="service-icon">⚡</div>
-            <h3>Innovation</h3>
-            <p>
-              Exploring new ideas, technologies and opportunities to build
-              something different.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="service-icon">🚀</div>
-            <h3>Build</h3>
-            <p>
-              Turning concepts into working websites, software and digital
-              products.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="service-icon">🌍</div>
-            <h3>Impact</h3>
-            <p>
-              Creating useful technology designed to grow beyond a single
-              idea or project.
-            </p>
-          </div>
+            <div class="card reveal">
+                <h3>Why CIRDRIO Exists</h3>
+                <p>
+                    Technology is moving fast. CIRDRIO exists to
+                    experiment, learn and build alongside that change —
+                    creating a foundation for products, people and ideas
+                    that can grow into something bigger.
+                </p>
+            </div>
 
         </div>
-
-        <div class="project">
-
-          <div class="project-card">
-            <span class="status">CURRENT — WEBSITE</span>
-            <h3>CIRDRIO Website</h3>
-            <p>
-              The digital home of CIRDRIO and the starting point for future
-              products and projects.
-            </p>
-          </div>
-
-          <div class="project-card">
-            <span class="status">COMING SOON</span>
-            <h3>Future Projects</h3>
-            <p>
-              New ideas, products and experiments will be added here as
-              CIRDRIO grows.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- VISION -->
-    <section id="vision" class="vision">
-      <div class="container">
-
-        <div class="section-label">03 — Our Vision</div>
-
-        <h2 class="section-title">Think Bigger. Build Better.</h2>
-
-        <div class="vision-box">
-          <p>
-            Our long-term vision is to build a strong team and a portfolio
-            of meaningful products that combine technology, creativity and
-            execution.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-label">04 — Contact</div>
-
-        <h2 class="section-title">Want to Build With Us?</h2>
-
-        <p class="section-text" style="margin:auto;">
-          If you have an idea, want to collaborate or simply want to be part
-          of the journey, reach out to CIRDRIO.
-        </p>
-
-        <div class="contact-box">
-
-          <!-- CHANGE THIS EMAIL LATER TO YOUR REAL CIRDRIO EMAIL -->
-          <p style="color:#999daa; margin-bottom:20px;">
-            Have an idea or want to collaborate?
-          </p>
-
-          <a
-            href="mailto:contact@cirdrio.com"
-            class="btn btn-primary">
-            Contact CIRDRIO
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-
-      <div class="footer-logo">CIRDRIO</div>
-
-      <p>
-        Building ideas, products and a strong team for the future.
-      </p>
-
-      <p style="margin-top:12px;">
-        © 2026 CIRDRIO. All rights reserved.
-      </p>
 
     </div>
-  </footer>
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="eyebrow">What We Do</div>
+
+            <h2>
+                From thought<br>
+                <span class="gradient">to reality.</span>
+            </h2>
+
+            <p>
+                A multidisciplinary approach to building modern
+                technology and digital products.
+            </p>
+        </div>
+
+        <div class="services">
+
+            <div class="card service reveal">
+                <div class="icon">⚡</div>
+
+                <div>
+                    <h3>Innovation</h3>
+                    <p>
+                        Exploring new technologies, ideas and approaches
+                        to solve problems differently.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card service reveal">
+                <div class="icon">◈</div>
+
+                <div>
+                    <h3>Build</h3>
+                    <p>
+                        Turning concepts into fast, reliable and
+                        thoughtful digital products.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card service reveal">
+                <div class="icon">◎</div>
+
+                <div>
+                    <h3>Impact</h3>
+                    <p>
+                        Building with purpose — focusing on usefulness,
+                        people and long-term value.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- VISION -->
+
+<section id="vision" class="vision">
+    <div class="container">
+
+        <div class="vision-box reveal">
+
+            <div class="eyebrow">Our Vision</div>
+
+            <h2>
+                Build things that
+                <span class="gradient">matter.</span>
+            </h2>
+
+            <p>
+                Our goal isn't simply to follow technology.
+                It's to understand where it's going and help shape
+                what comes next.
+            </p>
+
+            <a href="#contact" class="btn btn-primary">
+                Build With Us →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- VALUES -->
+
+<section id="values">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="eyebrow">Principles</div>
+
+            <h2>
+                How we<br>
+                <span class="gradient">think.</span>
+            </h2>
+        </div>
+
+        <div class="values">
+
+            <div class="card value reveal">
+                <div class="value-number">01 / CURIOSITY</div>
+                <h3>Stay curious.</h3>
+                <p>
+                    Keep learning. Question assumptions. Explore
+                    what hasn't been explored yet.
+                </p>
+            </div>
+
+            <div class="card value reveal">
+                <div class="value-number">02 / CRAFT</div>
+                <h3>Build with care.</h3>
+                <p>
+                    Details matter. Good products are built with
+                    intention, patience and discipline.
+                </p>
+            </div>
+
+            <div class="card value reveal">
+                <div class="value-number">03 / IMPACT</div>
+                <h3>Think beyond today.</h3>
+                <p>
+                    We value sustainable ideas that create real
+                    usefulness and lasting impact.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="cta">
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <div class="eyebrow">Let's Build</div>
+
+            <h2>
+                Have an idea?
+                <span class="gradient">Let's talk.</span>
+            </h2>
+
+            <p>
+                Whether you're building something new, exploring an idea,
+                or simply want to connect — we'd love to hear from you.
+            </p>
+
+            <!-- CHANGE THIS EMAIL IF NEEDED -->
+            <a href="mailto:hello@cirdrio.com" class="btn btn-primary">
+                Get in Touch →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container footer-inner">
+
+        <div class="footer-copy">
+            © <span id="year"></span> CIRDRIO. All rights reserved.
+        </div>
+
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#vision">Vision</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </div>
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+menu.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+
+/* CLOSE MENU AFTER CLICK */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
+
+
+/* CURRENT YEAR */
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {threshold:.12}
+);
+
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
+</script>
 
 </body>
 </html>
