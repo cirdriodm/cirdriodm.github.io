@@ -1,76 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#05060b">
-
-<meta name="description"
-      content="CIRDRIO — Engineering ideas into intelligent products, digital systems and technology for what comes next.">
-
-<meta name="keywords"
-      content="CIRDRIO, technology, innovation, software, AI, digital products, engineering">
-
-<meta name="author"
-      content="CIRDRIO">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>CIRDRIO — Build What's Next</title>
 
-
-<!-- =====================================================
-     PREMIUM FONTS
-===================================================== -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet">
-
+<meta name="description" content="CIRDRIO — Building technology, products and ideas for the future.">
 
 <style>
-
-/* =====================================================
-   ROOT SYSTEM
-===================================================== */
-
-:root{
-
-    --bg:#05060a;
-    --bg2:#080a12;
-
-    --surface:rgba(255,255,255,.045);
-    --surface-2:rgba(255,255,255,.07);
-
-    --line:rgba(255,255,255,.10);
-    --line-soft:rgba(255,255,255,.06);
-
-    --text:#f7f8ff;
-    --muted:#8e93a6;
-    --muted2:#656a7c;
-
-    --blue:#5b7cff;
-    --blue2:#304dff;
-    --cyan:#36d9ff;
-    --violet:#8b5cf6;
-
-    --radius:24px;
-
-    --container:1180px;
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
 
 *{
     margin:0;
@@ -83,1543 +22,1025 @@ html{
 }
 
 body{
-
-    min-height:100vh;
-
-    font-family:"DM Sans",sans-serif;
-
-    color:var(--text);
-
-    background:
-
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(74,91,255,.20),
-            transparent 38%
-        ),
-
-        radial-gradient(
-            circle at 100% 35%,
-            rgba(54,217,255,.07),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 0% 75%,
-            rgba(139,92,246,.08),
-            transparent 30%
-        ),
-
-        var(--bg);
-
+    font-family:Inter,Arial,sans-serif;
+    color:#ffffff;
+    background:#05060a;
     overflow-x:hidden;
-
 }
 
+/* BACKGROUND */
 
-/* =====================================================
-   GLOBAL NOISE
-===================================================== */
-
-body::after{
-
-    content:"";
-
+.background{
     position:fixed;
-
     inset:0;
-
-    pointer-events:none;
-
-    z-index:9999;
-
-    opacity:.025;
-
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
-
-}
-
-
-/* =====================================================
-   3D BACKGROUND
-===================================================== */
-
-#space{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-5;
-
+    z-index:-10;
     overflow:hidden;
-
-    pointer-events:none;
-
+    background:
+        radial-gradient(circle at 20% 20%,rgba(65,82,255,.18),transparent 30%),
+        radial-gradient(circle at 80% 35%,rgba(0,180,255,.10),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(100,50,255,.14),transparent 35%),
+        #05060a;
 }
 
-
-.grid-floor{
-
+.background:before{
+    content:"";
     position:absolute;
-
-    width:180vw;
-
-    height:90vh;
-
-    left:-40vw;
-
-    bottom:-48vh;
-
-    transform:
-        perspective(650px)
-        rotateX(64deg);
-
+    inset:0;
+    opacity:.18;
     background-image:
-
-        linear-gradient(
-            rgba(88,112,255,.14) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(88,112,255,.14) 1px,
-            transparent 1px
-        );
-
-    background-size:70px 70px;
-
-    mask-image:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,1),
-            transparent 80%
-        );
-
-    animation:gridMove 12s linear infinite;
-
+        linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:60px 60px;
+    transform:perspective(700px) rotateX(60deg) scale(1.8);
+    transform-origin:center bottom;
 }
 
-
-@keyframes gridMove{
-
-    from{
-        background-position:0 0,0 0;
-    }
-
-    to{
-        background-position:0 70px,70px 0;
-    }
-
-}
-
-
-/* =====================================================
-   GLOW ORBS
-===================================================== */
-
-.glow{
-
+.orb{
     position:absolute;
-
     border-radius:50%;
-
-    filter:blur(70px);
-
-    opacity:.32;
-
-    animation:orbFloat 12s ease-in-out infinite;
-
+    filter:blur(80px);
+    opacity:.25;
+    animation:float 10s ease-in-out infinite;
 }
 
-
-.glow.one{
-
-    width:340px;
-    height:340px;
-
-    left:-160px;
-    top:15%;
-
-    background:#304dff;
-
-}
-
-
-.glow.two{
-
+.orb1{
     width:300px;
     height:300px;
+    background:#394cff;
+    left:-130px;
+    top:15%;
+}
 
+.orb2{
+    width:280px;
+    height:280px;
+    background:#713cff;
     right:-120px;
-    top:35%;
-
-    background:#5b2cff;
-
-    animation-delay:-4s;
-
+    top:40%;
+    animation-delay:-3s;
 }
 
-
-.glow.three{
-
-    width:250px;
-    height:250px;
-
-    left:35%;
-    bottom:-120px;
-
+.orb3{
+    width:220px;
+    height:220px;
     background:#009dff;
-
-    animation-delay:-7s;
-
+    left:40%;
+    bottom:-120px;
+    animation-delay:-6s;
 }
 
-
-@keyframes orbFloat{
-
+@keyframes float{
     0%,100%{
-        transform:translate3d(0,0,0);
+        transform:translateY(0);
     }
-
     50%{
-        transform:translate3d(0,-45px,0) scale(1.08);
+        transform:translateY(-35px);
     }
-
 }
 
-
-/* =====================================================
-   PARTICLE CANVAS
-===================================================== */
-
-#particles{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    opacity:.65;
-
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-
-    width:min(
-        calc(100% - 40px),
-        var(--container)
-    );
-
-    margin:auto;
-
-}
-
-
-/* =====================================================
-   NAVBAR
-===================================================== */
+/* NAVBAR */
 
 .navbar{
-
     position:fixed;
-
     top:0;
     left:0;
     right:0;
-
-    z-index:1000;
-
-    padding:18px 0;
-
-    transition:.35s;
-
+    z-index:100;
+    padding:18px 5%;
 }
 
-
-.navbar.scrolled{
-
-    padding:11px 0;
-
-    background:rgba(5,6,10,.72);
-
-    backdrop-filter:blur(22px);
-
-    border-bottom:1px solid var(--line-soft);
-
-}
-
-
-.nav-inner{
-
-    width:min(
-        calc(100% - 40px),
-        1240px
-    );
-
+.nav{
+    max-width:1200px;
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
-    padding:9px 12px;
-
-    border:1px solid rgba(255,255,255,.07);
-
-    background:rgba(7,8,14,.48);
-
+    padding:10px 14px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:17px;
+    background:rgba(5,6,12,.68);
     backdrop-filter:blur(18px);
-
-    border-radius:18px;
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.18);
-
 }
-
 
 .brand{
-
     display:flex;
-
     align-items:center;
-
-    gap:11px;
-
+    gap:10px;
+    color:#fff;
     text-decoration:none;
-
-    color:white;
-
 }
 
-
-.brand-logo{
-
-    width:39px;
-    height:39px;
-
+.logo{
+    width:40px;
+    height:40px;
     object-fit:contain;
-
     border-radius:10px;
-
     background:#fff;
-
     padding:3px;
-
-    box-shadow:
-        0 0 25px rgba(82,100,255,.25);
-
 }
 
-
-.brand-name{
-
-    font-family:"Manrope",sans-serif;
-
+.brand span{
+    font-family:Manrope,Arial,sans-serif;
     font-weight:800;
-
-    font-size:16px;
-
     letter-spacing:2px;
-
 }
 
-
-.nav-links{
-
+.links{
     display:flex;
-
-    align-items:center;
-
-    gap:30px;
-
+    gap:28px;
 }
 
-
-.nav-links a{
-
-    color:#9297aa;
-
+.links a{
+    color:#8e93a5;
     text-decoration:none;
-
     font-size:12px;
-
     font-weight:600;
-
-    transition:.25s;
-
+    transition:.3s;
 }
 
-
-.nav-links a:hover{
-
+.links a:hover{
     color:#fff;
-
 }
 
-
-.nav-cta{
-
-    padding:11px 17px;
-
-    border-radius:11px;
-
+.nav-button{
     text-decoration:none;
-
     color:#fff;
-
     font-size:12px;
-
     font-weight:700;
-
-    background:
-        linear-gradient(
-            135deg,
-            #617eff,
-            #3949e9
-        );
-
-    box-shadow:
-        0 8px 25px rgba(62,78,255,.28);
-
+    padding:11px 17px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#627dff,#3949e8);
 }
 
-
-.menu{
-
-    display:none;
-
-    width:42px;
-    height:42px;
-
-    border:1px solid var(--line);
-
-    background:rgba(255,255,255,.04);
-
-    border-radius:12px;
-
-    color:white;
-
-    font-size:20px;
-
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero{
-
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
-
-    padding:
-        150px 0
-        100px;
-
     position:relative;
-
+    padding:150px 7% 100px;
 }
-
 
 .hero-content{
-
     max-width:900px;
-
 }
 
-
-.eyebrow{
-
+.badge{
     display:inline-flex;
-
     align-items:center;
-
-    gap:10px;
-
-    padding:8px 13px;
-
-    border-radius:100px;
-
-    border:1px solid rgba(112,130,255,.25);
-
-    background:rgba(80,90,255,.07);
-
-    color:#a9b2ff;
-
+    gap:9px;
+    padding:8px 14px;
+    border:1px solid rgba(105,125,255,.28);
+    border-radius:50px;
+    background:rgba(70,80,255,.08);
+    color:#aeb7ff;
     font-size:11px;
-
     font-weight:700;
-
-    letter-spacing:1.5px;
-
+    letter-spacing:1.3px;
     text-transform:uppercase;
-
 }
 
-
-.status-dot{
-
+.dot{
     width:7px;
     height:7px;
-
     border-radius:50%;
-
-    background:#4cffae;
-
-    box-shadow:0 0 15px #4cffae;
-
+    background:#50ffad;
+    box-shadow:0 0 14px #50ffad;
 }
 
-
-.hero h1{
-
-    margin-top:28px;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:
-        clamp(
-            54px,
-            9vw,
-            108px
-        );
-
-    line-height:.91;
-
+h1{
+    margin-top:27px;
+    font-family:Manrope,Arial,sans-serif;
+    font-size:clamp(55px,9vw,105px);
+    line-height:.93;
     letter-spacing:-6px;
-
-    font-weight:800;
-
 }
 
-
-.gradient-text{
-
-    background:
-        linear-gradient(
-            110deg,
-            #fff 15%,
-            #c9ceff 40%,
-            #6f7fff 65%,
-            #fff 90%
-        );
-
-    background-size:220% auto;
-
-    color:transparent;
-
+.gradient{
+    background:linear-gradient(110deg,#fff,#b8c0ff,#6177ff,#fff);
+    background-size:250% auto;
     -webkit-background-clip:text;
-
     background-clip:text;
-
-    animation:textShine 6s linear infinite;
-
+    color:transparent;
+    animation:shine 6s linear infinite;
 }
 
-
-@keyframes textShine{
-
+@keyframes shine{
     to{
-        background-position:220% center;
+        background-position:250% center;
     }
-
 }
 
-
-.hero-description{
-
-    max-width:670px;
-
-    margin-top:30px;
-
-    color:var(--muted);
-
-    font-size:16px;
-
+.hero p{
+    max-width:650px;
+    margin-top:28px;
+    color:#9298aa;
+    font-size:15px;
     line-height:1.9;
-
 }
 
-
-.hero-buttons{
-
+.buttons{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:13px;
-
-    margin-top:36px;
-
+    margin-top:35px;
 }
-
 
 .button{
-
     display:inline-flex;
-
     align-items:center;
-
-    justify-content:center;
-
     gap:9px;
-
-    min-height:48px;
-
-    padding:0 21px;
-
+    padding:15px 21px;
     border-radius:12px;
-
     text-decoration:none;
-
     font-size:12px;
-
     font-weight:700;
-
-    transition:.35s;
-
+    transition:.3s;
 }
 
-
-.button-primary{
-
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #637fff,
-            #3648e8
-        );
-
-    box-shadow:
-        0 15px 35px rgba(55,73,235,.28);
-
+.primary{
+    color:#fff;
+    background:linear-gradient(135deg,#657fff,#3949e8);
+    box-shadow:0 15px 35px rgba(55,70,235,.3);
 }
 
-
-.button-primary:hover{
-
+.primary:hover{
     transform:translateY(-4px);
-
-    box-shadow:
-        0 20px 45px rgba(55,73,235,.42);
-
+    box-shadow:0 20px 45px rgba(55,70,235,.45);
 }
 
-
-.button-secondary{
-
-    color:#dfe2ee;
-
-    border:1px solid var(--line);
-
-    background:rgba(255,255,255,.035);
-
+.secondary{
+    color:#ddd;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.04);
 }
 
-
-.button-secondary:hover{
-
+.secondary:hover{
+    transform:translateY(-4px);
     background:rgba(255,255,255,.08);
-
-    transform:translateY(-4px);
-
 }
 
+/* 3D OBJECT */
 
-.hero-meta{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:25px;
-
-    margin-top:55px;
-
-    color:#686e82;
-
-    font-size:11px;
-
-}
-
-
-.hero-meta strong{
-
-    color:#c7cad7;
-
-}
-
-
-/* =====================================================
-   3D HERO OBJECT
-===================================================== */
-
-.hero-visual{
-
+.visual{
     position:absolute;
-
-    right:-90px;
-
+    width:450px;
+    height:450px;
+    right:0;
     top:50%;
-
-    transform:
-        translateY(-50%);
-
-    width:470px;
-    height:470px;
-
+    transform:translateY(-50%);
     pointer-events:none;
-
 }
-
 
 .core{
-
     position:absolute;
-
-    width:210px;
-    height:210px;
-
+    width:190px;
+    height:190px;
     left:130px;
     top:130px;
-
     border-radius:50%;
-
     background:
-
-        radial-gradient(
-            circle at 30% 25%,
-            #dce3ff,
-            #7181ff 15%,
-            #3346f5 38%,
-            #090b18 70%
-        );
-
+        radial-gradient(circle at 30% 25%,#eef1ff,#7182ff 20%,#3346ed 45%,#080a18 72%);
     box-shadow:
-
-        0 0 70px rgba(74,94,255,.42),
-
-        inset -30px -25px 50px rgba(0,0,0,.65),
-
-        inset 15px 15px 25px rgba(255,255,255,.25);
-
-    animation:coreFloat 7s ease-in-out infinite;
-
+        0 0 80px rgba(75,95,255,.45),
+        inset -25px -30px 40px rgba(0,0,0,.65);
+    animation:core 6s ease-in-out infinite;
 }
-
 
 .ring{
-
     position:absolute;
-
-    border:1px solid rgba(103,121,255,.38);
-
+    border:1px solid rgba(105,125,255,.35);
     border-radius:50%;
-
 }
 
-
-.ring.one{
-
-    width:330px;
-    height:110px;
-
-    left:70px;
-    top:180px;
-
-    transform:
-        rotateX(65deg)
-        rotateZ(-20deg);
-
-    animation:ringSpin 12s linear infinite;
-
+.ring1{
+    width:360px;
+    height:120px;
+    left:45px;
+    top:165px;
+    transform:rotateX(65deg) rotateZ(-20deg);
+    animation:spin 12s linear infinite;
 }
 
-
-.ring.two{
-
+.ring2{
     width:390px;
     height:145px;
-
-    left:40px;
-    top:160px;
-
-    transform:
-        rotateX(70deg)
-        rotateZ(45deg);
-
-    animation:ringSpin 17s linear infinite reverse;
-
+    left:30px;
+    top:155px;
+    transform:rotateX(70deg) rotateZ(40deg);
+    animation:spin2 16s linear infinite;
 }
 
-
-.ring.three{
-
+.ring3{
     width:270px;
     height:270px;
-
-    left:100px;
-    top:100px;
-
-    border-color:rgba(54,217,255,.18);
-
-    animation:ringRotate 20s linear infinite;
-
+    left:90px;
+    top:90px;
+    border-color:rgba(50,200,255,.2);
+    animation:rotate 18s linear infinite;
 }
 
-
-@keyframes coreFloat{
-
-    0%,100%{
-        transform:translateY(0) rotate(0);
-    }
-
-    50%{
-        transform:translateY(-18px) rotate(8deg);
-    }
-
+@keyframes core{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-18px)}
 }
 
-
-@keyframes ringSpin{
-
+@keyframes spin{
     to{
-        transform:
-            rotateX(65deg)
-            rotateZ(340deg);
+        transform:rotateX(65deg) rotateZ(340deg);
     }
-
 }
 
+@keyframes spin2{
+    to{
+        transform:rotateX(70deg) rotateZ(-320deg);
+    }
+}
 
-@keyframes ringRotate{
-
+@keyframes rotate{
     to{
         transform:rotateZ(360deg);
     }
-
 }
 
-
-/* =====================================================
-   SECTION
-===================================================== */
+/* SECTIONS */
 
 section{
-
-    padding:125px 0;
-
-    position:relative;
-
+    padding:110px 7%;
 }
 
-
-.section-head{
-
-    max-width:700px;
-
-    margin-bottom:55px;
-
+.container{
+    max-width:1150px;
+    margin:auto;
 }
 
-
-.section-label{
-
-    color:#7180ff;
-
+.label{
+    color:#7181ff;
     font-size:10px;
-
     font-weight:800;
-
-    text-transform:uppercase;
-
     letter-spacing:3px;
-
+    text-transform:uppercase;
 }
-
 
 .section-title{
-
-    margin-top:13px;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            58px
-        );
-
+    margin-top:12px;
+    font-family:Manrope,Arial,sans-serif;
+    font-size:clamp(35px,5vw,58px);
     line-height:1;
-
     letter-spacing:-3px;
-
 }
 
-
-.section-description{
-
+.section-text{
     margin-top:18px;
-
-    color:var(--muted);
-
-    line-height:1.8;
-
+    color:#8d93a5;
     font-size:14px;
-
+    line-height:1.9;
+    max-width:680px;
 }
 
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:12px;
-
-    margin-top:80px;
-
-}
-
-
-.stat{
-
-    padding:27px;
-
-    border:
-        1px solid
-        var(--line-soft);
-
-    border-radius:18px;
-
-    background:
-        rgba(255,255,255,.025);
-
-}
-
-
-.stat-number{
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:30px;
-
-    font-weight:800;
-
-}
-
-
-.stat-label{
-
-    margin-top:7px;
-
-    color:var(--muted2);
-
-    font-size:11px;
-
-}
-
-
-/* =====================================================
-   GLASS CARDS
-===================================================== */
+/* CARDS */
 
 .cards{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:17px;
-
+    margin-top:55px;
 }
-
 
 .card{
-
-    position:relative;
-
-    min-height:300px;
-
+    min-height:290px;
     padding:30px;
-
+    border:1px solid rgba(255,255,255,.08);
     border-radius:22px;
-
-    overflow:hidden;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.025)
-        );
-
-    backdrop-filter:blur(18px);
-
-    transform-style:preserve-3d;
-
-    transition:
-        transform .15s ease,
-        border-color .3s,
-        box-shadow .3s;
-
+    background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    backdrop-filter:blur(15px);
+    transition:.4s;
 }
-
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    right:-100px;
-    top:-100px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(91,124,255,.42),
-            transparent 65%
-        );
-
-    filter:blur(15px);
-
-}
-
 
 .card:hover{
-
-    border-color:
-        rgba(99,124,255,.32);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.35);
-
+    transform:translateY(-10px);
+    border-color:rgba(100,120,255,.35);
+    box-shadow:0 30px 70px rgba(0,0,0,.35);
 }
 
-
-.card-number{
-
-    color:#5e6680;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:11px;
-
-    font-weight:800;
-
-}
-
-
-.card-icon{
-
+.icon{
     width:54px;
     height:54px;
-
-    margin-top:35px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     border-radius:15px;
-
     font-size:23px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(94,112,255,.25),
-            rgba(255,255,255,.04)
-        );
-
-    border:
-        1px solid
-        rgba(120,135,255,.18);
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.15),
-        0 15px 30px rgba(0,0,0,.25);
-
-    transform:translateZ(30px);
-
+    background:linear-gradient(145deg,rgba(90,110,255,.25),rgba(255,255,255,.04));
+    border:1px solid rgba(110,130,255,.18);
 }
-
 
 .card h3{
-
-    margin-top:25px;
-
-    font-family:"Manrope",sans-serif;
-
+    margin-top:24px;
+    font-family:Manrope,Arial,sans-serif;
     font-size:20px;
-
-    transform:translateZ(25px);
-
 }
-
 
 .card p{
-
     margin-top:12px;
-
-    color:var(--muted);
-
+    color:#858b9e;
     font-size:12px;
-
     line-height:1.8;
-
-    transform:translateZ(20px);
-
 }
 
+/* ABOUT */
 
-/* =====================================================
-   ABOUT SPLIT
-===================================================== */
-
-.about-grid{
-
+.about{
     display:grid;
-
-    grid-template-columns:
-        1.1fr .9fr;
-
+    grid-template-columns:1fr 1fr;
     gap:70px;
-
     align-items:center;
-
 }
-
 
 .about-copy p{
-
-    color:var(--muted);
-
+    color:#9298a9;
+    font-size:14px;
     line-height:2;
-
-    font-size:15px;
-
 }
 
-
-.about-copy p + p{
-
+.about-copy p+p{
     margin-top:18px;
-
 }
 
-
-.about-visual{
-
-    min-height:390px;
-
+.about-box{
+    height:380px;
+    border:1px solid rgba(255,255,255,.09);
     border-radius:28px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border:1px solid var(--line);
-
     background:
-
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(83,100,255,.22),
-            transparent 45%
-        ),
-
+        radial-gradient(circle at center,rgba(80,100,255,.22),transparent 45%),
         rgba(255,255,255,.025);
-
-}
-
-
-.about-visual::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:20px;
-
-    border:
-        1px solid
-        rgba(105,120,255,.13);
-
-    border-radius:22px;
-
-}
-
-
-.about-visual::after{
-
-    content:"CIRDRIO";
-
-    position:absolute;
-
-    inset:0;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    font-family:"Manrope",sans-serif;
-
-    font-weight:800;
-
-    font-size:48px;
-
-    letter-spacing:8px;
-
-    color:rgba(255,255,255,.045);
-
+    position:relative;
+    overflow:hidden;
 }
 
+.about-box:before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border:1px solid rgba(100,120,255,.22);
+    border-radius:50%;
+}
+
+.about-box:after{
+    content:"CIRDRIO";
+    font-family:Manrope,Arial,sans-serif;
+    font-weight:800;
+    font-size:38px;
+    letter-spacing:7px;
+    color:rgba(255,255,255,.08);
+}
 
 .about-core{
-
     position:absolute;
-
-    width:130px;
-    height:130px;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
+    width:110px;
+    height:110px;
     border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            #dfe4ff,
-            #566aff 25%,
-            #141a57 65%,
-            #06070c
-        );
-
-    box-shadow:
-        0 0 70px rgba(80,100,255,.4);
-
-    animation:
-        coreFloat 6s ease-in-out infinite;
-
+    background:radial-gradient(circle at 30% 25%,#dfe4ff,#596dff 30%,#10163e 70%);
+    box-shadow:0 0 60px rgba(80,100,255,.4);
+    z-index:2;
 }
 
-
-/* =====================================================
-   PROCESS
-===================================================== */
+/* PROCESS */
 
 .process{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
-
+    margin-top:55px;
 }
-
 
 .process-item{
-
     padding:28px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.1);
-
+    border-top:1px solid rgba(255,255,255,.12);
     transition:.3s;
-
 }
-
 
 .process-item:hover{
-
-    border-top-color:
-        #6478ff;
-
-    transform:translateY(-5px);
-
+    border-color:#6478ff;
+    transform:translateY(-6px);
 }
 
-
-.process-number{
-
-    color:#6576ff;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:12px;
-
+.number{
+    color:#6678ff;
     font-weight:800;
-
+    font-size:12px;
 }
-
 
 .process h3{
-
     margin-top:45px;
-
-    font-size:17px;
-
+    font-family:Manrope,Arial,sans-serif;
 }
-
 
 .process p{
-
     margin-top:10px;
-
-    color:var(--muted);
-
+    color:#858b9e;
     font-size:12px;
-
     line-height:1.8;
-
 }
 
+/* VISION */
 
-/* =====================================================
-   VISION
-===================================================== */
-
-.vision-box{
-
-    padding:75px 60px;
-
+.vision{
+    padding:70px 55px;
+    border:1px solid rgba(255,255,255,.09);
     border-radius:30px;
-
-    border:1px solid var(--line);
-
     background:
-
-        radial-gradient(
-            circle at 20% 0%,
-            rgba(76,91,255,.20),
-            transparent 40%
-        ),
-
-        radial-gradient(
-            circle at 100% 100%,
-            rgba(54,217,255,.07),
-            transparent 35%
-        ),
-
+        radial-gradient(circle at 20% 0%,rgba(80,100,255,.18),transparent 40%),
         rgba(255,255,255,.025);
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.3);
-
 }
 
-
-.vision-box h2{
-
-    max-width:850px;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:
-        clamp(
-            34px,
-            6vw,
-            68px
-        );
-
+.vision h2{
+    margin-top:15px;
+    max-width:800px;
+    font-family:Manrope,Arial,sans-serif;
+    font-size:clamp(35px,6vw,67px);
     line-height:1;
-
     letter-spacing:-4px;
-
 }
 
-
-.vision-box p{
-
-    max-width:700px;
-
-    margin-top:25px;
-
-    color:var(--muted);
-
+.vision p{
+    max-width:680px;
+    margin-top:23px;
+    color:#8d93a5;
     line-height:1.9;
-
+    font-size:14px;
 }
 
+/* TEAM */
 
-/* =====================================================
-   TEAM
-===================================================== */
-
-.team-grid{
-
+.team{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
+    margin-top:50px;
 }
-
 
 .team-card{
-
     padding:30px;
-
+    border:1px solid rgba(255,255,255,.08);
     border-radius:20px;
-
-    border:1px solid var(--line-soft);
-
     background:rgba(255,255,255,.025);
-
 }
-
 
 .team-icon{
-
     font-size:23px;
-
 }
-
 
 .team-card h3{
-
     margin-top:20px;
-
-    font-size:17px;
-
 }
-
 
 .team-card p{
-
-    margin-top:9px;
-
-    color:var(--muted);
-
+    margin-top:10px;
+    color:#858b9e;
     font-size:12px;
-
     line-height:1.8;
-
 }
 
-
-/* =====================================================
-   CONTACT CTA
-===================================================== */
+/* CONTACT */
 
 .contact{
-
-    padding-bottom:130px;
-
+    text-align:center;
 }
-
 
 .contact-box{
-
-    position:relative;
-
-    overflow:hidden;
-
-    text-align:center;
-
-    padding:
-        90px 25px;
-
-    border-radius:32px;
-
-    border:1px solid rgba(108,125,255,.18);
-
+    padding:85px 25px;
+    border:1px solid rgba(100,120,255,.18);
+    border-radius:30px;
     background:
-
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(80,100,255,.24),
-            transparent 55%
-        ),
-
+        radial-gradient(circle at 50% 0%,rgba(75,95,255,.23),transparent 55%),
         rgba(255,255,255,.025);
-
-    box-shadow:
-        0 40px 120px rgba(0,0,0,.4);
-
+    box-shadow:0 40px 100px rgba(0,0,0,.35);
 }
-
 
 .contact-box h2{
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:
-        clamp(
-            38px,
-            6vw,
-            70px
-        );
-
+    margin-top:14px;
+    font-family:Manrope,Arial,sans-serif;
+    font-size:clamp(38px,6vw,68px);
     line-height:1;
-
     letter-spacing:-4px;
-
 }
-
 
 .contact-box p{
-
-    max-width:580px;
-
+    max-width:600px;
     margin:20px auto 0;
-
-    color:var(--muted);
-
-    line-height:1.8;
-
+    color:#8d93a5;
+    line-height:1.9;
+    font-size:14px;
 }
 
+.contact-buttons{
+    justify-content:center;
+}
 
-.contact-box .hero-buttons{
+/* FOOTER */
 
-    justify
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:35px 7%;
+}
+
+.footer{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.footer-logo{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:8px;
+    padding:3px;
+}
+
+.footer-name{
+    font-family:Manrope,Arial,sans-serif;
+    font-weight:800;
+    letter-spacing:2px;
+    font-size:11px;
+}
+
+.footer-copy{
+    color:#5e6373;
+    font-size:10px;
+}
+
+.footer-email{
+    color:#73798b;
+    text-decoration:none;
+    font-size:11px;
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    .visual{
+        opacity:.18;
+        right:-180px;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .process{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .team{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:12px 4%;
+    }
+
+    .links,
+    .nav-button{
+        display:none;
+    }
+
+    .hero{
+        padding:145px 6% 90px;
+    }
+
+    h1{
+        font-size:58px;
+        letter-spacing:-4px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .visual{
+        right:-260px;
+        opacity:.12;
+    }
+
+    section{
+        padding:85px 6%;
+    }
+
+    .cards,
+    .process,
+    .team{
+        grid-template-columns:1fr;
+    }
+
+    .vision{
+        padding:50px 25px;
+    }
+
+    .vision h2{
+        letter-spacing:-2px;
+    }
+
+    .footer{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="background">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav">
+
+        <a href="#home" class="brand">
+            <img src="logo.png" alt="CIRDRIO Logo" class="logo">
+            <span>CIRDRIO</span>
+        </a>
+
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#work">Capabilities</a>
+            <a href="#process">Approach</a>
+            <a href="#vision">Vision</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <a href="mailto:cirdrio.dm@gmail.com" class="nav-button">
+            Let's Talk
+        </a>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+
+    <div class="hero-content reveal">
+
+        <div class="badge">
+            <span class="dot"></span>
+            Building the next generation
+        </div>
+
+        <h1>
+            Build
+            <span class="gradient">What's Next.</span>
+        </h1>
+
+        <p>
+            CIRDRIO is an emerging technology company focused on
+            building intelligent products, digital systems and
+            ambitious ideas designed for the future.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#work" class="button primary">
+                Explore CIRDRIO →
+            </a>
+
+            <a href="mailto:cirdrio.dm@gmail.com" class="button secondary">
+                Start a Conversation
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- 3D OBJECT -->
+    <div class="visual">
+
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+        <div class="core"></div>
+
+    </div>
+
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="container about">
+
+        <div class="about-copy reveal">
+
+            <div class="label">
+                About CIRDRIO
+            </div>
+
+            <h2 class="section-title">
+                We don't just imagine the future.
+                We build toward it.
+            </h2>
+
+            <p>
+                CIRDRIO exists to turn ambitious ideas into
+                useful technology. We combine engineering,
+                design and strategic thinking to create products
+                that are purposeful, scalable and built to evolve.
+            </p>
+
+            <p>
+                Our mindset is simple: understand the problem,
+                design the right system, build with precision
+                and keep improving.
+            </p>
+
+        </div>
+
+        <div class="about-box reveal">
+            <div class="about-core"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CAPABILITIES -->
+<section id="work">
+
+    <div class="container">
+
+        <div class="reveal">
+
+            <div class="label">
+                What We Build
+            </div>
+
+            <h2 class="section-title">
+                Technology with purpose.
+            </h2>
+
+            <p class="section-text">
+                From digital products to intelligent systems,
+                CIRDRIO focuses on creating technology that
+                can move from an idea to something real.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card reveal">
+                <div class="icon">⬡</div>
+                <h3>Digital Engineering</h3>
+                <p>
+                    Modern websites, software platforms and
+                    technical foundations built for performance,
+                    reliability and growth.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">◈</div>
+                <h3>Intelligent Systems</h3>
+                <p>
+                    Exploring AI, automation and intelligent
+                    workflows to make technology more capable
+                    and useful.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">◇</div>
+                <h3>Product Development</h3>
+                <p>
+                    Turning early concepts into useful,
+                    understandable and thoughtfully designed
+                    digital products.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">✦</div>
+                <h3>Digital Experience</h3>
+                <p>
+                    Premium interfaces and experiences designed
+                    to feel intuitive across modern devices.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">⌁</div>
+                <h3>Product Strategy</h3>
+                <p>
+                    Finding the right direction and turning
+                    opportunities into focused product ideas.
+                </p>
+            </div>
+
+            <div class="card reveal">
+                <div class="icon">◎</div>
+                <h3>Future Exploration</h3>
+                <p>
+                    Researching emerging technologies and
+                    discovering possibilities before they become
+                    obvious.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+
+    <div class="container">
+
+        <div class="reveal">
+
+            <div class="label">
+                Our Approach
+            </div>
+
+            <h2 class="section-title">
+                From thought to reality.
+            </h2>
+
+            <p class="section-text">
+                A disciplined process keeps ambitious ideas
+                moving in the right direction.
+            </p>
+
+        </div>
+
+        <div class="process">
+
+            <div class="process-item reveal">
+                <div class="number">01</div>
+                <h3>Discover</h3>
+                <p>
+                    Understand the problem, opportunity and
+                    people before deciding what to build.
+                </p>
+            </div>
+
+            <div class="process-item reveal">
+                <div class="number">02</div>
+                <h3>Design</h3>
+                <p>
+                    Shape the experience, architecture and
+                    direction into a focused concept.
+                </p>
+            </div>
+
+            <div class="process-item reveal">
+                <div class="number">03</div>
+                <h3>Build</h3>
+                <p>
+                    Engineer the system with attention to
+                    quality, performance and scalability.
+                </p>
+   
