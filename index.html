@@ -1,53 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CIRDRIO — Intelligence. Systems. Future.</title>
+<title>CIRDRIO — Engineering What's Next</title>
 
 <meta name="description"
-content="CIRDRIO builds intelligent technology, digital systems and next-generation products engineered for the future.">
+content="CIRDRIO is an independent technology company building intelligent systems, digital products and next-generation experiences.">
 
-<meta name="theme-color" content="#05070d">
+<meta name="theme-color" content="#05060a">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   CIRDRIO — GLOBAL SYSTEM
-   ========================================================= */
-
-:root{
-
-    --bg:#04050a;
-    --bg-soft:#080a12;
-
-    --white:#ffffff;
-    --text:#eef1ff;
-    --muted:#8b92a7;
-    --muted-2:#60677b;
-
-    --blue:#5b6cff;
-    --blue-bright:#7c8aff;
-    --cyan:#32d8ff;
-    --violet:#8b5cf6;
-
-    --line:rgba(255,255,255,.09);
-    --line-blue:rgba(100,120,255,.22);
-
-    --glass:rgba(255,255,255,.035);
-
-    --font-main:"DM Sans",Arial,sans-serif;
-    --font-display:"Space Grotesk",Arial,sans-serif;
-
-    --ease:cubic-bezier(.16,1,.3,1);
-}
 
 *{
     margin:0;
@@ -55,25 +24,31 @@ content="CIRDRIO builds intelligent technology, digital systems and next-generat
     box-sizing:border-box;
 }
 
+:root{
+    --bg:#05060a;
+    --bg-soft:#090b12;
+    --white:#f7f8ff;
+    --text:#a2a8ba;
+    --muted:#686f83;
+    --line:rgba(255,255,255,.09);
+
+    --blue:#6578ff;
+    --blue-light:#91a0ff;
+    --cyan:#38d9ff;
+    --purple:#8a5cff;
+
+    --glass:rgba(255,255,255,.035);
+}
+
 html{
     scroll-behavior:smooth;
-    background:var(--bg);
 }
 
 body{
-
-    font-family:var(--font-main);
-
+    font-family:Inter,Arial,sans-serif;
     background:var(--bg);
-
-    color:var(--text);
-
+    color:var(--white);
     overflow-x:hidden;
-
-    min-height:100vh;
-
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
 }
 
 a{
@@ -87,837 +62,621 @@ a{
 
 /* =========================================================
    GLOBAL BACKGROUND
-   ========================================================= */
+========================================================= */
 
-.system-background{
-
+.background{
     position:fixed;
-
     inset:0;
-
     z-index:-20;
-
     overflow:hidden;
-
     background:
-
         radial-gradient(
-            circle at 15% 15%,
-            rgba(70,90,255,.14),
+            circle at 12% 18%,
+            rgba(74,91,255,.18),
             transparent 30%
         ),
-
         radial-gradient(
-            circle at 85% 20%,
-            rgba(35,190,255,.08),
+            circle at 87% 25%,
+            rgba(25,190,255,.10),
             transparent 28%
         ),
-
         radial-gradient(
-            circle at 50% 90%,
-            rgba(120,70,255,.10),
+            circle at 50% 92%,
+            rgba(111,58,255,.13),
             transparent 35%
         ),
-
-        #04050a;
+        #05060a;
 }
 
-/* subtle technical grid */
-
-.system-background::before{
-
+.background::before{
     content:"";
-
     position:absolute;
-
     inset:-20%;
-
-    background-image:
-
+    background:
         linear-gradient(
-            rgba(255,255,255,.035) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(255,255,255,.035) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         );
-
-    background-size:70px 70px;
-
+    background-size:65px 65px;
     transform:
-        perspective(900px)
+        perspective(800px)
         rotateX(62deg)
         scale(1.7);
-
     transform-origin:center bottom;
-
-    opacity:.28;
+    opacity:.45;
 }
 
-/* horizon */
-
-.system-background::after{
-
+.background::after{
     content:"";
-
     position:absolute;
-
-    left:0;
-    right:0;
-
-    bottom:0;
-
-    height:45%;
-
+    inset:0;
     background:
-
-        linear-gradient(
-            to top,
-            rgba(4,5,10,.95),
-            transparent
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0,0,0,.48) 100%
         );
-
     pointer-events:none;
 }
 
-/* =========================================================
-   AMBIENT LIGHT SYSTEM
-   ========================================================= */
-
-.ambient{
-
+.orb{
     position:absolute;
-
     border-radius:50%;
-
-    filter:blur(100px);
-
+    filter:blur(90px);
     pointer-events:none;
-
     opacity:.22;
-
-    animation:
-        ambientFloat 12s ease-in-out infinite;
+    animation:orbFloat 11s ease-in-out infinite;
 }
 
-.ambient.a{
-
-    width:420px;
-    height:420px;
-
-    left:-220px;
-    top:8%;
-
+.orb-a{
+    width:360px;
+    height:360px;
+    left:-180px;
+    top:12%;
     background:#465cff;
 }
 
-.ambient.b{
-
-    width:360px;
-    height:360px;
-
-    right:-190px;
-    top:30%;
-
-    background:#653cff;
-
+.orb-b{
+    width:330px;
+    height:330px;
+    right:-170px;
+    top:38%;
+    background:#713dff;
     animation-delay:-4s;
 }
 
-.ambient.c{
-
-    width:300px;
-    height:300px;
-
+.orb-c{
+    width:260px;
+    height:260px;
     left:42%;
-    bottom:-190px;
-
-    background:#009dff;
-
-    animation-delay:-8s;
+    bottom:-160px;
+    background:#00baff;
+    animation-delay:-7s;
 }
 
-@keyframes ambientFloat{
+@keyframes orbFloat{
 
     0%,100%{
         transform:translate3d(0,0,0);
     }
 
     50%{
-        transform:translate3d(0,-35px,0);
+        transform:translate3d(0,-38px,0);
     }
-}
-
-/* =========================================================
-   NOISE OVERLAY
-   ========================================================= */
-
-.noise{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:9999;
-
-    pointer-events:none;
-
-    opacity:.025;
-
-    background-image:url(
-        "data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E"
-    );
-
-    mix-blend-mode:soft-light;
 }
 
 /* =========================================================
    NAVIGATION
-   ========================================================= */
+========================================================= */
 
 .navbar{
-
     position:fixed;
-
     top:0;
     left:0;
     right:0;
-
-    z-index:500;
-
+    z-index:1000;
     padding:18px 4.5%;
-
-    transition:.5s var(--ease);
 }
 
-.navbar.scrolled{
-
-    padding-top:10px;
-}
-
-.nav{
-
-    max-width:1280px;
-
+.nav-shell{
+    max-width:1220px;
     margin:auto;
-
-    min-height:62px;
+    padding:9px 12px 9px 16px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
-    gap:25px;
-
-    padding:9px 11px 9px 16px;
-
     border:1px solid var(--line);
-
     border-radius:18px;
 
-    background:
-        rgba(5,7,13,.68);
-
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
+    background:rgba(5,6,12,.68);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
 
     box-shadow:
-        0 15px 50px rgba(0,0,0,.22),
-        inset 0 1px 0 rgba(255,255,255,.04);
+        0 18px 60px rgba(0,0,0,.22),
+        inset 0 1px rgba(255,255,255,.035);
 }
-
-/* brand */
 
 .brand{
-
     display:flex;
-
     align-items:center;
-
     gap:11px;
-
     text-decoration:none;
-
-    flex-shrink:0;
 }
 
-.logo{
-
-    width:39px;
-    height:39px;
-
+.brand-logo{
+    width:38px;
+    height:38px;
     object-fit:contain;
-
-    border-radius:11px;
-
-    filter:
-        drop-shadow(
-            0 0 15px rgba(91,108,255,.35)
-        );
-}
-
-.brand-text{
-
-    display:flex;
-
-    flex-direction:column;
-
-    line-height:1;
+    border-radius:10px;
 }
 
 .brand-name{
-
-    font-family:var(--font-display);
-
-    font-size:15px;
-
-    font-weight:700;
-
-    letter-spacing:3px;
+    font-family:Manrope,Arial,sans-serif;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:2.5px;
 }
 
-.brand-tag{
-
-    margin-top:4px;
-
-    color:var(--muted-2);
-
-    font-size:7px;
-
-    font-weight:600;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
-/* links */
-
-.links{
-
+.nav-links{
     display:flex;
-
     align-items:center;
-
-    gap:30px;
+    gap:27px;
 }
 
-.links a{
-
+.nav-links a{
     position:relative;
-
-    color:#858ca0;
-
+    color:#858b9e;
     text-decoration:none;
-
     font-size:11px;
-
     font-weight:600;
-
-    letter-spacing:.2px;
-
     transition:.3s;
 }
 
-.links a::after{
-
+.nav-links a::after{
     content:"";
-
     position:absolute;
-
     left:0;
-
     bottom:-7px;
-
     width:0;
-
     height:1px;
-
-    background:var(--blue-bright);
-
-    transition:.3s var(--ease);
+    background:var(--blue-light);
+    transition:.3s;
 }
 
-.links a:hover{
-
+.nav-links a:hover{
     color:#fff;
 }
 
-.links a:hover::after{
-
+.nav-links a:hover::after{
     width:100%;
 }
 
-/* nav button */
-
-.nav-action{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    padding:12px 18px;
-
-    border-radius:11px;
-
+.nav-cta{
+    padding:11px 17px;
+    border-radius:10px;
     text-decoration:none;
-
-    font-size:10px;
-
+    font-size:11px;
     font-weight:700;
-
-    color:#fff;
-
     background:
         linear-gradient(
             135deg,
-            #7181ff,
-            #4051e9
+            #7385ff,
+            #3c4be8
         );
-
     box-shadow:
-        0 10px 30px rgba(63,80,235,.25);
-
-    transition:.35s var(--ease);
+        0 10px 25px rgba(64,80,240,.25);
+    transition:.3s;
 }
 
-.nav-action:hover{
-
+.nav-cta:hover{
     transform:translateY(-2px);
-
     box-shadow:
-        0 14px 35px rgba(63,80,235,.40);
+        0 15px 35px rgba(64,80,240,.38);
 }
 
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .hero{
-
+    min-height:100vh;
     position:relative;
 
-    min-height:100vh;
-
     display:flex;
-
     align-items:center;
 
-    padding:
-        155px
-        7%
-        100px;
+    padding:155px 7% 100px;
+}
 
-    overflow:hidden;
+.hero-inner{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    position:relative;
 }
 
 .hero-content{
-
+    max-width:790px;
     position:relative;
-
     z-index:5;
-
-    max-width:850px;
 }
 
-/* live status */
-
-.status{
-
+.eyebrow{
     display:inline-flex;
-
     align-items:center;
-
     gap:9px;
 
     padding:8px 13px;
 
-    border:1px solid rgba(100,120,255,.22);
+    border:1px solid rgba(106,125,255,.25);
+    border-radius:100px;
 
-    border-radius:50px;
+    background:rgba(70,85,255,.07);
 
-    background:
-        rgba(80,100,255,.055);
+    color:#aab4ff;
 
-    color:#aeb7ff;
-
-    font-size:9px;
-
+    font-size:10px;
     font-weight:700;
-
-    letter-spacing:1.8px;
-
+    letter-spacing:1.4px;
     text-transform:uppercase;
 }
 
-.status-dot{
-
-    width:6px;
-    height:6px;
-
+.live-dot{
+    width:7px;
+    height:7px;
     border-radius:50%;
-
-    background:#51ffb0;
+    background:#55ffb2;
 
     box-shadow:
-        0 0 12px #51ffb0;
+        0 0 8px #55ffb2,
+        0 0 18px rgba(85,255,178,.5);
 
-    animation:
-        pulse 2s ease-in-out infinite;
+    animation:pulseDot 2s ease-in-out infinite;
 }
 
-@keyframes pulse{
+@keyframes pulseDot{
 
     0%,100%{
-        opacity:1;
         transform:scale(1);
+        opacity:1;
     }
 
     50%{
-        opacity:.45;
-        transform:scale(.72);
+        transform:scale(.65);
+        opacity:.55;
     }
 }
 
-/* hero title */
-
 .hero h1{
-
     margin-top:28px;
 
-    max-width:900px;
+    font-family:Manrope,Arial,sans-serif;
+    font-size:clamp(58px,9vw,112px);
+    font-weight:800;
 
-    font-family:var(--font-display);
-
-    font-size:
-        clamp(
-            58px,
-            9.5vw,
-            118px
-        );
-
-    line-height:.88;
-
-    letter-spacing:-6px;
-
-    font-weight:600;
+    line-height:.91;
+    letter-spacing:-7px;
 }
 
 .hero h1 .line{
-
     display:block;
 }
 
-.hero h1 .accent{
-
+.gradient-text{
     background:
-
         linear-gradient(
-            110deg,
-            #ffffff 0%,
-            #cdd3ff 30%,
-            #7183ff 58%,
-            #ffffff 85%
+            105deg,
+            #ffffff 5%,
+            #cbd1ff 35%,
+            #667bff 58%,
+            #ffffff 90%
         );
 
-    background-size:250% auto;
+    background-size:240% auto;
 
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
 
-    animation:
-        textShine 7s linear infinite;
+    animation:textShine 7s linear infinite;
 }
 
 @keyframes textShine{
 
     to{
-        background-position:250% center;
+        background-position:240% center;
     }
 }
 
-/* hero copy */
-
 .hero-description{
-
     max-width:650px;
-
     margin-top:30px;
 
-    color:#9198ab;
-
-    font-size:14px;
-
+    color:#9298aa;
+    font-size:15px;
     line-height:1.9;
-
-    letter-spacing:.1px;
 }
 
-/* hero buttons */
+.hero-description strong{
+    color:#dce0f0;
+    font-weight:600;
+}
 
-.hero-buttons{
-
+.hero-actions{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:12px;
-
-    margin-top:35px;
+    margin-top:36px;
 }
 
 .btn{
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:9px;
 
     min-height:48px;
-
     padding:0 20px;
 
     border-radius:12px;
-
     text-decoration:none;
 
-    font-size:10px;
-
+    font-size:11px;
     font-weight:700;
 
-    letter-spacing:.2px;
-
-    transition:.4s var(--ease);
+    transition:.35s;
 }
 
 .btn-primary{
-
     color:#fff;
 
     background:
         linear-gradient(
             135deg,
-            #7181ff,
-            #3e4fe8
+            #7285ff,
+            #3d4de9
         );
 
     box-shadow:
-        0 16px 38px
-        rgba(55,70,235,.25);
+        0 14px 35px rgba(58,74,235,.28);
 }
 
 .btn-primary:hover{
-
     transform:translateY(-4px);
-
     box-shadow:
-        0 22px 50px
-        rgba(55,70,235,.42);
+        0 20px 45px rgba(58,74,235,.42);
 }
 
 .btn-secondary{
+    color:#dfe2ed;
 
-    color:#d7dbea;
-
-    border:1px solid var(--line);
+    border:1px solid rgba(255,255,255,.10);
 
     background:
         rgba(255,255,255,.035);
 }
 
 .btn-secondary:hover{
-
     transform:translateY(-4px);
-
     background:
-        rgba(255,255,255,.075);
-
+        rgba(255,255,255,.07);
     border-color:
-        rgba(120,135,255,.28);
+        rgba(255,255,255,.16);
 }
 
 /* =========================================================
    HERO 3D SYSTEM
-   ========================================================= */
+========================================================= */
 
-.hero-system{
-
+.hero-visual{
     position:absolute;
 
-    width:620px;
-    height:620px;
+    width:540px;
+    height:540px;
 
     right:-30px;
     top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 
     pointer-events:none;
 
-    z-index:2;
+    perspective:900px;
 }
 
-/* central energy core */
-
-.energy-core{
-
+.energy{
     position:absolute;
-
-    width:190px;
-    height:190px;
-
-    left:215px;
-    top:215px;
+    inset:50px;
 
     border-radius:50%;
 
     background:
-
         radial-gradient(
-            circle at 31% 25%,
-            #f5f7ff 0%,
-            #a9b3ff 11%,
-            #6074ff 28%,
-            #3045e8 48%,
-            #0a0d20 73%,
-            #05060b 100%
+            circle,
+            rgba(85,105,255,.16),
+            transparent 62%
         );
 
-    box-shadow:
-
-        0 0 35px rgba(92,112,255,.45),
-
-        0 0 100px rgba(72,92,255,.28),
-
-        inset
-        -25px -30px 45px
-        rgba(0,0,0,.72);
-
-    animation:
-        coreHover 6s ease-in-out infinite;
+    filter:blur(10px);
+    animation:energyPulse 5s ease-in-out infinite;
 }
 
-@keyframes coreHover{
+@keyframes energyPulse{
 
     0%,100%{
-        transform:translateY(0);
+        transform:scale(.94);
+        opacity:.7;
     }
 
     50%{
-        transform:translateY(-15px);
+        transform:scale(1.08);
+        opacity:1;
     }
 }
 
-/* outer rings */
-
-.orbit{
-
+.core-system{
     position:absolute;
+
+    width:185px;
+    height:185px;
+
+    left:177px;
+    top:177px;
 
     border-radius:50%;
 
-    border:
-        1px solid
-        rgba(108,128,255,.28);
+    background:
+        radial-gradient(
+            circle at 28% 22%,
+            #f1f3ff 0%,
+            #a9b5ff 10%,
+            #5d70ff 28%,
+            #2638d9 48%,
+            #0a0d25 73%,
+            #03040b 100%
+        );
+
+    box-shadow:
+        0 0 35px rgba(83,103,255,.5),
+        0 0 100px rgba(70,90,255,.25),
+        inset -30px -35px 45px rgba(0,0,0,.68);
+
+    animation:coreMotion 6s ease-in-out infinite;
+}
+
+@keyframes coreMotion{
+
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-13px) rotate(2deg);
+    }
+}
+
+.core-system::before{
+    content:"";
+
+    position:absolute;
+    inset:20px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.20);
+
+    box-shadow:
+        inset 0 0 25px rgba(105,125,255,.4);
+}
+
+.core-system::after{
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+    height:20px;
+
+    top:34px;
+    left:42px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    filter:blur(7px);
+    opacity:.7;
+}
+
+.orbit{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    border:1px solid rgba(105,125,255,.34);
+
+    border-radius:50%;
 
     transform-style:preserve-3d;
 }
 
-.orbit.one{
+.orbit-a{
+    width:390px;
+    height:130px;
 
-    width:490px;
-    height:150px;
-
-    left:65px;
-    top:235px;
+    margin-left:-195px;
+    margin-top:-65px;
 
     transform:
-        rotateX(66deg)
+        rotateX(68deg)
         rotateZ(-18deg);
 
-    animation:
-        orbitOne 15s linear infinite;
+    animation:orbitA 13s linear infinite;
 }
 
-.orbit.two{
+.orbit-b{
+    width:440px;
+    height:155px;
 
-    width:530px;
-    height:185px;
+    margin-left:-220px;
+    margin-top:-77px;
 
-    left:45px;
-    top:218px;
-
-    border-color:
-        rgba(50,210,255,.17);
+    border-color:rgba(52,210,255,.22);
 
     transform:
-        rotateX(70deg)
-        rotateZ(37deg);
+        rotateX(71deg)
+        rotateZ(43deg);
 
-    animation:
-        orbitTwo 20s linear infinite;
+    animation:orbitB 17s linear infinite;
 }
 
-.orbit.three{
+.orbit-c{
+    width:300px;
+    height:300px;
 
-    width:350px;
-    height:350px;
+    margin-left:-150px;
+    margin-top:-150px;
 
-    left:135px;
-    top:135px;
+    border-color:rgba(118,100,255,.22);
 
-    border-color:
-        rgba(115,100,255,.18);
-
-    animation:
-        orbitThree 24s linear infinite;
+    animation:orbitC 20s linear infinite;
 }
 
-@keyframes orbitOne{
+@keyframes orbitA{
 
     to{
         transform:
-            rotateX(66deg)
+            rotateX(68deg)
             rotateZ(342deg);
     }
 }
 
-@keyframes orbitTwo{
+@keyframes orbitB{
 
     to{
         transform:
-            rotateX(70deg)
-            rotateZ(-323deg);
+            rotateX(71deg)
+            rotateZ(-317deg);
     }
 }
 
-@keyframes orbitThree{
+@keyframes orbitC{
 
     to{
-        transform:
-            rotateZ(360deg);
+        transform:rotateZ(360deg);
     }
 }
-
-/* energy particles */
 
 .particle{
-
     position:absolute;
 
     width:4px;
@@ -925,77 +684,1281 @@ a{
 
     border-radius:50%;
 
-    background:#9da9ff;
+    background:#8ea0ff;
 
     box-shadow:
-        0 0 12px #6f82ff;
+        0 0 10px #7185ff;
+
+    animation:particleFloat 5s ease-in-out infinite;
 }
 
-.particle.p1{
-    left:115px;
-    top:160px;
+.p1{
+    left:20%;
+    top:25%;
 }
 
-.particle.p2{
-    right:100px;
-    top:220px;
-
-    background:#43dfff;
+.p2{
+    right:14%;
+    top:28%;
+    animation-delay:-2s;
 }
 
-.particle.p3{
-    left:180px;
-    bottom:105px;
-
-    background:#8d70ff;
+.p3{
+    left:28%;
+    bottom:20%;
+    animation-delay:-3.5s;
 }
 
-.particle.p4{
-    right:160px;
-    bottom:135px;
+@keyframes particleFloat{
+
+    0%,100%{
+        transform:translateY(0);
+        opacity:.35;
+    }
+
+    50%{
+        transform:translateY(-22px);
+        opacity:1;
+    }
 }
 
 /* =========================================================
    SCROLL INDICATOR
-   ========================================================= */
+========================================================= */
 
 .scroll-indicator{
-
     position:absolute;
 
+    bottom:35px;
     left:7%;
 
-    bottom:34px;
-
     display:flex;
-
     align-items:center;
+    gap:12px;
 
-    gap:10px;
+    color:#62697a;
 
-    color:#545b70;
-
-    font-size:8px;
-
+    font-size:9px;
     font-weight:700;
-
     letter-spacing:2px;
-
     text-transform:uppercase;
 }
 
 .scroll-line{
+    width:38px;
+    height:1px;
 
-    width:34px;
+    background:
+        linear-gradient(
+            90deg,
+            #6478ff,
+            transparent
+        );
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section{
+    padding:120px 7%;
+}
+
+.container{
+    width:100%;
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-label{
+    color:#7182ff;
+
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title{
+    max-width:850px;
+
+    margin-top:14px;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:clamp(38px,5.2vw,62px);
+    font-weight:800;
+
+    line-height:.98;
+    letter-spacing:-4px;
+}
+
+.section-description{
+    max-width:680px;
+
+    margin-top:20px;
+
+    color:#8d93a5;
+
+    font-size:14px;
+    line-height:1.9;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:80px;
+
+    align-items:center;
+}
+
+.about-copy p{
+    max-width:600px;
+
+    margin-top:22px;
+
+    color:#9298a9;
+
+    font-size:14px;
+    line-height:2;
+}
+
+.about-copy p strong{
+    color:#d9ddec;
+}
+
+.about-visual{
+    min-height:390px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(78,99,255,.18),
+            transparent 48%
+        ),
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.04);
+}
+
+.about-visual::before{
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    border:1px solid rgba(101,123,255,.22);
+
+    border-radius:50%;
+
+    animation:orbitC 18s linear infinite;
+}
+
+.about-visual::after{
+    content:"CIRDRIO";
+
+    position:absolute;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:35px;
+    font-weight:800;
+
+    letter-spacing:8px;
+
+    color:rgba(255,255,255,.055);
+}
+
+.about-core{
+    width:105px;
+    height:105px;
+
+    border-radius:50%;
+
+    position:relative;
+    z-index:3;
+
+    background:
+        radial-gradient(
+            circle at 28% 23%,
+            #e9edff,
+            #697cff 25%,
+            #18225f 68%,
+            #060814 100%
+        );
+
+    box-shadow:
+        0 0 60px rgba(80,105,255,.45);
+}/* =========================================================
+   CAPABILITIES
+========================================================= */
+
+.capabilities-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
+
+    margin-top:58px;
+}
+
+.capability-card{
+    min-height:300px;
+
+    position:relative;
+
+    padding:30px;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.capability-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    right:-90px;
+    top:-90px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(95,115,255,.20),
+            transparent 68%
+        );
+
+    transition:.5s;
+}
+
+.capability-card:hover{
+    transform:translateY(-9px);
+
+    border-color:
+        rgba(105,125,255,.32);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.32);
+}
+
+.capability-card:hover::before{
+    transform:scale(1.5);
+}
+
+.capability-number{
+    color:#5869dc;
+
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.capability-icon{
+    width:54px;
+    height:54px;
+
+    margin-top:23px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    font-size:22px;
+
+    color:#aab5ff;
+
+    border:1px solid
+        rgba(105,125,255,.18);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(88,108,255,.20),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.06);
+}
+
+.capability-card h3{
+    margin-top:24px;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:19px;
+    font-weight:700;
+
+    letter-spacing:-.4px;
+}
+
+.capability-card p{
+    margin-top:12px;
+
+    color:#858b9e;
+
+    font-size:12px;
+    line-height:1.85;
+}
+
+/* =========================================================
+   SYSTEM ARCHITECTURE
+========================================================= */
+
+.system-section{
+    position:relative;
+}
+
+.system-panel{
+    position:relative;
+
+    min-height:560px;
+
+    margin-top:58px;
+
+    overflow:hidden;
+
+    border:1px solid var(--line);
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(76,96,255,.13),
+            transparent 38%
+        ),
+        rgba(255,255,255,.02);
+}
+
+.system-panel::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    opacity:.5;
+}
+
+.system-center{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:145px;
+    height:145px;
+
+    margin-left:-72.5px;
+    margin-top:-72.5px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #edf0ff,
+            #7084ff 25%,
+            #2639d6 53%,
+            #080a19 78%
+        );
+
+    box-shadow:
+        0 0 50px rgba(82,103,255,.45),
+        0 0 130px rgba(65,84,255,.20),
+        inset -20px -25px 35px rgba(0,0,0,.65);
+
+    z-index:5;
+
+    animation:centerFloat 5s ease-in-out infinite;
+}
+
+@keyframes centerFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.system-center span{
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:13px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#fff;
+}
+
+.system-ring{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    border-radius:50%;
+
+    border:1px solid
+        rgba(103,123,255,.20);
+
+    transform:translate(-50%,-50%);
+}
+
+.system-ring.r1{
+    width:270px;
+    height:270px;
+
+    animation:systemRotate 18s linear infinite;
+}
+
+.system-ring.r2{
+    width:410px;
+    height:410px;
+
+    border-color:
+        rgba(49,203,255,.13);
+
+    animation:
+        systemRotateReverse
+        25s linear infinite;
+}
+
+.system-ring.r3{
+    width:520px;
+    height:520px;
+
+    border-color:
+        rgba(132,91,255,.11);
+
+    animation:systemRotate 32s linear infinite;
+}
+
+@keyframes systemRotate{
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes systemRotateReverse{
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(-360deg);
+    }
+}
+
+.system-node{
+    position:absolute;
+
+    width:155px;
+
+    padding:18px;
+
+    border:1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:17px;
+
+    background:
+        rgba(7,9,17,.72);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.25);
+
+    z-index:8;
+
+    transition:.35s;
+}
+
+.system-node:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(105,125,255,.30);
+}
+
+.node-top{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.node-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#687dff;
+
+    box-shadow:
+        0 0 10px rgba(104,125,255,.7);
+}
+
+.system-node h4{
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+.system-node p{
+    margin-top:8px;
+
+    color:#70778b;
+
+    font-size:9px;
+    line-height:1.6;
+}
+
+.node-one{
+    left:8%;
+    top:21%;
+}
+
+.node-two{
+    right:8%;
+    top:21%;
+}
+
+.node-three{
+    left:7%;
+    bottom:19%;
+}
+
+.node-four{
+    right:7%;
+    bottom:19%;
+}
+
+.connection{
+    position:absolute;
 
     height:1px;
 
     background:
         linear-gradient(
             90deg,
-            #596cff,
+            transparent,
+            rgba(100,122,255,.42),
             transparent
         );
+
+    transform-origin:left center;
+
+    z-index:2;
+}
+
+.connection.one{
+    width:230px;
+
+    left:22%;
+    top:36%;
+
+    transform:rotate(18deg);
+}
+
+.connection.two{
+    width:230px;
+
+    right:22%;
+    top:36%;
+
+    transform:rotate(162deg);
+}
+
+.connection.three{
+    width:240px;
+
+    left:22%;
+    bottom:35%;
+
+    transform:rotate(-18deg);
+}
+
+.connection.four{
+    width:240px;
+
+    right:22%;
+    bottom:35%;
+
+    transform:rotate(198deg);
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+
+    margin-top:58px;
+}
+
+.process-card{
+    position:relative;
+
+    padding:28px 25px;
+
+    border-top:1px solid
+        rgba(255,255,255,.12);
+
+    transition:.35s;
+}
+
+.process-card:hover{
+    transform:translateY(-7px);
+
+    border-top-color:#7183ff;
+}
+
+.process-index{
+    color:#6477ff;
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.process-card h3{
+    margin-top:42px;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:17px;
+    font-weight:700;
+}
+
+.process-card p{
+    margin-top:11px;
+
+    color:#7f8698;
+
+    font-size:11px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.vision-wrap{
+    position:relative;
+}
+
+.vision-box{
+    position:relative;
+
+    padding:85px 60px;
+
+    overflow:hidden;
+
+    border:1px solid
+        rgba(103,123,255,.16);
+
+    border-radius:32px;
+
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(78,100,255,.20),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 90% 100%,
+            rgba(0,180,255,.07),
+            transparent 35%
+        ),
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.30);
+}
+
+.vision-box::before{
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    right:-160px;
+    top:-170px;
+
+    border-radius:50%;
+
+    border:1px solid
+        rgba(110,130,255,.13);
+
+    box-shadow:
+        0 0 0 50px
+        rgba(100,120,255,.025),
+        0 0 0 100px
+        rgba(100,120,255,.015);
+}
+
+.vision-title{
+    max-width:850px;
+
+    margin-top:15px;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:clamp(38px,6vw,70px);
+
+    line-height:.96;
+
+    letter-spacing:-5px;
+}
+
+.vision-title span{
+    color:#7284ff;
+}
+
+.vision-text{
+    max-width:680px;
+
+    margin-top:24px;
+
+    color:#8c93a5;
+
+    font-size:14px;
+    line-height:1.9;
+}
+
+/* =========================================================
+   PRINCIPLES
+========================================================= */
+
+.principles{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
+
+    margin-top:50px;
+}
+
+.principle{
+    padding:28px;
+
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+.principle-symbol{
+    font-size:22px;
+
+    color:#7789ff;
+}
+
+.principle h3{
+    margin-top:20px;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:17px;
+}
+
+.principle p{
+    margin-top:10px;
+
+    color:#7f8698;
+
+    font-size:11px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+    text-align:center;
+}
+
+.contact-box{
+    position:relative;
+
+    padding:90px 25px;
+
+    overflow:hidden;
+
+    border:1px solid
+        rgba(105,125,255,.18);
+
+    border-radius:32px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(76,98,255,.23),
+            transparent 55%
+        ),
+        rgba(255,255,255,.025);
+
+    box-shadow:
+        0 40px 110px rgba(0,0,0,.35);
+}
+
+.contact-box::before{
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+    height:400px;
+
+    left:50%;
+    top:-330px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    border:1px solid
+        rgba(105,125,255,.12);
+
+    box-shadow:
+        0 0 0 50px rgba(105,125,255,.025),
+        0 0 0 100px rgba(105,125,255,.015);
+}
+
+.contact-title{
+    position:relative;
+
+    margin-top:14px;
+
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:clamp(40px,6vw,72px);
+
+    line-height:.95;
+
+    letter-spacing:-5px;
+}
+
+.contact-description{
+    position:relative;
+
+    max-width:620px;
+
+    margin:21px auto 0;
+
+    color:#8d93a5;
+
+    font-size:14px;
+    line-height:1.9;
+}
+
+.contact-actions{
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:32px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    border-top:1px solid
+        rgba(255,255,255,.07);
+
+    padding:38px 7%;
+}
+
+.footer-inner{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.footer-logo{
+    width:30px;
+    height:30px;
+    object-fit:contain;
+}
+
+.footer-name{
+    font-family:Manrope,Arial,sans-serif;
+
+    font-size:11px;
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.footer-copy{
+    color:#555c6d;
+
+    font-size:10px;
+}
+
+.footer-mail{
+    color:#737a8c;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    transition:.3s;
+}
+
+.footer-mail:hover{
+    color:#fff;
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .hero-visual{
+        right:-180px;
+        opacity:.25;
+    }
+
+    .capabilities-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .process-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .principles{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .system-panel{
+        min-height:540px;
+    }
+
+    .system-node{
+        width:145px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:11px 4%;
+    }
+
+    .nav-shell{
+        padding:8px 10px 8px 12px;
+    }
+
+    .brand-logo{
+        width:34px;
+        height:34px;
+    }
+
+    .brand-name{
+        font-size:12px;
+        letter-spacing:2px;
+    }
+
+    .nav-links,
+    .nav-cta{
+        display:none;
+    }
+
+    .hero{
+        padding:
+            145px
+            6%
+            100px;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-4.5px;
+    }
+
+    .hero-description{
+        font-size:13px;
+        line-height:1.85;
+    }
+
+    .hero-visual{
+        width:470px;
+        height:470px;
+
+        right:-270px;
+
+        opacity:.12;
+    }
+
+    .scroll-indicator{
+        left:6%;
+        bottom:28px;
+    }
+
+    section{
+        padding:90px 6%;
+    }
+
+    .section-title{
+        letter-spacing:-3px;
+    }
+
+    .capabilities-grid,
+    .process-grid,
+    .principles{
+        grid-template-columns:1fr;
+    }
+
+    .capability-card{
+        min-height:260px;
+    }
+
+    .system-panel{
+        min-height:600px;
+    }
+
+    .system-node{
+        width:130px;
+        padding:14px;
+    }
+
+    .system-node h4{
+        font-size:10px;
+    }
+
+    .system-node p{
+        font-size:8px;
+    }
+
+    .node-one{
+        left:4%;
+        top:16%;
+    }
+
+    .node-two{
+        right:4%;
+        top:16%;
+    }
+
+    .node-three{
+        left:4%;
+        bottom:16%;
+    }
+
+    .node-four{
+        right:4%;
+        bottom:16%;
+    }
+
+    .system-center{
+        width:125px;
+        height:125px;
+
+        margin-left:-62.5px;
+        margin-top:-62.5px;
+    }
+
+    .system-ring.r1{
+        width:230px;
+        height:230px;
+    }
+
+    .system-ring.r2{
+        width:340px;
+        height:340px;
+    }
+
+    .system-ring.r3{
+        width:430px;
+        height:430px;
+    }
+
+    .connection{
+        display:none;
+    }
+
+    .vision-box{
+        padding:55px 25px;
+    }
+
+    .vision-title{
+        letter-spacing:-3px;
+    }
+
+    .contact-box{
+        padding:65px 20px;
+    }
+
+    .contact-title{
+        letter-spacing:-3px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+
+        text-align:center;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+    }
 }
 
 </style>
@@ -1003,54 +1966,40 @@ a{
 
 <body>
 
-<div class="system-background">
-
-    <div class="ambient a"></div>
-    <div class="ambient b"></div>
-    <div class="ambient c"></div>
-
+<div class="background">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="orb orb-c"></div>
 </div>
-
-<div class="noise"></div>
 
 <nav class="navbar">
 
-    <div class="nav">
+    <div class="nav-shell">
 
         <a href="#home" class="brand">
 
             <img
                 src="cirdrio-logo-transparent.png"
                 alt="CIRDRIO"
-                class="logo"
+                class="brand-logo"
             >
 
-            <div class="brand-text">
-
-                <span class="brand-name">
-                    CIRDRIO
-                </span>
-
-                <span class="brand-tag">
-                    Technology / Future
-                </span>
-
-            </div>
+            <span class="brand-name">
+                CIRDRIO
+            </span>
 
         </a>
 
-        <div class="links">
+        <div class="nav-links">
 
-            <a href="#about">
-                About
-            </a>
+            <a href="#about">About</a>
 
             <a href="#capabilities">
                 Capabilities
             </a>
 
-            <a href="#approach">
-                Approach
+            <a href="#system">
+                Systems
             </a>
 
             <a href="#vision">
@@ -1065,10 +2014,9 @@ a{
 
         <a
             href="mailto:cirdrio.dm@gmail.com"
-            class="nav-action"
+            class="nav-cta"
         >
             Let's Talk
-            <span>↗</span>
         </a>
 
     </div>
@@ -1077,73 +2025,75 @@ a{
 
 <header class="hero" id="home">
 
-    <div class="hero-content">
+    <div class="hero-inner">
 
-        <div class="status">
+        <div class="hero-content reveal">
 
-            <span class="status-dot"></span>
+            <div class="eyebrow">
 
-            CIRDRIO SYSTEMS ONLINE
+                <span class="live-dot"></span>
+
+                Engineering the next generation
+
+            </div>
+
+            <h1>
+
+                <span class="line">
+                    Build
+                </span>
+
+                <span class="line gradient-text">
+                    What's Next.
+                </span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                CIRDRIO is an independent technology company
+                focused on building <strong>intelligent systems,
+                digital products and ambitious ideas</strong>
+                designed to become part of the future.
+
+            </p>
+
+            <div class="hero-actions">
+
+                <a
+                    href="#capabilities"
+                    class="btn btn-primary"
+                >
+                    Explore CIRDRIO
+                    <span>→</span>
+                </a>
+
+                <a
+                    href="mailto:cirdrio.dm@gmail.com"
+                    class="btn btn-secondary"
+                >
+                    Start a Conversation
+                </a>
+
+            </div>
 
         </div>
 
-        <h1>
+        <div class="hero-visual">
 
-            <span class="line">
-                Engineer
-            </span>
+            <div class="energy"></div>
 
-            <span class="line accent">
-                What's Next.
-            </span>
+            <div class="orbit orbit-a"></div>
+            <div class="orbit orbit-b"></div>
+            <div class="orbit orbit-c"></div>
 
-        </h1>
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
 
-        <p class="hero-description">
-
-            CIRDRIO is a technology company focused on
-            intelligent products, digital infrastructure
-            and ambitious systems engineered to move ideas
-            from concept to reality.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#capabilities"
-                class="btn btn-primary"
-            >
-                Explore the System
-                <span>→</span>
-            </a>
-
-            <a
-                href="mailto:cirdrio.dm@gmail.com"
-                class="btn btn-secondary"
-            >
-                Start a Conversation
-                <span>↗</span>
-            </a>
+            <div class="core-system"></div>
 
         </div>
-
-    </div>
-
-    <div class="hero-system">
-
-        <div class="orbit one"></div>
-
-        <div class="orbit two"></div>
-
-        <div class="orbit three"></div>
-
-        <div class="energy-core"></div>
-
-        <span class="particle p1"></span>
-        <span class="particle p2"></span>
-        <span class="particle p3"></span>
-        <span class="particle p4"></span>
 
     </div>
 
@@ -1156,3 +2106,502 @@ a{
     </div>
 
 </header>
+
+<section id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-copy reveal">
+
+            <div class="section-label">
+                About CIRDRIO
+            </div>
+
+            <h2 class="section-title">
+                We don't wait for the future.
+                We engineer toward it.
+            </h2>
+
+            <p>
+                CIRDRIO exists to transform ambitious ideas
+                into <strong>real, useful technology.</strong>
+                We bring together engineering, design,
+                systems thinking and product strategy.
+            </p>
+
+            <p>
+                Our approach is simple:
+                <strong>understand deeply, build intelligently,
+                move deliberately and improve continuously.</strong>
+            </p>
+
+        </div>
+
+        <div class="about-visual reveal">
+
+            <div class="about-core"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="capabilities">
+
+    <div class="container">
+
+        <div class="reveal">
+
+            <div class="section-label">
+                Capabilities
+            </div>
+
+            <h2 class="section-title">
+                Ideas are only the beginning.
+            </h2>
+
+            <p class="section-description">
+                CIRDRIO works across the layers required to
+                turn a concept into a capable digital product,
+                system or experience.
+            </p>
+
+        </div>
+
+        <div class="capabilities-grid">
+
+            <div class="capability-card reveal">
+
+                <div class="capability-number">
+                    01 / ENGINEERING
+                </div>
+
+                <div class="capability-icon">
+                    ◈
+                </div>
+
+     orator</h3>
+                <p>
+                    Turning emerging ideas, experiments and
+                    future-facing concepts into practical
+                    technology with real potential.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- APPROACH -->
+<section id="process">
+
+    <div class="container">
+
+        <div class="reveal">
+
+            <div class="label">
+                Our Approach
+            </div>
+
+            <h2 class="section-title">
+                Think deeply. Build precisely.
+            </h2>
+
+            <p class="section-text">
+                Great technology starts with clarity. We move
+                from understanding to execution through a
+                focused and disciplined process.
+            </p>
+
+        </div>
+
+        <div class="process">
+
+            <div class="process-item reveal">
+                <div class="number">01</div>
+                <h3>Discover</h3>
+                <p>
+                    Understand the problem, the opportunity,
+                    the users and the larger objective before
+                    writing a single line of code.
+                </p>
+            </div>
+
+            <div class="process-item reveal">
+                <div class="number">02</div>
+                <h3>Design</h3>
+                <p>
+                    Shape the architecture, experience and
+                    direction into a clear system that can
+                    actually be built.
+                </p>
+            </div>
+
+            <div class="process-item reveal">
+                <div class="number">03</div>
+                <h3>Build</h3>
+                <p>
+                    Engineer the product with modern tools,
+                    thoughtful interfaces and a foundation
+                    designed for long-term growth.
+                </p>
+            </div>
+
+            <div class="process-item reveal">
+                <div class="number">04</div>
+                <h3>Evolve</h3>
+                <p>
+                    Measure, learn and continuously improve.
+                    A strong product is never truly finished.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VISION -->
+<section id="vision">
+
+    <div class="container">
+
+        <div class="vision reveal">
+
+            <div class="label">
+                The Vision
+            </div>
+
+            <h2>
+                Building technology that
+                feels inevitable.
+            </h2>
+
+            <p>
+                We believe the most meaningful technology should
+                feel powerful without feeling complicated. CIRDRIO
+                aims to create products and systems that quietly
+                solve difficult problems, amplify human capability
+                and open new possibilities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TEAM / MINDSET -->
+<section>
+
+    <div class="container">
+
+        <div class="reveal">
+
+            <div class="label">
+                The CIRDRIO Mindset
+            </div>
+
+            <h2 class="section-title">
+                Small details. Big ambition.
+            </h2>
+
+            <p class="section-text">
+                Our work is guided by a few principles that shape
+                how we think, build and make decisions.
+            </p>
+
+        </div>
+
+        <div class="team">
+
+            <div class="team-card reveal">
+
+                <div class="team-icon">◉</div>
+
+                <h3>Clarity</h3>
+
+                <p>
+                    Remove unnecessary complexity. Understand
+                    what matters and focus energy where it creates
+                    the most value.
+                </p>
+
+            </div>
+
+            <div class="team-card reveal">
+
+                <div class="team-icon">✧</div>
+
+                <h3>Craft</h3>
+
+                <p>
+                    Details matter. From architecture to interface,
+                    every layer should be intentional, refined and
+                    reliable.
+                </p>
+
+            </div>
+
+            <div class="team-card reveal">
+
+                <div class="team-icon">∞</div>
+
+                <h3>Long-Term Thinking</h3>
+
+                <p>
+                    Build beyond the immediate moment. Create
+                    systems that can adapt as technology, people
+                    and possibilities evolve.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="container contact">
+
+        <div class="contact-box reveal">
+
+            <div class="label">
+                Let's Build
+            </div>
+
+            <h2>
+                Have an idea?
+                Make it real.
+            </h2>
+
+            <p>
+                Whether you're exploring a product, a digital
+                system or something entirely new, CIRDRIO is
+                always interested in ambitious ideas.
+            </p>
+
+            <div class="buttons contact-buttons">
+
+                <a
+                    href="mailto:cirdrio.dm@gmail.com"
+                    class="btn btn-primary"
+                >
+                    Start a Conversation →
+                </a>
+
+                <a
+                    href="#home"
+                    class="btn btn-secondary"
+                >
+                    Back to Top ↑
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer">
+
+        <div class="footer-brand">
+
+            <img
+                src="cirdrio-logo-transparent.png"
+                alt="CIRDRIO"
+                class="footer-logo"
+            >
+
+            <span class="footer-name">
+                CIRDRIO
+            </span>
+
+        </div>
+
+        <div class="footer-copy">
+            © 2026 CIRDRIO. Built for what's next.
+        </div>
+
+        <a
+            href="mailto:cirdrio.dm@gmail.com"
+            class="footer-email"
+        >
+            cirdrio.dm@gmail.com
+        </a>
+
+    </div>
+
+</footer>
+
+<script>
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+revealElements.forEach((element) => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* ================= ACTIVE NAVIGATION ================= */
+
+const sections = document.querySelectorAll("section, header");
+
+const navigationLinks = document.querySelectorAll(".links a");
+
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if(entry.isIntersecting){
+
+                navigationLinks.forEach((link) => {
+
+                    link.classList.remove("active");
+
+                });
+
+                const activeLink =
+                    document.querySelector(
+                        `.links a[href="#${entry.target.id}"]`
+                    );
+
+                if(activeLink){
+
+                    activeLink.classList.add("active");
+
+                }
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.45
+    }
+);
+
+sections.forEach((section) => {
+
+    if(section.id){
+
+        sectionObserver.observe(section);
+
+    }
+
+});
+
+
+/* ================= MOUSE PARALLAX ================= */
+
+const visual = document.querySelector(".visual");
+
+if(visual && !window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches){
+
+    window.addEventListener("mousemove",(event)=>{
+
+        const x =
+            (event.clientX / window.innerWidth - 0.5);
+
+        const y =
+            (event.clientY / window.innerHeight - 0.5);
+
+        visual.style.transform =
+            `translateY(-50%)
+             rotateX(${y * -8}deg)
+             rotateY(${x * 10}deg)`;
+
+    });
+
+}
+
+
+/* ================= SMOOTH BUTTON FEEDBACK ================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach((link)=>{
+
+    link.addEventListener("click",(event)=>{
+
+        const targetId =
+            link.getAttribute("href");
+
+        const target =
+            document.querySelector(targetId);
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        }
+
+    });
+
+});
+
+
+/* ================= YEAR ================= */
+
+const yearElement =
+    document.querySelector(".footer-copy");
+
+if(yearElement){
+
+    yearElement.innerHTML =
+        `© ${new Date().getFullYear()} CIRDRIO.
+        Built for what's next.`;
+
+}
+
+</script>
+
+</body>
+</html>
