@@ -1,452 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CIRDRIO — Build What's Next</title>
+<title>CIRDRIO | Build What's Next</title>
 
-  <meta name="description" content="CIRDRIO is building ideas, products and a strong team for the future.">
+<meta name="description" content="CIRDRIO is a future-focused startup building ideas, products and technology with ambitious people.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07080c;
+    color:#f5f5f5;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,8,12,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #20232b;
+}
+
+.nav-inner{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#8b5cf6;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    font-size:14px;
+    color:#b9bbc4;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-content{
+    max-width:850px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #343743;
+    background:#11131a;
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:13px;
+    color:#bfc1cc;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,82px);
+    line-height:1.05;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#fff,#a78bfa,#60a5fa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#a7a9b3;
+    font-size:18px;
+}
+
+.buttons{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:10px;
+    font-weight:700;
+    border:1px solid #333640;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:white;
+    color:#08090c;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+}
+
+.btn-secondary{
+    background:#11131a;
+    color:white;
+}
+
+.btn-secondary:hover{
+    border-color:#777;
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#92949e;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+}
+
+.card{
+    background:#0e1016;
+    border:1px solid #242731;
+    border-radius:18px;
+    padding:30px;
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#9da0aa;
+}
+
+/* VALUES */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.small-card{
+    background:#0e1016;
+    border:1px solid #242731;
+    border-radius:16px;
+    padding:25px;
+}
+
+.icon{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.small-card h3{
+    margin-bottom:8px;
+}
+
+.small-card p{
+    color:#92949e;
+    font-size:14px;
+}
+
+/* ROLES */
+
+.roles{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.role{
+    padding:22px;
+    border:1px solid #242731;
+    border-radius:14px;
+    background:#0e1016;
+}
+
+.role h3{
+    margin-bottom:5px;
+}
+
+.role p{
+    color:#9699a4;
+    font-size:14px;
+}
+
+/* JOIN */
+
+.join{
+    text-align:center;
+    background:#0d0f15;
+    border:1px solid #252832;
+    border-radius:24px;
+    padding:65px 25px;
+}
+
+.join h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.join p{
+    color:#9b9da7;
+    max-width:650px;
+    margin:0 auto 28px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #20232b;
+    padding:35px 0;
+    color:#777b86;
+    font-size:13px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .hero{
+        min-height:80vh;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #070707;
-      color: #ffffff;
-      line-height: 1.6;
+    .hero h1{
+        letter-spacing:-2px;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .hero p{
+        font-size:16px;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
+    section{
+        padding:65px 0;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(7, 7, 7, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #222;
+    .about,
+    .grid,
+    .roles{
+        grid-template-columns:1fr;
     }
 
-    .nav-inner {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .section-title h2{
+        font-size:30px;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 2px;
+    .join h2{
+        font-size:32px;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-size: 14px;
-      color: #bdbdbd;
-    }
-
-    .nav-links a:hover {
-      color: #ffffff;
-    }
-
-    .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 20%, #242424 0%, #070707 45%);
-    }
-
-    .hero-content {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .tag {
-      display: inline-block;
-      border: 1px solid #333;
-      padding: 7px 14px;
-      border-radius: 30px;
-      color: #bdbdbd;
-      font-size: 13px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 10vw, 95px);
-      line-height: 0.95;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: #9d9d9d;
-    }
-
-    .hero p {
-      color: #a9a9a9;
-      max-width: 650px;
-      margin: auto;
-      font-size: 18px;
-    }
-
-    .buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: 700;
-      border: 1px solid #444;
-      transition: 0.2s;
-    }
-
-    .btn-primary {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    section {
-      padding: 90px 0;
-      border-top: 1px solid #171717;
-    }
-
-    .section-title {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .section-subtitle {
-      color: #8e8e8e;
-      max-width: 650px;
-      margin-bottom: 45px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: #101010;
-      border: 1px solid #242424;
-      border-radius: 14px;
-      padding: 28px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #999;
-      font-size: 15px;
-    }
-
-    .roles {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .role {
-      padding: 22px;
-      border: 1px solid #242424;
-      border-radius: 12px;
-      background: #0d0d0d;
-    }
-
-    .role strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .role span {
-      color: #858585;
-      font-size: 14px;
-    }
-
-    .join {
-      text-align: center;
-      background: #0c0c0c;
-    }
-
-    .join-box {
-      max-width: 750px;
-      margin: auto;
-    }
-
-    .join h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .join p {
-      color: #999;
-      margin-bottom: 30px;
-    }
-
-    .email {
-      color: #ffffff;
-      font-weight: 700;
-      word-break: break-word;
-    }
-
-    footer {
-      padding: 35px 0;
-      border-top: 1px solid #222;
-      color: #666;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    @media (max-width: 750px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 80vh;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .roles {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        font-size: 30px;
-      }
-
-      .join h2 {
-        font-size: 32px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="container nav-inner">
-      <div class="logo">CIRDRIO</div>
+<!-- NAVBAR -->
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#building">Building</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+<nav>
+<div class="container nav-inner">
 
+<a href="#" class="logo">
+CIR<span>DRIO</span>
+</a>
 
-  <header class="hero">
-    <div class="container hero-content">
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#vision">Vision</a>
+<a href="#team">Team</a>
+<a href="#join">Join Us</a>
+</div>
 
-      <div class="tag">EARLY STAGE • BUILDING THE FUTURE</div>
-
-      <h1>
-        Build what's<br>
-        <span>next.</span>
-      </h1>
-
-      <p>
-        CIRDRIO is an early-stage startup project focused on turning
-        ambitious ideas into useful products while building a strong
-        and capable team for the future.
-      </p>
-
-      <div class="buttons">
-        <a class="btn btn-primary" href="#team">Join the Team</a>
-        <a class="btn" href="#about">Explore CIRDRIO</a>
-      </div>
-
-    </div>
-  </header>
+</div>
+</nav>
 
 
-  <section id="about">
-    <div class="container">
+<!-- HERO -->
 
-      <h2 class="section-title">About CIRDRIO</h2>
+<header class="hero">
 
-      <p class="section-subtitle">
-        We are at the beginning of the journey. The goal is simple:
-        find meaningful problems, build practical solutions and grow
-        with people who want to create something bigger than themselves.
-      </p>
+<div class="container hero-content">
 
-      <div class="grid">
+<div class="badge">
+Independent Startup • Building the Future
+</div>
 
-        <div class="card">
-          <h3>Ideas</h3>
-          <p>
-            Exploring problems, opportunities and ideas that can become
-            meaningful products.
-          </p>
-        </div>
+<h1>
+Build <span class="gradient">What's Next.</span>
+</h1>
 
-        <div class="card">
-          <h3>Products</h3>
-          <p>
-            Turning concepts into simple, useful and scalable digital
-            products.
-          </p>
-        </div>
+<p>
+CIRDRIO is a future-focused startup built around technology,
+innovation and ambitious people who want to create something meaningful.
+</p>
 
-        <div class="card">
-          <h3>People</h3>
-          <p>
-            Building a serious team of curious, skilled and ambitious
-            people who want to create.
-          </p>
-        </div>
+<div class="buttons">
 
-      </div>
+<a href="#join" class="btn btn-primary">
+Join the Team
+</a>
 
-    </div>
-  </section>
+<a href="#about" class="btn btn-secondary">
+Explore CIRDRIO
+</a>
+
+</div>
+
+</div>
+
+</header>
 
 
-  <section id="building">
-    <div class="container">
+<!-- ABOUT -->
 
-      <h2 class="section-title">What We're Building</h2>
+<section id="about">
 
-      <p class="section-subtitle">
-        CIRDRIO is currently in the building phase. More projects,
-        products and initiatives will be introduced as they develop.
-      </p>
+<div class="container">
 
-      <div class="card">
+<div class="section-title">
+<h2>About CIRDRIO</h2>
+<p>A small beginning with a bigger vision.</p>
+</div>
 
-        <h3>The Beginning</h3>
+<div class="about">
 
-        <p>
-          This is the first step. The focus right now is on learning,
-          experimenting, finding the right people and building the
-          foundation for future products.
-        </p>
+<div class="card">
+<h3>What We Do</h3>
+<p>
+We explore ideas, technology and business opportunities
+to build useful digital products and future-oriented ventures.
+</p>
+</div>
 
-      </div>
+<div class="card">
+<h3>Why CIRDRIO Exists</h3>
+<p>
+Great companies start with people who are willing to learn,
+experiment and build before everyone else sees the opportunity.
+</p>
+</div>
 
-    </div>
-  </section>
+</div>
 
+</div>
 
-  <section id="team">
-    <div class="container">
-
-      <h2 class="section-title">Build With Us</h2>
-
-      <p class="section-subtitle">
-        CIRDRIO is looking for people who are willing to learn,
-        contribute and take responsibility. You don't need to know
-        everything — curiosity and consistency matter.
-      </p>
-
-      <div class="roles">
-
-        <div class="role">
-          <strong>Technology</strong>
-          <span>Developers, programmers and tech enthusiasts</span>
-        </div>
-
-        <div class="role">
-          <strong>Design</strong>
-          <span>UI/UX, visual design and creative thinkers</span>
-        </div>
-
-        <div class="role">
-          <strong>Business</strong>
-          <span>Business development, strategy and market research</span>
-        </div>
-
-        <div class="role">
-          <strong>Marketing</strong>
-          <span>Content, social media and growth</span>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
+</section>
 
 
-  <section class="join" id="contact">
+<!-- VISION -->
 
-    <div class="container join-box">
+<section id="vision">
 
-      <h2>Want to build something?</h2>
+<div class="container">
 
-      <p>
-        If you are serious about learning, creating and being part of
-        an early-stage journey, reach out to us.
-      </p>
+<div class="section-title">
+<h2>Our Vision</h2>
+<p>Think long-term. Build intelligently.</p>
+</div>
 
-      <a class="btn btn-primary"
-         href="mailto:cirdrio.dm@gmail.com?subject=CIRDRIO%20Team%20Application">
-        Contact CIRDRIO
-      </a>
+<div class="grid">
 
-      <p style="margin-top:25px; margin-bottom:0;">
-        <span class="email">cirdrio.dm@gmail.com</span>
-      </p>
+<div class="small-card">
+<div class="icon">⚡</div>
+<h3>Innovation</h3>
+<p>
+Turn new ideas and emerging technology into practical solutions.
+</p>
+</div>
 
-    </div>
+<div class="small-card">
+<div class="icon">🚀</div>
+<h3>Build</h3>
+<p>
+Move from ideas to real products through execution and consistency.
+</p>
+</div>
 
-  </section>
+<div class="small-card">
+<div class="icon">🌍</div>
+<h3>Impact</h3>
+<p>
+Create products that can grow beyond a single person or place.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 
-  <footer>
-    © 2026 CIRDRIO. Building ideas, products and people for the future.
-  </footer>
+<!-- TEAM -->
+
+<section id="team">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Who We're Looking For</h2>
+<p>
+You don't need to know everything. You need the mindset to learn.
+</p>
+</div>
+
+<div class="roles">
+
+<div class="role">
+<h3>💻 Tech & Development</h3>
+<p>
+Web development, software, AI, automation and technology.
+</p>
+</div>
+
+<div class="role">
+<h3>🎨 Design & Creative</h3>
+<p>
+UI/UX, graphics, branding, content and visual identity.
+</p>
+</div>
+
+<div class="role">
+<h3>📈 Business & Strategy</h3>
+<p>
+Business ideas, research, strategy, market analysis and growth.
+</p>
+</div>
+
+<div class="role">
+<h3>📱 Marketing & Growth</h3>
+<p>
+Social media, communication, community and digital marketing.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- JOIN -->
+
+<section id="join">
+
+<div class="container">
+
+<div class="join">
+
+<h2>Want to Build With Us?</h2>
+
+<p>
+CIRDRIO is looking for ambitious people who want to learn,
+take responsibility and build something from the ground up.
+If that sounds like you, introduce yourself.
+</p>
+
+<a
+class="btn btn-primary"
+href="mailto: cirdrio.dm@gmail.com?subject=CIRDRIO%20Team%20Application"
+>
+Apply to Join
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+© 2026 CIRDRIO. All rights reserved.
+</div>
+
+<div>
+Building ideas. Building products. Building the future.
+</div>
+
+</div>
+
+</footer>
 
 </body>
 </html>
