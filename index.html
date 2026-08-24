@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CIRDRIO — Build What's Next</title>
+<title>CIRDRIO | Build What's Next</title>
 
-<meta name="description" content="CIRDRIO — Building technology, products and ideas for the future.">
+<meta name="description"
+content="CIRDRIO is building intelligent products, digital systems and ambitious technology for the future.">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
@@ -23,69 +24,69 @@ html{
 
 body{
     font-family:Inter,Arial,sans-serif;
-    color:#ffffff;
-    background:#05060a;
+    background:#05060b;
+    color:#fff;
     overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 
-.background{
+.bg{
     position:fixed;
     inset:0;
     z-index:-10;
     overflow:hidden;
     background:
-        radial-gradient(circle at 20% 20%,rgba(65,82,255,.18),transparent 30%),
-        radial-gradient(circle at 80% 35%,rgba(0,180,255,.10),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(100,50,255,.14),transparent 35%),
-        #05060a;
+        radial-gradient(circle at 15% 20%,rgba(68,88,255,.20),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(0,180,255,.10),transparent 28%),
+        radial-gradient(circle at 50% 100%,rgba(115,55,255,.13),transparent 35%),
+        #05060b;
 }
 
-.background:before{
+.bg::before{
     content:"";
     position:absolute;
     inset:0;
-    opacity:.18;
+    opacity:.14;
     background-image:
-        linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+        linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
     background-size:60px 60px;
     transform:perspective(700px) rotateX(60deg) scale(1.8);
     transform-origin:center bottom;
 }
 
-.orb{
+.glow{
     position:absolute;
     border-radius:50%;
     filter:blur(80px);
     opacity:.25;
-    animation:float 10s ease-in-out infinite;
+    animation:float 9s ease-in-out infinite;
 }
 
-.orb1{
+.glow.one{
+    width:320px;
+    height:320px;
+    background:#4254ff;
+    left:-150px;
+    top:10%;
+}
+
+.glow.two{
     width:300px;
     height:300px;
-    background:#394cff;
-    left:-130px;
-    top:15%;
-}
-
-.orb2{
-    width:280px;
-    height:280px;
-    background:#713cff;
-    right:-120px;
+    background:#6c3cff;
+    right:-150px;
     top:40%;
     animation-delay:-3s;
 }
 
-.orb3{
-    width:220px;
-    height:220px;
+.glow.three{
+    width:230px;
+    height:230px;
     background:#009dff;
     left:40%;
-    bottom:-120px;
+    bottom:-130px;
     animation-delay:-6s;
 }
 
@@ -93,12 +94,13 @@ body{
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-35px);
     }
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar{
     position:fixed;
@@ -117,17 +119,17 @@ body{
     justify-content:space-between;
     padding:10px 14px;
     border:1px solid rgba(255,255,255,.08);
-    border-radius:17px;
-    background:rgba(5,6,12,.68);
-    backdrop-filter:blur(18px);
+    border-radius:18px;
+    background:rgba(5,6,12,.70);
+    backdrop-filter:blur(20px);
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:10px;
-    color:#fff;
     text-decoration:none;
+    color:#fff;
 }
 
 .logo{
@@ -135,11 +137,9 @@ body{
     height:40px;
     object-fit:contain;
     border-radius:10px;
-    background:#fff;
-    padding:3px;
 }
 
-.brand span{
+.brand-name{
     font-family:Manrope,Arial,sans-serif;
     font-weight:800;
     letter-spacing:2px;
@@ -151,7 +151,7 @@ body{
 }
 
 .links a{
-    color:#8e93a5;
+    color:#8f95a8;
     text-decoration:none;
     font-size:12px;
     font-weight:600;
@@ -162,28 +162,30 @@ body{
     color:#fff;
 }
 
-.nav-button{
-    text-decoration:none;
+.nav-btn{
     color:#fff;
+    text-decoration:none;
     font-size:12px;
     font-weight:700;
     padding:11px 17px;
     border-radius:10px;
-    background:linear-gradient(135deg,#627dff,#3949e8);
+    background:linear-gradient(135deg,#667eff,#3949e8);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
     min-height:100vh;
+    position:relative;
     display:flex;
     align-items:center;
-    position:relative;
     padding:150px 7% 100px;
 }
 
 .hero-content{
-    max-width:900px;
+    max-width:850px;
+    position:relative;
+    z-index:2;
 }
 
 .badge{
@@ -194,14 +196,14 @@ body{
     border:1px solid rgba(105,125,255,.28);
     border-radius:50px;
     background:rgba(70,80,255,.08);
-    color:#aeb7ff;
+    color:#adb6ff;
     font-size:11px;
     font-weight:700;
     letter-spacing:1.3px;
     text-transform:uppercase;
 }
 
-.dot{
+.status-dot{
     width:7px;
     height:7px;
     border-radius:50%;
@@ -218,7 +220,13 @@ h1{
 }
 
 .gradient{
-    background:linear-gradient(110deg,#fff,#b8c0ff,#6177ff,#fff);
+    background:linear-gradient(
+        110deg,
+        #fff,
+        #c0c7ff,
+        #6478ff,
+        #fff
+    );
     background-size:250% auto;
     -webkit-background-clip:text;
     background-clip:text;
@@ -232,7 +240,7 @@ h1{
     }
 }
 
-.hero p{
+.hero-description{
     max-width:650px;
     margin-top:28px;
     color:#9298aa;
@@ -247,10 +255,11 @@ h1{
     margin-top:35px;
 }
 
-.button{
+.btn{
     display:inline-flex;
     align-items:center;
-    gap:9px;
+    justify-content:center;
+    gap:8px;
     padding:15px 21px;
     border-radius:12px;
     text-decoration:none;
@@ -259,29 +268,29 @@ h1{
     transition:.3s;
 }
 
-.primary{
+.btn-primary{
     color:#fff;
-    background:linear-gradient(135deg,#657fff,#3949e8);
-    box-shadow:0 15px 35px rgba(55,70,235,.3);
+    background:linear-gradient(135deg,#667fff,#3949e8);
+    box-shadow:0 15px 35px rgba(55,70,235,.30);
 }
 
-.primary:hover{
+.btn-primary:hover{
     transform:translateY(-4px);
     box-shadow:0 20px 45px rgba(55,70,235,.45);
 }
 
-.secondary{
+.btn-secondary{
     color:#ddd;
-    border:1px solid rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.10);
     background:rgba(255,255,255,.04);
 }
 
-.secondary:hover{
+.btn-secondary:hover{
     transform:translateY(-4px);
     background:rgba(255,255,255,.08);
 }
 
-/* 3D OBJECT */
+/* ================= 3D CORE ================= */
 
 .visual{
     position:absolute;
@@ -301,11 +310,19 @@ h1{
     top:130px;
     border-radius:50%;
     background:
-        radial-gradient(circle at 30% 25%,#eef1ff,#7182ff 20%,#3346ed 45%,#080a18 72%);
+        radial-gradient(
+            circle at 30% 25%,
+            #eef1ff,
+            #7182ff 20%,
+            #3346ed 45%,
+            #080a18 72%
+        );
+
     box-shadow:
         0 0 80px rgba(75,95,255,.45),
         inset -25px -30px 40px rgba(0,0,0,.65);
-    animation:core 6s ease-in-out infinite;
+
+    animation:coreFloat 6s ease-in-out infinite;
 }
 
 .ring{
@@ -314,57 +331,62 @@ h1{
     border-radius:50%;
 }
 
-.ring1{
+.ring-one{
     width:360px;
     height:120px;
     left:45px;
     top:165px;
     transform:rotateX(65deg) rotateZ(-20deg);
-    animation:spin 12s linear infinite;
+    animation:ringOne 12s linear infinite;
 }
 
-.ring2{
+.ring-two{
     width:390px;
     height:145px;
     left:30px;
     top:155px;
     transform:rotateX(70deg) rotateZ(40deg);
-    animation:spin2 16s linear infinite;
+    animation:ringTwo 16s linear infinite;
 }
 
-.ring3{
+.ring-three{
     width:270px;
     height:270px;
     left:90px;
     top:90px;
-    border-color:rgba(50,200,255,.2);
-    animation:rotate 18s linear infinite;
+    border-color:rgba(50,200,255,.20);
+    animation:ringThree 18s linear infinite;
 }
 
-@keyframes core{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-18px)}
+@keyframes coreFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
 }
 
-@keyframes spin{
+@keyframes ringOne{
     to{
         transform:rotateX(65deg) rotateZ(340deg);
     }
 }
 
-@keyframes spin2{
+@keyframes ringTwo{
     to{
         transform:rotateX(70deg) rotateZ(-320deg);
     }
 }
 
-@keyframes rotate{
+@keyframes ringThree{
     to{
         transform:rotateZ(360deg);
     }
 }
 
-/* SECTIONS */
+/* ================= GENERAL ================= */
 
 section{
     padding:110px 7%;
@@ -393,13 +415,85 @@ section{
 
 .section-text{
     margin-top:18px;
+    max-width:680px;
     color:#8d93a5;
     font-size:14px;
     line-height:1.9;
-    max-width:680px;
 }
 
-/* CARDS */
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.about-copy p{
+    color:#9298a9;
+    font-size:14px;
+    line-height:2;
+    margin-top:22px;
+}
+
+.about-box{
+    height:380px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:28px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80,100,255,.22),
+            transparent 45%
+        ),
+        rgba(255,255,255,.025);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.about-box::before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border:1px solid rgba(100,120,255,.22);
+    border-radius:50%;
+    animation:ringThree 18s linear infinite;
+}
+
+.about-box::after{
+    content:"CIRDRIO";
+    font-family:Manrope,Arial,sans-serif;
+    font-weight:800;
+    font-size:38px;
+    letter-spacing:7px;
+    color:rgba(255,255,255,.07);
+}
+
+.about-core{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #dfe4ff,
+            #596dff 30%,
+            #10163e 70%
+        );
+
+    box-shadow:0 0 60px rgba(80,100,255,.4);
+    z-index:2;
+}
+
+/* ================= CARDS ================= */
 
 .cards{
     display:grid;
@@ -413,7 +507,13 @@ section{
     padding:30px;
     border:1px solid rgba(255,255,255,.08);
     border-radius:22px;
-    background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
     backdrop-filter:blur(15px);
     transition:.4s;
 }
@@ -432,7 +532,13 @@ section{
     justify-content:center;
     border-radius:15px;
     font-size:23px;
-    background:linear-gradient(145deg,rgba(90,110,255,.25),rgba(255,255,255,.04));
+    background:
+        linear-gradient(
+            145deg,
+            rgba(90,110,255,.25),
+            rgba(255,255,255,.04)
+        );
+
     border:1px solid rgba(110,130,255,.18);
 }
 
@@ -449,68 +555,7 @@ section{
     line-height:1.8;
 }
 
-/* ABOUT */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.about-copy p{
-    color:#9298a9;
-    font-size:14px;
-    line-height:2;
-}
-
-.about-copy p+p{
-    margin-top:18px;
-}
-
-.about-box{
-    height:380px;
-    border:1px solid rgba(255,255,255,.09);
-    border-radius:28px;
-    background:
-        radial-gradient(circle at center,rgba(80,100,255,.22),transparent 45%),
-        rgba(255,255,255,.025);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.about-box:before{
-    content:"";
-    position:absolute;
-    width:240px;
-    height:240px;
-    border:1px solid rgba(100,120,255,.22);
-    border-radius:50%;
-}
-
-.about-box:after{
-    content:"CIRDRIO";
-    font-family:Manrope,Arial,sans-serif;
-    font-weight:800;
-    font-size:38px;
-    letter-spacing:7px;
-    color:rgba(255,255,255,.08);
-}
-
-.about-core{
-    position:absolute;
-    width:110px;
-    height:110px;
-    border-radius:50%;
-    background:radial-gradient(circle at 30% 25%,#dfe4ff,#596dff 30%,#10163e 70%);
-    box-shadow:0 0 60px rgba(80,100,255,.4);
-    z-index:2;
-}
-
-/* PROCESS */
+/* ================= PROCESS ================= */
 
 .process{
     display:grid;
@@ -548,14 +593,18 @@ section{
     line-height:1.8;
 }
 
-/* VISION */
+/* ================= VISION ================= */
 
 .vision{
     padding:70px 55px;
     border:1px solid rgba(255,255,255,.09);
     border-radius:30px;
     background:
-        radial-gradient(circle at 20% 0%,rgba(80,100,255,.18),transparent 40%),
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(80,100,255,.18),
+            transparent 40%
+        ),
         rgba(255,255,255,.025);
 }
 
@@ -576,7 +625,7 @@ section{
     font-size:14px;
 }
 
-/* TEAM */
+/* ================= TEAM ================= */
 
 .team{
     display:grid;
@@ -607,7 +656,7 @@ section{
     line-height:1.8;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 
 .contact{
     text-align:center;
@@ -617,9 +666,15 @@ section{
     padding:85px 25px;
     border:1px solid rgba(100,120,255,.18);
     border-radius:30px;
+
     background:
-        radial-gradient(circle at 50% 0%,rgba(75,95,255,.23),transparent 55%),
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(75,95,255,.23),
+            transparent 55%
+        ),
         rgba(255,255,255,.025);
+
     box-shadow:0 40px 100px rgba(0,0,0,.35);
 }
 
@@ -643,7 +698,7 @@ section{
     justify-content:center;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
     border-top:1px solid rgba(255,255,255,.07);
@@ -669,9 +724,6 @@ footer{
     width:32px;
     height:32px;
     object-fit:contain;
-    background:#fff;
-    border-radius:8px;
-    padding:3px;
 }
 
 .footer-name{
@@ -692,12 +744,14 @@ footer{
     font-size:11px;
 }
 
-/* REVEAL */
+/* ================= ANIMATION ================= */
 
 .reveal{
     opacity:0;
     transform:translateY(25px);
-    transition:opacity .8s ease,transform .8s ease;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .reveal.show{
@@ -705,12 +759,12 @@ footer{
     transform:translateY(0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:950px){
 
     .visual{
-        opacity:.18;
+        opacity:.16;
         right:-180px;
     }
 
@@ -738,7 +792,7 @@ footer{
     }
 
     .links,
-    .nav-button{
+    .nav-btn{
         display:none;
     }
 
@@ -751,13 +805,13 @@ footer{
         letter-spacing:-4px;
     }
 
-    .hero p{
+    .hero-description{
         font-size:14px;
     }
 
     .visual{
         right:-260px;
-        opacity:.12;
+        opacity:.10;
     }
 
     section{
@@ -783,25 +837,46 @@ footer{
         text-align:center;
     }
 }
+
+/* ================= REDUCED MOTION ================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <!-- BACKGROUND -->
-<div class="background">
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
+<div class="bg">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+    <div class="glow three"></div>
 </div>
 
-<!-- NAVBAR -->
+<!-- NAVIGATION -->
 <nav class="navbar">
+
     <div class="nav">
 
         <a href="#home" class="brand">
-            <img src="logo.png" alt="CIRDRIO Logo" class="logo">
-            <span>CIRDRIO</span>
+
+            <img
+                src="cirdrio-logo-transparent.png"
+                alt="CIRDRIO Logo"
+                class="logo"
+            >
+
+            <span class="brand-name">CIRDRIO</span>
+
         </a>
 
         <div class="links">
@@ -812,11 +887,15 @@ footer{
             <a href="#contact">Contact</a>
         </div>
 
-        <a href="mailto:cirdrio.dm@gmail.com" class="nav-button">
+        <a
+            href="mailto:cirdrio.dm@gmail.com"
+            class="nav-btn"
+        >
             Let's Talk
         </a>
 
     </div>
+
 </nav>
 
 <!-- HERO -->
@@ -825,7 +904,7 @@ footer{
     <div class="hero-content reveal">
 
         <div class="badge">
-            <span class="dot"></span>
+            <span class="status-dot"></span>
             Building the next generation
         </div>
 
@@ -834,7 +913,7 @@ footer{
             <span class="gradient">What's Next.</span>
         </h1>
 
-        <p>
+        <p class="hero-description">
             CIRDRIO is an emerging technology company focused on
             building intelligent products, digital systems and
             ambitious ideas designed for the future.
@@ -842,11 +921,17 @@ footer{
 
         <div class="buttons">
 
-            <a href="#work" class="button primary">
+            <a
+                href="#work"
+                class="btn btn-primary"
+            >
                 Explore CIRDRIO →
             </a>
 
-            <a href="mailto:cirdrio.dm@gmail.com" class="button secondary">
+            <a
+                href="mailto:cirdrio.dm@gmail.com"
+                class="btn btn-secondary"
+            >
                 Start a Conversation
             </a>
 
@@ -854,12 +939,13 @@ footer{
 
     </div>
 
-    <!-- 3D OBJECT -->
+    <!-- 3D VISUAL -->
     <div class="visual">
 
-        <div class="ring ring1"></div>
-        <div class="ring ring2"></div>
-        <div class="ring ring3"></div>
+        <div class="ring ring-one"></div>
+        <div class="ring ring-two"></div>
+        <div class="ring ring-three"></div>
+
         <div class="core"></div>
 
     </div>
@@ -980,67 +1066,4 @@ footer{
 
             <div class="card reveal">
                 <div class="icon">◎</div>
-                <h3>Future Exploration</h3>
-                <p>
-                    Researching emerging technologies and
-                    discovering possibilities before they become
-                    obvious.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-
-    <div class="container">
-
-        <div class="reveal">
-
-            <div class="label">
-                Our Approach
-            </div>
-
-            <h2 class="section-title">
-                From thought to reality.
-            </h2>
-
-            <p class="section-text">
-                A disciplined process keeps ambitious ideas
-                moving in the right direction.
-            </p>
-
-        </div>
-
-        <div class="process">
-
-            <div class="process-item reveal">
-                <div class="number">01</div>
-                <h3>Discover</h3>
-                <p>
-                    Understand the problem, opportunity and
-                    people before deciding what to build.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">02</div>
-                <h3>Design</h3>
-                <p>
-                    Shape the experience, architecture and
-                    direction into a focused concept.
-                </p>
-            </div>
-
-            <div class="process-item reveal">
-                <div class="number">03</div>
-                <h3>Build</h3>
-                <p>
-                    Engineer the system with attention to
-                    quality, performance and scalability.
-                </p>
-   
+                <h3>Future Explorat
