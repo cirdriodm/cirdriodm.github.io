@@ -1,1 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>CIRDRIO — Build What's Next</title>
+
+  <meta name="description" content="CIRDRIO is building ideas, products and a strong team for the future.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #070707;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 7, 7, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: #bdbdbd;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 20%, #242424 0%, #070707 45%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 7px 14px;
+      border-radius: 30px;
+      color: #bdbdbd;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 10vw, 95px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #9d9d9d;
+    }
+
+    .hero p {
+      color: #a9a9a9;
+      max-width: 650px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 1px solid #444;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 90px 0;
+      border-top: 1px solid #171717;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      color: #8e8e8e;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #101010;
+      border: 1px solid #242424;
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #999;
+      font-size: 15px;
+    }
+
+    .roles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .role {
+      padding: 22px;
+      border: 1px solid #242424;
+      border-radius: 12px;
+      background: #0d0d0d;
+    }
+
+    .role strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .role span {
+      color: #858585;
+      font-size: 14px;
+    }
+
+    .join {
+      text-align: center;
+      background: #0c0c0c;
+    }
+
+    .join-box {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .join h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .join p {
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    .email {
+      color: #ffffff;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid #222;
+      color: #666;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 750px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roles {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .join h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">CIRDRIO</div>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#building">Building</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="hero">
+    <div class="container hero-content">
+
+      <div class="tag">EARLY STAGE • BUILDING THE FUTURE</div>
+
+      <h1>
+        Build what's<br>
+        <span>next.</span>
+      </h1>
+
+      <p>
+        CIRDRIO is an early-stage startup project focused on turning
+        ambitious ideas into useful products while building a strong
+        and capable team for the future.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="#team">Join the Team</a>
+        <a class="btn" href="#about">Explore CIRDRIO</a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <section id="about">
+    <div class="container">
+
+      <h2 class="section-title">About CIRDRIO</h2>
+
+      <p class="section-subtitle">
+        We are at the beginning of the journey. The goal is simple:
+        find meaningful problems, build practical solutions and grow
+        with people who want to create something bigger than themselves.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Ideas</h3>
+          <p>
+            Exploring problems, opportunities and ideas that can become
+            meaningful products.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Products</h3>
+          <p>
+            Turning concepts into simple, useful and scalable digital
+            products.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>People</h3>
+          <p>
+            Building a serious team of curious, skilled and ambitious
+            people who want to create.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="building">
+    <div class="container">
+
+      <h2 class="section-title">What We're Building</h2>
+
+      <p class="section-subtitle">
+        CIRDRIO is currently in the building phase. More projects,
+        products and initiatives will be introduced as they develop.
+      </p>
+
+      <div class="card">
+
+        <h3>The Beginning</h3>
+
+        <p>
+          This is the first step. The focus right now is on learning,
+          experimenting, finding the right people and building the
+          foundation for future products.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="team">
+    <div class="container">
+
+      <h2 class="section-title">Build With Us</h2>
+
+      <p class="section-subtitle">
+        CIRDRIO is looking for people who are willing to learn,
+        contribute and take responsibility. You don't need to know
+        everything — curiosity and consistency matter.
+      </p>
+
+      <div class="roles">
+
+        <div class="role">
+          <strong>Technology</strong>
+          <span>Developers, programmers and tech enthusiasts</span>
+        </div>
+
+        <div class="role">
+          <strong>Design</strong>
+          <span>UI/UX, visual design and creative thinkers</span>
+        </div>
+
+        <div class="role">
+          <strong>Business</strong>
+          <span>Business development, strategy and market research</span>
+        </div>
+
+        <div class="role">
+          <strong>Marketing</strong>
+          <span>Content, social media and growth</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="join" id="contact">
+
+    <div class="container join-box">
+
+      <h2>Want to build something?</h2>
+
+      <p>
+        If you are serious about learning, creating and being part of
+        an early-stage journey, reach out to us.
+      </p>
+
+      <a class="btn btn-primary"
+         href="mailto:cirdrio.dm@gmail.com?subject=CIRDRIO%20Team%20Application">
+        Contact CIRDRIO
+      </a>
+
+      <p style="margin-top:25px; margin-bottom:0;">
+        <span class="email">cirdrio.dm@gmail.com</span>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 CIRDRIO. Building ideas, products and people for the future.
+  </footer>
+
+</body>
+</html>
