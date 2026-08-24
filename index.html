@@ -99,4 +99,502 @@
       height: 420px;
       background: #7c3aed;
       filter: blur(150px);
-      opacity: 0.18
+      opacity: 0.18;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #2a2d39;
+      border-radius: 999px;
+      color: #bfc2ce;
+      background: #101119;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, #b7b9ff, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #a8abb7;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #08090d;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      border: 1px solid #30333f;
+      color: #fff;
+      background: #11131b;
+    }
+
+    .btn-secondary:hover {
+      border-color: #777b8d;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: #a855f7;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 6vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .section-text {
+      color: #999daa;
+      max-width: 680px;
+      font-size: 17px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 45px;
+    }
+
+    .card {
+      background: #0d0f16;
+      border: 1px solid #20232d;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #989ba8;
+    }
+
+    /* SERVICES */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 45px;
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    /* PROJECTS */
+    .project {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project-card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(145deg, #11131d, #0b0c12);
+      border: 1px solid #252834;
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .project-card h3 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      color: #9699a6;
+    }
+
+    .status {
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: auto;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #181a24;
+      color: #b9bbc7;
+      font-size: 12px;
+    }
+
+    /* VISION */
+    .vision {
+      text-align: center;
+    }
+
+    .vision-box {
+      margin-top: 40px;
+      padding: 55px 25px;
+      border: 1px solid #272a36;
+      border-radius: 24px;
+      background: radial-gradient(circle at top, #171522, #0c0d13);
+    }
+
+    .vision-box p {
+      max-width: 700px;
+      margin: auto;
+      color: #a1a4b0;
+      font-size: 18px;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+    }
+
+    .contact-box {
+      margin-top: 35px;
+      padding: 45px 25px;
+      border-radius: 22px;
+      border: 1px solid #252834;
+      background: #0d0f16;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1c1e27;
+      padding: 35px 0;
+      color: #777b88;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer-logo {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 750px) {
+
+      .nav-inner {
+        min-height: 60px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 82vh;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .about-grid,
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">CIRD<span>RIO</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="badge">⚡ BUILDING WHAT'S NEXT</div>
+
+        <h1>
+          Build<br>
+          <span class="gradient">What's Next.</span>
+        </h1>
+
+        <p>
+          CIRDRIO is focused on turning ambitious ideas into
+          useful products, technology and experiences built for the future.
+        </p>
+
+        <div class="buttons">
+          <a href="#contact" class="btn btn-primary">Join the Team</a>
+          <a href="#work" class="btn btn-secondary">Explore CIRDRIO</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="section-label">01 — About</div>
+
+        <h2 class="section-title">About CIRDRIO</h2>
+
+        <p class="section-text">
+          CIRDRIO is a future-focused technology and product initiative.
+          We believe great things begin with a simple idea and become real
+          through execution, creativity and teamwork.
+        </p>
+
+        <div class="about-grid">
+
+          <div class="card">
+            <h3>What We Do</h3>
+            <p>
+              We explore ideas, design digital products and build technology
+              that can solve meaningful problems.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Why CIRDRIO Exists</h3>
+            <p>
+              To create a place where ambitious people can experiment,
+              learn, build and turn ideas into something real.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="container">
+
+        <div class="section-label">02 — What We Build</div>
+
+        <h2 class="section-title">Ideas → Products</h2>
+
+        <p class="section-text">
+          Our focus is simple: learn fast, build intelligently and create
+          products that have real-world value.
+        </p>
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="service-icon">⚡</div>
+            <h3>Innovation</h3>
+            <p>
+              Exploring new ideas, technologies and opportunities to build
+              something different.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="service-icon">🚀</div>
+            <h3>Build</h3>
+            <p>
+              Turning concepts into working websites, software and digital
+              products.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="service-icon">🌍</div>
+            <h3>Impact</h3>
+            <p>
+              Creating useful technology designed to grow beyond a single
+              idea or project.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="project">
+
+          <div class="project-card">
+            <span class="status">CURRENT — WEBSITE</span>
+            <h3>CIRDRIO Website</h3>
+            <p>
+              The digital home of CIRDRIO and the starting point for future
+              products and projects.
+            </p>
+          </div>
+
+          <div class="project-card">
+            <span class="status">COMING SOON</span>
+            <h3>Future Projects</h3>
+            <p>
+              New ideas, products and experiments will be added here as
+              CIRDRIO grows.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION -->
+    <section id="vision" class="vision">
+      <div class="container">
+
+        <div class="section-label">03 — Our Vision</div>
+
+        <h2 class="section-title">Think Bigger. Build Better.</h2>
+
+        <div class="vision-box">
+          <p>
+            Our long-term vision is to build a strong team and a portfolio
+            of meaningful products that combine technology, creativity and
+            execution.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-label">04 — Contact</div>
+
+        <h2 class="section-title">Want to Build With Us?</h2>
+
+        <p class="section-text" style="margin:auto;">
+          If you have an idea, want to collaborate or simply want to be part
+          of the journey, reach out to CIRDRIO.
+        </p>
+
+        <div class="contact-box">
+
+          <!-- CHANGE THIS EMAIL LATER TO YOUR REAL CIRDRIO EMAIL -->
+          <p style="color:#999daa; margin-bottom:20px;">
+            Have an idea or want to collaborate?
+          </p>
+
+          <a
+            href="mailto:contact@cirdrio.com"
+            class="btn btn-primary">
+            Contact CIRDRIO
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-logo">CIRDRIO</div>
+
+      <p>
+        Building ideas, products and a strong team for the future.
+      </p>
+
+      <p style="margin-top:12px;">
+        © 2026 CIRDRIO. All rights reserved.
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
